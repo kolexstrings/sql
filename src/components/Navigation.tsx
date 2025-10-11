@@ -1,14 +1,7 @@
 export default function Navigation() {
   return (
-    <nav className="w-full max-w-lg mx-auto">
-      <div
-        className="flex justify-center items-center gap-10 md:gap-16 py-6 px-8 shadow-lg"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)'
-        }}
-      >
+    <nav className="w-full max-w-7xl mx-auto">
+      <div className="flex justify-center items-center gap-10 md:gap-16 py-6 px-12 bg-white/20 backdrop-blur-md shadow-lg border border-white/10">
         <a
           href="#services"
           className="text-sm font-medium uppercase tracking-[0.2em] hover:text-white hover:scale-105 transition-all duration-300 relative group"
