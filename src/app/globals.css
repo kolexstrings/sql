@@ -6,6 +6,7 @@
   --brand-primary: #891c7a;
   --text-primary: #ffffff;
   --text-secondary: #e5e7eb;
+  --white: #ffffff;
 }
 
 @theme inline {

@@ -45,7 +45,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-black text-white">
+    <div className="relative min-h-screen w-full bg-black/50 text-white">
       <div className="absolute inset-0 overflow-hidden">
         {slides.map((slide, index) => (
           <div
@@ -212,18 +212,27 @@ export default function Home() {
       )}
 
       <main className="relative z-10 flex flex-col items-center justify-start px-6 text-center md:items-start md:text-left md:px-20 pt-24 md:pt-32 pb-16 md:pb-20 min-h-[calc(100vh-200px)] font-baskervville">
-        <p
-          className="text-sm uppercase tracking-[0.5em] mb-4 md:mb-6 font-baskervville"
-          style={{ color: "var(--brand-primary)", fontFamily: "var(--font-baskervville)" }}
+        {/* <p
+          className="text-sm uppercase tracking-[0.5em] mb-4 md:mb-6 font-baskervville font-medium"
+          style={{
+            color: "var(--brand-primary)",
+            fontFamily: "var(--font-baskervville)",
+          }}
         >
           Premier Event Management
-        </p>
-        <h1 className="max-w-3xl text-3xl font-light uppercase tracking-[0.15em] sm:text-4xl md:text-5xl font-baskervville mb-4 md:mb-6" style={{ fontFamily: "var(--font-baskervville)" }}>
+        </p> */}
+        <h1
+          className="max-w-3xl text-3xl font-semibold uppercase tracking-[0.15em] sm:text-4xl md:text-5xl font-baskervville mb-4 md:mb-6"
+          style={{ fontFamily: "var(--font-baskervville)" }}
+        >
           Creating Unforgettable Experiences
         </h1>
         <p
-          className="max-w-2xl text-base md:text-lg font-light tracking-wide md:text-left mb-6 md:mb-8 font-baskervville"
-          style={{ color: "var(--text-secondary)", fontFamily: "var(--font-baskervville)" }}
+          className="max-w-2xl text-base md:text-lg font-medium tracking-wide md:text-left mb-6 md:mb-8 font-baskervville"
+          style={{
+            color: "var(--text-secondary)",
+            fontFamily: "var(--font-baskervville)",
+          }}
         >
           Marshalling the best in knowledge, human capital and technology to
           bring your vision to life.
@@ -273,7 +282,7 @@ export default function Home() {
         <TaglineTab />
         {/* <div className="flex items-center gap-3">
           <span className="h-px w-12 bg-white/60" aria-hidden />
-          <span>Transforming Visions into Memorable Events</span>
+          <span> Passion | Innovation | Technology</span>
         </div> */}
       </footer>
     </div>
