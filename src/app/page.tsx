@@ -45,17 +45,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div
-      className="relative min-h-screen w-full bg-black text-white"
-      style={
-        {
-          // SqlEvents Brand Color - Primary Blue
-          "--brand-primary": "#891c7a",
-          "--text-primary": "#ffffff",
-          "--text-secondary": "#e5e7eb",
-        } as React.CSSProperties
-      }
-    >
+    <div className="relative min-h-screen w-full bg-black text-white">
       <div className="absolute inset-0 overflow-hidden">
         {slides.map((slide, index) => (
           <div
@@ -153,60 +143,60 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="flex flex-col items-center justify-center h-full gap-6 px-8">
+        <div className="flex flex-col items-center justify-center h-full gap-6 px-8 font-baskervville">
           <a
             href="#about-us"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             About Us
           </a>
           <a
             href="#our-services"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Our Services
           </a>
           <a
             href="#event-software"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Event Software
           </a>
           <a
             href="#event-rentals"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Event Rentals
           </a>
           <a
             href="#lanyards-supply"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Lanyards Supply
           </a>
           <a
             href="#past-events-clients"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Past Events Clients
           </a>
           <a
             href="#gallery"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Gallery
           </a>
 
           <button
             onClick={() => setIsMobileMenuOpen(false)}
-            className="border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6"
+            className="border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6 font-baskervville"
           >
             Contact Us
           </button>
@@ -221,29 +211,30 @@ export default function Home() {
         />
       )}
 
-      <main className="relative z-10 flex flex-col items-center justify-start px-6 text-center md:items-start md:text-left md:px-20 pt-24 md:pt-32 pb-16 md:pb-20 min-h-[calc(100vh-200px)]">
+      <main className="relative z-10 flex flex-col items-center justify-start px-6 text-center md:items-start md:text-left md:px-20 pt-24 md:pt-32 pb-16 md:pb-20 min-h-[calc(100vh-200px)] font-baskervville">
         <p
-          className="text-sm uppercase tracking-[0.5em] mb-4 md:mb-6"
-          style={{ color: "var(--brand-primary)" }}
+          className="text-sm uppercase tracking-[0.5em] mb-4 md:mb-6 font-baskervville"
+          style={{ color: "var(--brand-primary)", fontFamily: "var(--font-baskervville)" }}
         >
           Premier Event Management
         </p>
-        <h1 className="max-w-3xl text-3xl font-light uppercase tracking-[0.15em] sm:text-4xl md:text-5xl font-baskervville mb-4 md:mb-6">
+        <h1 className="max-w-3xl text-3xl font-light uppercase tracking-[0.15em] sm:text-4xl md:text-5xl font-baskervville mb-4 md:mb-6" style={{ fontFamily: "var(--font-baskervville)" }}>
           Creating Unforgettable Experiences
         </h1>
         <p
-          className="max-w-2xl text-base md:text-lg font-light tracking-wide md:text-left mb-6 md:mb-8"
-          style={{ color: "var(--text-secondary)" }}
+          className="max-w-2xl text-base md:text-lg font-light tracking-wide md:text-left mb-6 md:mb-8 font-baskervville"
+          style={{ color: "var(--text-secondary)", fontFamily: "var(--font-baskervville)" }}
         >
           Marshalling the best in knowledge, human capital and technology to
           bring your vision to life.
         </p>
         <div className="flex flex-col items-center gap-3 md:flex-row md:gap-4 mb-8 md:mb-12">
           <button
-            className="bg-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors"
+            className="bg-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville"
             style={{
               borderColor: "var(--brand-primary)",
               color: "var(--brand-primary)",
+              fontFamily: "var(--font-baskervville)",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "var(--brand-primary)";
@@ -257,10 +248,11 @@ export default function Home() {
             Our Services
           </button>
           <button
-            className="bg-brand-primary text-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors"
+            className="bg-brand-primary text-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville"
             style={{
               borderColor: "var(--brand-primary)",
               color: "var(--text-primary)",
+              fontFamily: "var(--font-baskervville)",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "var(--brand-primary)";
