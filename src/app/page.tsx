@@ -76,11 +76,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60" aria-hidden />
       </div>
 
-      <header className="relative z-10 px-8 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
+      <header className="relative z-10 px-12 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
         <img
           src="/logo.png"
           alt="SqlEvents Logo"
-          className="h-16 w-auto ml-6 md:ml-20"
+          className="h-20 w-auto ml-8 md:ml-24"
           onError={(e) => {
             // Fallback to text logo if image fails to load
             const target = e.currentTarget as HTMLElement;
@@ -92,7 +92,7 @@ export default function Home() {
           }}
         />
         <div
-          className="hidden text-xl font-semibold tracking-wide uppercase font-baskervville ml-6 md:ml-20"
+          className="hidden text-xl font-semibold tracking-wide uppercase font-baskervville ml-8 md:ml-24"
           style={{ color: "var(--brand-primary)" }}
         >
           SqlEvents
@@ -101,7 +101,7 @@ export default function Home() {
         {/* Hamburger Menu Button - Always visible */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex flex-col justify-center items-center w-8 h-8 space-y-1 z-30 mr-6 md:mr-20"
+          className="flex flex-col justify-center items-center w-8 h-8 space-y-1 z-30 mr-8 md:mr-24"
           aria-label="Toggle navigation menu"
         >
           <span
