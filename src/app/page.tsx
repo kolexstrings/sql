@@ -1,20 +1,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Navigation from "../components/Navigation";
+import TaglineTab from "../components/TaglineTab";
 
 const slides = [
   {
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1600&q=80",
-    alt: "Corporate conference event with audience",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&w=1600&q=80",
-    alt: "Elegant gala dinner setup",
+    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
+    alt: "Professional corporate conference with engaged business audience and keynote speaker",
   },
   {
     src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=80",
-    alt: "Professional speaker at business conference",
+    alt: "Executive business meeting with professional presentation setup and team collaboration",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80",
+    alt: "Sophisticated corporate gala dinner with premium table settings and elegant ambiance",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=1600&q=80",
+    alt: "Elegant corporate award ceremony with red carpet entrance and professional stage lighting",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1464047736614-af63643285bf?auto=format&fit=crop&w=1600&q=80",
+    alt: "Modern corporate training seminar with professional AV equipment and interactive displays",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1553028826-f4804151e04b?auto=format&fit=crop&w=1600&q=80",
+    alt: "Upscale corporate networking event with sophisticated cocktail setup and business professionals",
   },
 ];
 
@@ -33,7 +45,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-black text-white">
+    <div
+      className="relative min-h-screen w-full bg-black text-white"
+      style={
+        {
+          // SqlEvents Brand Color - Primary Blue
+          "--brand-primary": "#891c7a",
+          "--text-primary": "#ffffff",
+          "--text-secondary": "#e5e7eb",
+        } as React.CSSProperties
+      }
+    >
       <div className="absolute inset-0 overflow-hidden">
         {slides.map((slide, index) => (
           <div
@@ -51,7 +73,7 @@ export default function Home() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-black/40" aria-hidden />
+        <div className="absolute inset-0 bg-black/60" aria-hidden />
       </div>
 
       <header className="relative z-10 px-8 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
@@ -69,7 +91,10 @@ export default function Home() {
             }
           }}
         />
-        <div className="hidden text-xl font-semibold tracking-wide uppercase font-baskervville ml-6 md:ml-20">
+        <div
+          className="hidden text-xl font-semibold tracking-wide uppercase font-baskervville ml-6 md:ml-20"
+          style={{ color: "var(--brand-primary)" }}
+        >
           SqlEvents
         </div>
 
@@ -128,35 +153,57 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="flex flex-col items-center justify-center h-full gap-8 px-8">
+        <div className="flex flex-col items-center justify-center h-full gap-6 px-8">
           <a
-            href="#services"
+            href="#about-us"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-xl uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
           >
-            Services
+            About Us
           </a>
           <a
-            href="#events"
+            href="#our-services"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-xl uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
           >
-            Events
+            Our Services
+          </a>
+          <a
+            href="#event-software"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+          >
+            Event Software
+          </a>
+          <a
+            href="#event-rentals"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+          >
+            Event Rentals
+          </a>
+          <a
+            href="#lanyards-supply"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+          >
+            Lanyards Supply
+          </a>
+          <a
+            href="#past-events-clients"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+          >
+            Past Events Clients
           </a>
           <a
             href="#gallery"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-xl uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
+            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
           >
             Gallery
           </a>
-          <a
-            href="#about"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-xl uppercase tracking-[0.2em] hover:text-white/70 transition-colors"
-          >
-            About Us
-          </a>
+
           <button
             onClick={() => setIsMobileMenuOpen(false)}
             className="border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6"
@@ -175,21 +222,55 @@ export default function Home() {
       )}
 
       <main className="relative z-10 flex flex-col items-center justify-start px-6 text-center md:items-start md:text-left md:px-20 pt-24 md:pt-32 pb-16 md:pb-20 min-h-[calc(100vh-200px)]">
-        <p className="text-sm uppercase tracking-[0.5em] text-white/70 mb-4 md:mb-6">
+        <p
+          className="text-sm uppercase tracking-[0.5em] mb-4 md:mb-6"
+          style={{ color: "var(--brand-primary)" }}
+        >
           Premier Event Management
         </p>
         <h1 className="max-w-3xl text-3xl font-light uppercase tracking-[0.15em] sm:text-4xl md:text-5xl font-baskervville mb-4 md:mb-6">
           Creating Unforgettable Experiences
         </h1>
-        <p className="max-w-2xl text-white/80 text-base md:text-lg font-light tracking-wide md:text-left mb-6 md:mb-8">
+        <p
+          className="max-w-2xl text-base md:text-lg font-light tracking-wide md:text-left mb-6 md:mb-8"
+          style={{ color: "var(--text-secondary)" }}
+        >
           Marshalling the best in knowledge, human capital and technology to
           bring your vision to life.
         </p>
         <div className="flex flex-col items-center gap-3 md:flex-row md:gap-4 mb-8 md:mb-12">
-          <button className="border border-white/60 px-6 py-3 text-xs uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-colors">
+          <button
+            className="bg-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors"
+            style={{
+              borderColor: "var(--brand-primary)",
+              color: "var(--brand-primary)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "var(--brand-primary)";
+              e.currentTarget.style.color = "var(--text-primary)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "var(--white)";
+              e.currentTarget.style.color = "var(--brand-primary)";
+            }}
+          >
             Our Services
           </button>
-          <button className="border border-white/0 bg-white/20 px-6 py-3 text-xs uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-colors">
+          <button
+            className="bg-brand-primary text-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors"
+            style={{
+              borderColor: "var(--brand-primary)",
+              color: "var(--text-primary)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "var(--brand-primary)";
+              e.currentTarget.style.color = "var(--text-primary)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "var(--brand-primary)";
+              e.currentTarget.style.color = "var(--text-primary)";
+            }}
+          >
             View Portfolio
           </button>
         </div>
@@ -197,22 +278,11 @@ export default function Home() {
 
       <footer className="absolute bottom-6 md:bottom-8 left-0 right-0 z-10 flex flex-col items-center gap-2 text-center text-xs uppercase tracking-[0.4em] text-white/80 md:items-start md:text-left md:px-20">
         {/* Navigation section positioned towards bottom of hero */}
-        <Navigation />
+        <TaglineTab />
         {/* <div className="flex items-center gap-3">
           <span className="h-px w-12 bg-white/60" aria-hidden />
           <span>Transforming Visions into Memorable Events</span>
         </div> */}
-        <div className="flex gap-4">
-          {slides.map((_, index) => (
-            <span
-              key={index}
-              className={`h-2 w-2 rounded-full border border-white/60 transition-colors ${
-                activeIndex === index ? "bg-white" : "bg-transparent"
-              }`}
-              aria-hidden
-            />
-          ))}
-        </div>
       </footer>
     </div>
   );
