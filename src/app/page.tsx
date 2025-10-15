@@ -66,11 +66,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60" aria-hidden />
       </div>
 
-      <header className="relative z-10 px-12 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
+      <header className="relative z-10 px-16 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
         <img
           src="/logo.png"
           alt="SqlEvents Logo"
-          className="h-20 w-auto ml-8 md:ml-24"
+          className="h-24 w-auto ml-8 md:ml-24"
           onError={(e) => {
             // Fallback to text logo if image fails to load
             const target = e.currentTarget as HTMLElement;
