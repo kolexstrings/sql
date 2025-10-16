@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import TaglineTab from "../components/TaglineTab";
 
 const slides = [
@@ -144,20 +145,20 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-center justify-center h-full gap-6 px-8 font-baskervville">
-          <a
-            href="#about-us"
+          <Link
+            href="/about-us"
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             About Us
-          </a>
-          <a
-            href="#our-services"
+          </Link>
+          <Link
+            href="/services"
             onClick={() => setIsMobileMenuOpen(false)}
             className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Our Services
-          </a>
+          </Link>
           <a
             href="#event-software"
             onClick={() => setIsMobileMenuOpen(false)}

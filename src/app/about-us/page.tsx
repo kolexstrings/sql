@@ -1,169 +1,233 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
+import CoreValuesCarousel from "@/components/CoreValuesCarousel";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default function AboutUs() {
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              About Us
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              At SqlEvents, our commitment to excellence, innovation and collaboration defines our approach to work.
-            </p>
-          </div>
-        </div>
-      </section>
+      <Header />
 
-      {/* Company Story Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Story</h2>
-            <div className="prose prose-lg text-gray-700 space-y-6">
-              <p>
-                We provide customised solutions that exceed our customers' expectations by putting them at the centre of everything we do. Our commitment to continuous improvement drives us to constantly enhance our processes and services so that we are always one step ahead in the industry.
-              </p>
-              <p>
-                Our team is made up of professionals from different nationalities and backgrounds who bring a variety of skills and perspectives to the table. This diversity fosters creativity and innovation and allows us to approach challenges from different angles.
-              </p>
-              <p>
-                Strategic thinking and precise execution are firmly anchored in our DNA, whether in the planning of international conferences or the management of associations. We believe that the best results are achieved through collaboration, sharing ideas and utilising our collective expertise in a collaborative environment.
-              </p>
-              <p>
-                Sustainability is of paramount importance to us. We integrate environmentally friendly practices into all aspects of our operations and strive to minimise our impact on the environment while providing first-class services.
-              </p>
-              <p>
-                Our guiding principles enable us to consistently deliver high-quality services that promote the success of our clients. We strive to build lasting relationships based on trust, reliability and mutual respect.
+      {/* Page Content */}
+      <div>
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-slate-50 to-white py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                About Us
+              </h1>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                At SqlEvents, our commitment to excellence, innovation and collaboration defines our approach to work.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Partner Logos Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">Memberships & Certifications</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
-            {/* Partner logos with proper names */}
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">Basel Convention Büro</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">ESAE</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">Ethical MedTech</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">Healthy Venues</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">IAPCO</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">ICCA</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">London & Partners</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">Maritz</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">PCMA</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">Swisstainable</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">Zürich Convention Büro</span>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 w-full h-24 flex items-center justify-center hover:shadow-md transition-shadow">
-              <span className="text-gray-600 text-xs font-medium text-center">Glasgow Convention Bureau</span>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* First Section: Image + Text Layout */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Image on the left */}
+              <div className="relative">
+                <div className="aspect-w-16 aspect-h-10 rounded-lg overflow-hidden shadow-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                    alt="Professional corporate conference with engaged business audience and keynote speaker"
+                    className="w-full h-96 object-cover"
+                  />
+                </div>
+                {/* Optional overlay or decorative element */}
+                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-10"></div>
+              </div>
 
-      {/* Company Values Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">CUSTOMER SERVICE</h3>
-              <p className="text-gray-700">
-                We live CUSTOMER SERVICE at its best by being committed to excellence, quality and efficiency.
-              </p>
-            </div>
-            <div className="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
-              <h3 className="text-2xl font-semibold text-green-900 mb-4">CARE</h3>
-              <p className="text-gray-700">
-                We CARE – our clients, participants, employees and planet deserve our care and attention.
-              </p>
-            </div>
-            <div className="text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg">
-              <h3 className="text-2xl font-semibold text-purple-900 mb-4">PROGRESS SPIRIT</h3>
-              <p className="text-gray-700">
-                PROGRESS SPIRIT – we embrace challenges and create smart solutions out of the box.
-              </p>
-            </div>
-            <div className="text-center p-8 bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg">
-              <h3 className="text-2xl font-semibold text-orange-900 mb-4">TEAM SPIRIT</h3>
-              <p className="text-gray-700">
-                TEAM SPIRIT – we work hard and with dedication but we never forget the joy and the smile.
-              </p>
-            </div>
-            <div className="text-center p-8 bg-gradient-to-br from-teal-50 to-teal-100 rounded-lg">
-              <h3 className="text-2xl font-semibold text-teal-900 mb-4">RELIABILITY</h3>
-              <p className="text-gray-700">
-                RELIABILITY – we aim to be a reliable and trusted partner with all stakeholders.
-              </p>
+              {/* Text content on the right */}
+              <div className="space-y-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  Creating Unforgettable Experiences
+                </h2>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  We are passionate about transforming visions into extraordinary realities. With years of experience in the event management industry, our team brings together creativity, precision, and innovation to deliver exceptional results.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  From intimate corporate gatherings to large-scale international conferences, we handle every detail with meticulous care, ensuring that each event not only meets but exceeds expectations.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <Link
+                    href="/services"
+                    className="bg-blue-600 text-white px-6 py-3 font-semibold hover:bg-blue-700 transition-colors text-center"
+                  >
+                    Explore Our Services
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="border border-gray-300 text-gray-700 px-6 py-3 font-semibold hover:bg-gray-50 transition-colors text-center"
+                  >
+                    Get In Touch
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Purpose Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-8">Our Purpose</h2>
-          <p className="text-xl mb-8 max-w-4xl mx-auto">
-            Advances in knowledge happen quicker when those communities are able to connect and share so that they can develop ideas together. SqlEvents makes it easy by creating powerful connections every day and bringing people together.
-          </p>
-          <p className="text-2xl font-semibold mb-8">SqlEvents makes it easy.</p>
-          <div className="flex justify-center items-center space-x-6 mb-8">
-            <span className="text-lg">Connect</span>
-            <span className="text-lg">•</span>
-            <span className="text-lg">Explore</span>
-            <span className="text-lg">•</span>
-            <span className="text-lg">Succeed</span>
+        {/* Second Section: Text Body + Membership Cards */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Left-aligned text body */}
+            <div className="max-w-4xl mb-16">
+              <div className="text-lg text-gray-700 leading-relaxed space-y-4">
+                <p>
+                  Our journey began with a simple vision: to revolutionize the event management industry by combining cutting-edge technology with personalized service. Founded in 2010, SqlEvents emerged from the recognition that traditional event planning methods were no longer sufficient for the digital age.
+                </p>
+                <p>
+                  From our modest beginnings as a small team of passionate event coordinators, we have grown into a comprehensive event management powerhouse. Our commitment to innovation has led us to develop proprietary technologies that streamline every aspect of event planning, from initial concept to final execution.
+                </p>
+                <p>
+                  Throughout our evolution, we've maintained our core values of excellence, integrity, and client-centric service. Every team member brings unique expertise and cultural perspectives, creating a dynamic environment where creativity flourishes and challenges are met with innovative solutions.
+                </p>
+                <p>
+                  Today, we stand as a trusted partner to organizations worldwide, delivering exceptional events that not only meet objectives but exceed expectations. Our track record speaks for itself, with hundreds of successful events across diverse industries and continents.
+                </p>
+                <p>
+                  As we look to the future, we remain committed to pushing boundaries, embracing new technologies, and maintaining the personal touch that has always set us apart. Every event we manage is an opportunity to create lasting memories and meaningful connections.
+                </p>
+                <p>
+                  Our success is measured not just by the events we produce, but by the lasting relationships we build and the positive impact we make in the communities we serve. We believe that great events have the power to inspire, educate, and transform.
+                </p>
+                <p>
+                  Looking ahead, we continue to invest in our people, our technology, and our processes to ensure we remain at the forefront of the event management industry. Our vision extends beyond individual events to creating platforms for meaningful engagement and lasting change.
+                </p>
+                <p>
+                  We are proud of our journey and excited about what the future holds. Every challenge we face is an opportunity to innovate, every success a testament to our dedication, and every client relationship a cherished partnership in our shared pursuit of excellence.
+                </p>
+              </div>
+            </div>
+
+            {/* Membership subtitle and cards */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Membership</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+                {/* Membership/Partner logos */}
+                <div className="bg-white p-6 shadow-sm border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-blue-600 font-bold text-lg">IAPCO</span>
+                    </div>
+                    <span className="text-xs font-medium text-gray-600">IAPCO Member</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 shadow-sm border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-green-600 font-bold text-lg">ICCA</span>
+                    </div>
+                    <span className="text-xs font-medium text-gray-600">ICCA Member</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 shadow-sm border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-purple-600 font-bold text-lg">PCMA</span>
+                    </div>
+                    <span className="text-xs font-medium text-gray-600">PCMA Partner</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 shadow-sm border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-orange-600 font-bold text-lg">MPI</span>
+                    </div>
+                    <span className="text-xs font-medium text-gray-600">MPI Member</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 shadow-sm border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-red-600 font-bold text-lg">SITE</span>
+                    </div>
+                    <span className="text-xs font-medium text-gray-600">SITE Member</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 shadow-sm border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-teal-600 font-bold text-lg">ESAE</span>
+                    </div>
+                    <span className="text-xs font-medium text-gray-600">ESAE Member</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 shadow-sm border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-indigo-600 font-bold text-lg">DMAI</span>
+                    </div>
+                    <span className="text-xs font-medium text-gray-600">DMAI Partner</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 shadow-sm border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-pink-600 font-bold text-lg">ASAE</span>
+                    </div>
+                    <span className="text-xs font-medium text-gray-600">ASAE Member</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-center space-x-6">
-            <a href="#" className="text-white hover:text-blue-400 transition-colors">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            <a href="#" className="text-white hover:text-blue-400 transition-colors">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-              </svg>
-            </a>
-            <a href="#" className="text-white hover:text-blue-400 transition-colors">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-              </svg>
-            </a>
+        </section>
+
+        {/* Third Section: Background Image with Carousel and Mission/Vision Cards */}
+        <section
+          className="relative py-20 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1920&q=80')"
+          }}
+        >
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50"></div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Core Values Carousel */}
+            <div className="mb-16">
+              <h2 className="text-4xl font-bold text-white text-center mb-12">Our Core Values</h2>
+
+              <CoreValuesCarousel />
+            </div>
+
+            {/* Mission and Vision Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Mission Card */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 text-white">
+                <h3 className="text-2xl font-semibold mb-4 text-blue-300">Our Mission</h3>
+                <p className="text-lg leading-relaxed">
+                  To revolutionize the event management industry by delivering exceptional, innovative, and sustainable solutions that create unforgettable experiences. We are committed to exceeding client expectations through cutting-edge technology, personalized service, and strategic partnerships that drive meaningful connections and lasting impact.
+                </p>
+              </div>
+
+              {/* Vision Card */}
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 text-white">
+                <h3 className="text-2xl font-semibold mb-4 text-green-300">Our Vision</h3>
+                <p className="text-lg leading-relaxed">
+                  To be the world's most trusted and innovative event management partner, setting the industry standard for excellence, sustainability, and client satisfaction. We envision a future where every event becomes a catalyst for positive change, fostering global connections and creating memories that inspire generations to come.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
+      <Footer />
     </div>
   );
 }
