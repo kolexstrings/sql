@@ -165,15 +165,15 @@ export default function Header({
           >
             Lanyards Supply
           </a>
-          <a
-            href="#past-events-clients"
+          <Link
+            href="/clients"
             onClick={() => setIsMobileMenuOpen(false)}
             className={`text-base uppercase tracking-[0.2em] transition-colors font-baskervville ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
             Past Events Clients
-          </a>
+          </Link>
           <a
             href="#gallery"
             onClick={() => setIsMobileMenuOpen(false)}
