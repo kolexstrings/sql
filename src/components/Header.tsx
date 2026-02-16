@@ -60,7 +60,7 @@ export default function Header({
         {/* Hamburger Menu Button - Always visible */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex flex-col justify-center items-center w-8 h-8 space-y-1 z-30 mr-8 md:mr-24"
+          className="flex flex-col justify-center items-center w-8 h-8 space-y-1 z-30 mr-8 md:mr-24 cursor-pointer"
           aria-label="Toggle navigation menu"
         >
           <span
@@ -109,7 +109,7 @@ export default function Header({
         <div className="absolute top-6 right-8">
           <button
             onClick={() => setIsMobileMenuOpen(false)}
-            className="flex flex-col justify-center items-center w-8 h-8 space-y-1"
+            className="flex flex-col justify-center items-center w-8 h-8 space-y-1 cursor-pointer"
             aria-label="Close navigation menu"
           >
             <span
@@ -152,7 +152,7 @@ export default function Header({
           <Link
             href="/about-us"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
@@ -165,7 +165,7 @@ export default function Header({
             <button
               type="button"
               onClick={() => setIsServicesExpanded((prev) => !prev)}
-              className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
+              className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
                 isDark ? "hover:text-white/70" : "hover:text-white/70"
               }`}
             >
@@ -186,7 +186,7 @@ export default function Header({
                     setIsMobileMenuOpen(false);
                     setIsServicesExpanded(false);
                   }}
-                  className="text-left text-white/80 transition-colors hover:text-white w-full"
+                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
                 >
                   Corporate Event & Conference Management
                 </Link>
@@ -196,7 +196,7 @@ export default function Header({
                     setIsMobileMenuOpen(false);
                     setIsServicesExpanded(false);
                   }}
-                  className="text-left text-white/80 transition-colors hover:text-white w-full"
+                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
                 >
                   Conference Registration
                 </Link>
@@ -206,7 +206,7 @@ export default function Header({
           <a
             href="#event-software"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
@@ -218,7 +218,7 @@ export default function Header({
           <a
             href="#event-rentals"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
@@ -230,7 +230,7 @@ export default function Header({
           <a
             href="#lanyards-supply"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
@@ -242,7 +242,7 @@ export default function Header({
           <Link
             href="/clients"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
@@ -254,7 +254,7 @@ export default function Header({
           <a
             href="#gallery"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
@@ -269,7 +269,7 @@ export default function Header({
               setIsMobileMenuOpen(false);
               setIsServicesExpanded(false);
             }}
-            className={`border px-8 py-4 text-base uppercase tracking-[0.25em] transition-colors mt-6 font-baskervville w-full text-left ${
+            className={`border px-8 py-4 text-base uppercase tracking-[0.25em] transition-colors mt-6 font-baskervville w-full text-left cursor-pointer ${
               isDark
                 ? "border-white/40 hover:bg-white hover:text-black"
                 : "border-white/40 hover:bg-white hover:text-black"

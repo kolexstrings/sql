@@ -94,7 +94,7 @@ export default function Home() {
         {/* Hamburger Menu Button - Always visible */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex flex-col justify-center items-center w-8 h-8 space-y-1 z-30 mr-8 md:mr-24"
+          className="flex flex-col justify-center items-center w-8 h-8 space-y-1 z-30 mr-8 md:mr-24 cursor-pointer"
           aria-label="Toggle navigation menu"
         >
           <span
@@ -128,7 +128,7 @@ export default function Home() {
               setIsMobileMenuOpen(false);
               setIsServicesExpanded(false);
             }}
-            className="flex flex-col justify-center items-center w-8 h-8 space-y-1"
+            className="flex flex-col justify-center items-center w-8 h-8 space-y-1 cursor-pointer"
             aria-label="Close navigation menu"
           >
             <span
@@ -156,7 +156,7 @@ export default function Home() {
               setIsMobileMenuOpen(false);
               setIsServicesExpanded(false);
             }}
-            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left"
+            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
           >
             <span>About Us</span>
             <span className="text-xs opacity-0 select-none" aria-hidden>
@@ -167,7 +167,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setIsServicesExpanded((prev) => !prev)}
-              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left"
+              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>Our Services</span>
               <span
@@ -186,7 +186,7 @@ export default function Home() {
                     setIsMobileMenuOpen(false);
                     setIsServicesExpanded(false);
                   }}
-                  className="text-left text-white/80 transition-colors hover:text-white w-full"
+                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
                 >
                   Corporate Event & Conference Management
                 </Link>
@@ -196,7 +196,7 @@ export default function Home() {
                     setIsMobileMenuOpen(false);
                     setIsServicesExpanded(false);
                   }}
-                  className="text-left text-white/80 transition-colors hover:text-white w-full"
+                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
                 >
                   Conference Registration
                 </Link>
@@ -207,7 +207,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setIsEventSoftwareExpanded((prev) => !prev)}
-              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left"
+              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>Event Software</span>
               <span
@@ -251,7 +251,7 @@ export default function Home() {
                       setIsServicesExpanded(false);
                       setIsEventSoftwareExpanded(false);
                     }}
-                    className="text-left text-white/80 transition-colors hover:text-white w-full"
+                    className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
                   >
                     {item.label}
                   </Link>
@@ -274,7 +274,7 @@ export default function Home() {
                 setIsServicesExpanded(false);
                 setIsEventSoftwareExpanded(false);
               }}
-              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left"
+              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>{item.label}</span>
               <span className="text-xs opacity-0 select-none" aria-hidden>
@@ -289,7 +289,7 @@ export default function Home() {
               setIsServicesExpanded(false);
               setIsEventSoftwareExpanded(false);
             }}
-            className="flex w-full items-center justify-between border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6 font-baskervville text-left"
+            className="flex w-full items-center justify-between border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6 font-baskervville text-left cursor-pointer"
           >
             <span>Contact Us</span>
             <span className="text-xs opacity-0 select-none" aria-hidden>
@@ -302,7 +302,7 @@ export default function Home() {
       {/* Overlay when menu is open */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-10"
+          className="fixed inset-0 bg-black/50 z-10 cursor-pointer"
           onClick={() => {
             setIsMobileMenuOpen(false);
             setIsServicesExpanded(false);
@@ -339,7 +339,8 @@ export default function Home() {
         </p>
         <div className="flex flex-col items-center gap-3 md:flex-row md:gap-4 mb-8 md:mb-12">
           <button
-            className="bg-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville"
+            type="button"
+            className="bg-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
             style={{
               borderColor: "var(--brand-primary)",
               color: "var(--brand-primary)",
@@ -357,7 +358,7 @@ export default function Home() {
             Our Services
           </button>
           <button
-            className="bg-brand-primary text-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville"
+            className="bg-brand-primary text-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
             style={{
               borderColor: "var(--brand-primary)",
               color: "var(--text-primary)",
@@ -371,6 +372,7 @@ export default function Home() {
               e.currentTarget.style.backgroundColor = "var(--brand-primary)";
               e.currentTarget.style.color = "var(--text-primary)";
             }}
+            type="button"
           >
             View Portfolio
           </button>
