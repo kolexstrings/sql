@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import TaglineTab from "../components/TaglineTab";
 
 const slides = [
@@ -94,24 +95,16 @@ export default function Home() {
         {/* Hamburger Menu Button - Always visible */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex flex-col justify-center items-center w-8 h-8 space-y-1 z-30 mr-8 md:mr-24 cursor-pointer"
-          aria-label="Toggle navigation menu"
+          className="flex items-center justify-center w-8 h-8 z-30 mr-8 md:mr-24 cursor-pointer"
+          aria-label={
+            isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
         >
-          <span
-            className={`w-6 h-0.5 bg-white transition-all duration-300 ${
-              isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          ></span>
-          <span
-            className={`w-6 h-0.5 bg-white transition-all duration-300 ${
-              isMobileMenuOpen ? "opacity-0" : ""
-            }`}
-          ></span>
-          <span
-            className={`w-6 h-0.5 bg-white transition-all duration-300 ${
-              isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          ></span>
+          {isMobileMenuOpen ? (
+            <X className="h-6 w-6 text-white" />
+          ) : (
+            <Menu className="h-6 w-6 text-white" />
+          )}
         </button>
       </header>
 
@@ -128,24 +121,10 @@ export default function Home() {
               setIsMobileMenuOpen(false);
               setIsServicesExpanded(false);
             }}
-            className="flex flex-col justify-center items-center w-8 h-8 space-y-1 cursor-pointer"
+            className="flex items-center justify-center w-8 h-8 cursor-pointer"
             aria-label="Close navigation menu"
           >
-            <span
-              className={`w-6 h-0.5 bg-white transition-all duration-300 ${
-                isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 bg-white transition-all duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 bg-white transition-all duration-300 ${
-                isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            ></span>
+            <X className="h-6 w-6 text-white" />
           </button>
         </div>
 
@@ -170,38 +149,41 @@ export default function Home() {
               className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>Our Services</span>
-              <span
-                className={`text-xs transition-transform duration-200 ${
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
                   isServicesExpanded ? "rotate-180" : "rotate-0"
                 }`}
-              >
-                ▼
-              </span>
+              />
             </button>
-            {isServicesExpanded && (
-              <div className="mt-3 flex flex-col gap-3 pl-4 text-sm tracking-[0.15em]">
-                <Link
-                  href="/services#corporate-events"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsServicesExpanded(false);
-                  }}
-                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
-                >
-                  Corporate Event & Conference Management
-                </Link>
-                <Link
-                  href="/services#conference-registration"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsServicesExpanded(false);
-                  }}
-                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
-                >
-                  Conference Registration
-                </Link>
-              </div>
-            )}
+            <div
+              aria-hidden={!isServicesExpanded}
+              className={`flex flex-col gap-3 pl-4 text-[0.95rem] tracking-[0.15em] overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+                isServicesExpanded
+                  ? "mt-3 max-h-96 opacity-100 pointer-events-auto"
+                  : "max-h-0 opacity-0 pointer-events-none mt-0"
+              }`}
+            >
+              <Link
+                href="/services#corporate-events"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsServicesExpanded(false);
+                }}
+                className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
+              >
+                Corporate Event & Conference Management
+              </Link>
+              <Link
+                href="/services#conference-registration"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsServicesExpanded(false);
+                }}
+                className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
+              >
+                Conference Registration
+              </Link>
+            </div>
           </div>
           <div className="w-full">
             <button
@@ -210,54 +192,57 @@ export default function Home() {
               className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>Event Software</span>
-              <span
-                className={`text-xs transition-transform duration-200 ${
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
                   isEventSoftwareExpanded ? "rotate-180" : "rotate-0"
                 }`}
-              >
-                ▼
-              </span>
+              />
             </button>
-            {isEventSoftwareExpanded && (
-              <div className="mt-3 flex flex-col gap-3 pl-4 text-sm tracking-[0.15em]">
-                {[
-                  { label: "Online & Onsite", href: "/services#online-onsite" },
-                  {
-                    label: "Online Abstract Management",
-                    href: "/services#online-abstract-management",
-                  },
-                  {
-                    label: "Online Exhibition",
-                    href: "/services#online-exhibition",
-                  },
-                  {
-                    label: "Delegate Scanning",
-                    href: "/services#delegate-scanning",
-                  },
-                  {
-                    label: "Virtual Event Platforms",
-                    href: "/services#virtual-event-platforms",
-                  },
-                  {
-                    label: "Membership Management",
-                    href: "/services#membership-management",
-                  },
-                ].map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      setIsServicesExpanded(false);
-                      setIsEventSoftwareExpanded(false);
-                    }}
-                    className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
+            <div
+              aria-hidden={!isEventSoftwareExpanded}
+              className={`flex flex-col gap-3 pl-4 text-[0.95rem] tracking-[0.15em] overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+                isEventSoftwareExpanded
+                  ? "mt-3 max-h-96 opacity-100 pointer-events-auto"
+                  : "max-h-0 opacity-0 pointer-events-none mt-0"
+              }`}
+            >
+              {[
+                { label: "Online & Onsite", href: "/services#online-onsite" },
+                {
+                  label: "Online Abstract Management",
+                  href: "/services#online-abstract-management",
+                },
+                {
+                  label: "Online Exhibition",
+                  href: "/services#online-exhibition",
+                },
+                {
+                  label: "Delegate Scanning",
+                  href: "/services#delegate-scanning",
+                },
+                {
+                  label: "Virtual Event Platforms",
+                  href: "/services#virtual-event-platforms",
+                },
+                {
+                  label: "Membership Management",
+                  href: "/services#membership-management",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsServicesExpanded(false);
+                    setIsEventSoftwareExpanded(false);
+                  }}
+                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
           {[
             { label: "Event Mobile App", href: "#event-rentals" },
@@ -277,9 +262,7 @@ export default function Home() {
               className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>{item.label}</span>
-              <span className="text-xs opacity-0 select-none" aria-hidden>
-                ▼
-              </span>
+              <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
             </a>
           ))}
 
@@ -292,9 +275,7 @@ export default function Home() {
             className="flex w-full items-center justify-between border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6 font-baskervville text-left cursor-pointer"
           >
             <span>Contact Us</span>
-            <span className="text-xs opacity-0 select-none" aria-hidden>
-              ▼
-            </span>
+            <ArrowUpRight className="h-4 w-4" />
           </button>
         </div>
       </nav>

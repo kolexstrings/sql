@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 
 interface HeaderProps {
   /**
@@ -60,42 +61,20 @@ export default function Header({
         {/* Hamburger Menu Button - Always visible */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex flex-col justify-center items-center w-8 h-8 space-y-1 z-30 mr-8 md:mr-24 cursor-pointer"
-          aria-label="Toggle navigation menu"
+          className="flex items-center justify-center w-8 h-8 z-30 mr-8 md:mr-24 cursor-pointer"
+          aria-label={
+            isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
         >
-          <span
-            className={`w-6 h-0.5 transition-all duration-300 ${
-              isDark
-                ? isMobileMenuOpen
-                  ? "bg-white rotate-45 translate-y-2"
-                  : "bg-white"
-                : isMobileMenuOpen
-                  ? "bg-gray-900 rotate-45 translate-y-2"
-                  : "bg-gray-900"
-            }`}
-          ></span>
-          <span
-            className={`w-6 h-0.5 transition-all duration-300 ${
-              isDark
-                ? isMobileMenuOpen
-                  ? "bg-white opacity-0"
-                  : "bg-white"
-                : isMobileMenuOpen
-                  ? "bg-gray-900 opacity-0"
-                  : "bg-gray-900"
-            }`}
-          ></span>
-          <span
-            className={`w-6 h-0.5 transition-all duration-300 ${
-              isDark
-                ? isMobileMenuOpen
-                  ? "bg-white -rotate-45 -translate-y-2"
-                  : "bg-white"
-                : isMobileMenuOpen
-                  ? "bg-gray-900 -rotate-45 -translate-y-2"
-                  : "bg-gray-900"
-            }`}
-          ></span>
+          {isMobileMenuOpen ? (
+            <X
+              className={`h-6 w-6 ${isDark ? "text-white" : "text-gray-900"}`}
+            />
+          ) : (
+            <Menu
+              className={`h-6 w-6 ${isDark ? "text-white" : "text-gray-900"}`}
+            />
+          )}
         </button>
       </header>
 
@@ -109,42 +88,10 @@ export default function Header({
         <div className="absolute top-6 right-8">
           <button
             onClick={() => setIsMobileMenuOpen(false)}
-            className="flex flex-col justify-center items-center w-8 h-8 space-y-1 cursor-pointer"
+            className="flex items-center justify-center w-8 h-8 cursor-pointer"
             aria-label="Close navigation menu"
           >
-            <span
-              className={`w-6 h-0.5 transition-all duration-300 ${
-                isDark
-                  ? isMobileMenuOpen
-                    ? "bg-white rotate-45 translate-y-2"
-                    : "bg-white"
-                  : isMobileMenuOpen
-                    ? "bg-white rotate-45 translate-y-2"
-                    : "bg-white"
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 transition-all duration-300 ${
-                isDark
-                  ? isMobileMenuOpen
-                    ? "bg-white opacity-0"
-                    : "bg-white"
-                  : isMobileMenuOpen
-                    ? "bg-white opacity-0"
-                    : "bg-white"
-              }`}
-            ></span>
-            <span
-              className={`w-6 h-0.5 transition-all duration-300 ${
-                isDark
-                  ? isMobileMenuOpen
-                    ? "bg-white -rotate-45 -translate-y-2"
-                    : "bg-white"
-                  : isMobileMenuOpen
-                    ? "bg-white -rotate-45 -translate-y-2"
-                    : "bg-white"
-              }`}
-            ></span>
+            <X className="h-6 w-6 text-white" />
           </button>
         </div>
 
@@ -170,38 +117,41 @@ export default function Header({
               }`}
             >
               <span>Our Services</span>
-              <span
-                className={`text-xs transition-transform duration-200 ${
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
                   isServicesExpanded ? "rotate-180" : "rotate-0"
-                }`}
-              >
-                ▼
-              </span>
+                } ${isDark ? "text-white" : "text-white"}`}
+              />
             </button>
-            {isServicesExpanded && (
-              <div className="mt-3 flex flex-col gap-3 pl-4 text-sm tracking-[0.15em]">
-                <Link
-                  href="/services#corporate-events"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsServicesExpanded(false);
-                  }}
-                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
-                >
-                  Corporate Event & Conference Management
-                </Link>
-                <Link
-                  href="/services#conference-registration"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsServicesExpanded(false);
-                  }}
-                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
-                >
-                  Conference Registration
-                </Link>
-              </div>
-            )}
+            <div
+              aria-hidden={!isServicesExpanded}
+              className={`flex flex-col gap-3 pl-4 text-[0.95rem] tracking-[0.15em] overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+                isServicesExpanded
+                  ? "mt-3 max-h-96 opacity-100 pointer-events-auto"
+                  : "max-h-0 opacity-0 pointer-events-none mt-0"
+              }`}
+            >
+              <Link
+                href="/services#corporate-events"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsServicesExpanded(false);
+                }}
+                className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
+              >
+                Corporate Event & Conference Management
+              </Link>
+              <Link
+                href="/services#conference-registration"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsServicesExpanded(false);
+                }}
+                className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
+              >
+                Conference Registration
+              </Link>
+            </div>
           </div>
           <a
             href="#event-software"
@@ -211,9 +161,7 @@ export default function Header({
             }`}
           >
             <span>Event Software</span>
-            <span className="text-xs opacity-0 select-none" aria-hidden>
-              ▼
-            </span>
+            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
           </a>
           <a
             href="#event-rentals"
@@ -223,9 +171,7 @@ export default function Header({
             }`}
           >
             <span>Event Rentals</span>
-            <span className="text-xs opacity-0 select-none" aria-hidden>
-              ▼
-            </span>
+            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
           </a>
           <a
             href="#lanyards-supply"
@@ -235,9 +181,7 @@ export default function Header({
             }`}
           >
             <span>Lanyards Supply</span>
-            <span className="text-xs opacity-0 select-none" aria-hidden>
-              ▼
-            </span>
+            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
           </a>
           <Link
             href="/clients"
@@ -247,9 +191,7 @@ export default function Header({
             }`}
           >
             <span>Past Events Clients</span>
-            <span className="text-xs opacity-0 select-none" aria-hidden>
-              ▼
-            </span>
+            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
           </Link>
           <a
             href="#gallery"
@@ -259,9 +201,7 @@ export default function Header({
             }`}
           >
             <span>Gallery</span>
-            <span className="text-xs opacity-0 select-none" aria-hidden>
-              ▼
-            </span>
+            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
           </a>
 
           <button
@@ -275,7 +215,8 @@ export default function Header({
                 : "border-white/40 hover:bg-white hover:text-black"
             }`}
           >
-            Contact Us
+            <span>Contact Us</span>
+            <ArrowUpRight className="h-4 w-4" />
           </button>
         </div>
       </nav>
