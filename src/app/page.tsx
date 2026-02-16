@@ -37,6 +37,7 @@ export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesExpanded, setIsServicesExpanded] = useState(false);
+  const [isEventSoftwareExpanded, setIsEventSoftwareExpanded] = useState(false);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -148,22 +149,25 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="flex flex-col items-center justify-center h-full gap-6 px-8 font-baskervville">
+        <div className="flex flex-col items-start justify-center h-full gap-6 px-8 font-baskervville w-full">
           <Link
             href="/about-us"
             onClick={() => {
               setIsMobileMenuOpen(false);
               setIsServicesExpanded(false);
             }}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
+            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left"
           >
-            About Us
+            <span>About Us</span>
+            <span className="text-xs opacity-0 select-none" aria-hidden>
+              ▼
+            </span>
           </Link>
           <div className="w-full">
             <button
               type="button"
               onClick={() => setIsServicesExpanded((prev) => !prev)}
-              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
+              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left"
             >
               <span>Our Services</span>
               <span
@@ -182,7 +186,7 @@ export default function Home() {
                     setIsMobileMenuOpen(false);
                     setIsServicesExpanded(false);
                   }}
-                  className="text-left text-white/80 transition-colors hover:text-white"
+                  className="text-left text-white/80 transition-colors hover:text-white w-full"
                 >
                   Corporate Event & Conference Management
                 </Link>
@@ -192,72 +196,105 @@ export default function Home() {
                     setIsMobileMenuOpen(false);
                     setIsServicesExpanded(false);
                   }}
-                  className="text-left text-white/80 transition-colors hover:text-white"
+                  className="text-left text-white/80 transition-colors hover:text-white w-full"
                 >
                   Conference Registration
                 </Link>
               </div>
             )}
           </div>
-          <a
-            href="#event-software"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsServicesExpanded(false);
-            }}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
-          >
-            Event Software
-          </a>
-          <a
-            href="#event-rentals"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsServicesExpanded(false);
-            }}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
-          >
-            Event Rentals
-          </a>
-          <a
-            href="#lanyards-supply"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsServicesExpanded(false);
-            }}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
-          >
-            Lanyards Supply
-          </a>
-          <a
-            href="#past-events-clients"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsServicesExpanded(false);
-            }}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
-          >
-            Past Events Clients
-          </a>
-          <a
-            href="#gallery"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsServicesExpanded(false);
-            }}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
-          >
-            Gallery
-          </a>
+          <div className="w-full">
+            <button
+              type="button"
+              onClick={() => setIsEventSoftwareExpanded((prev) => !prev)}
+              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left"
+            >
+              <span>Event Software</span>
+              <span
+                className={`text-xs transition-transform duration-200 ${
+                  isEventSoftwareExpanded ? "rotate-180" : "rotate-0"
+                }`}
+              >
+                ▼
+              </span>
+            </button>
+            {isEventSoftwareExpanded && (
+              <div className="mt-3 flex flex-col gap-3 pl-4 text-sm tracking-[0.15em]">
+                {[
+                  { label: "Online & Onsite", href: "/services#online-onsite" },
+                  {
+                    label: "Online Abstract Management",
+                    href: "/services#online-abstract-management",
+                  },
+                  {
+                    label: "Online Exhibition",
+                    href: "/services#online-exhibition",
+                  },
+                  {
+                    label: "Delegate Scanning",
+                    href: "/services#delegate-scanning",
+                  },
+                  {
+                    label: "Virtual Event Platforms",
+                    href: "/services#virtual-event-platforms",
+                  },
+                  {
+                    label: "Membership Management",
+                    href: "/services#membership-management",
+                  },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setIsServicesExpanded(false);
+                      setIsEventSoftwareExpanded(false);
+                    }}
+                    className="text-left text-white/80 transition-colors hover:text-white w-full"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+          {[
+            { label: "Event Mobile App", href: "#event-rentals" },
+            { label: "Event Rentals", href: "#event-rentals" },
+            { label: "Lanyards Supply", href: "#lanyards-supply" },
+            { label: "Past Events Clients", href: "#past-events-clients" },
+            { label: "Gallery", href: "#gallery" },
+          ].map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsServicesExpanded(false);
+                setIsEventSoftwareExpanded(false);
+              }}
+              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left"
+            >
+              <span>{item.label}</span>
+              <span className="text-xs opacity-0 select-none" aria-hidden>
+                ▼
+              </span>
+            </a>
+          ))}
 
           <button
             onClick={() => {
               setIsMobileMenuOpen(false);
               setIsServicesExpanded(false);
+              setIsEventSoftwareExpanded(false);
             }}
-            className="border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6 font-baskervville"
+            className="flex w-full items-center justify-between border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6 font-baskervville text-left"
           >
-            Contact Us
+            <span>Contact Us</span>
+            <span className="text-xs opacity-0 select-none" aria-hidden>
+              ▼
+            </span>
           </button>
         </div>
       </nav>
@@ -269,6 +306,7 @@ export default function Home() {
           onClick={() => {
             setIsMobileMenuOpen(false);
             setIsServicesExpanded(false);
+            setIsEventSoftwareExpanded(false);
           }}
         />
       )}

@@ -152,11 +152,14 @@ export default function Header({
           <Link
             href="/about-us"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`text-base uppercase tracking-[0.2em] transition-colors font-baskervville w-full text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
-            About Us
+            <span>About Us</span>
+            <span className="text-xs opacity-0 select-none" aria-hidden>
+              ▼
+            </span>
           </Link>
           <div className="w-full">
             <button
@@ -203,47 +206,62 @@ export default function Header({
           <a
             href="#event-software"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`text-base uppercase tracking-[0.2em] transition-colors font-baskervville w-full text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
-            Event Software
+            <span>Event Software</span>
+            <span className="text-xs opacity-0 select-none" aria-hidden>
+              ▼
+            </span>
           </a>
           <a
             href="#event-rentals"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`text-base uppercase tracking-[0.2em] transition-colors font-baskervville w-full text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
-            Event Rentals
+            <span>Event Rentals</span>
+            <span className="text-xs opacity-0 select-none" aria-hidden>
+              ▼
+            </span>
           </a>
           <a
             href="#lanyards-supply"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`text-base uppercase tracking-[0.2em] transition-colors font-baskervville w-full text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
-            Lanyards Supply
+            <span>Lanyards Supply</span>
+            <span className="text-xs opacity-0 select-none" aria-hidden>
+              ▼
+            </span>
           </a>
           <Link
             href="/clients"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`text-base uppercase tracking-[0.2em] transition-colors font-baskervville w-full text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
-            Past Events Clients
+            <span>Past Events Clients</span>
+            <span className="text-xs opacity-0 select-none" aria-hidden>
+              ▼
+            </span>
           </Link>
           <a
             href="#gallery"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`text-base uppercase tracking-[0.2em] transition-colors font-baskervville w-full text-left ${
+            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
             }`}
           >
-            Gallery
+            <span>Gallery</span>
+            <span className="text-xs opacity-0 select-none" aria-hidden>
+              ▼
+            </span>
           </a>
 
           <button
