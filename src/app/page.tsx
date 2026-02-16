@@ -36,6 +36,7 @@ const changeInterval = 6000;
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesExpanded, setIsServicesExpanded] = useState(false);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -122,7 +123,10 @@ export default function Home() {
         {/* Close button positioned over the menu */}
         <div className="absolute top-6 right-8">
           <button
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsServicesExpanded(false);
+            }}
             className="flex flex-col justify-center items-center w-8 h-8 space-y-1"
             aria-label="Close navigation menu"
           >
@@ -147,56 +151,110 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center h-full gap-6 px-8 font-baskervville">
           <Link
             href="/about-us"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsServicesExpanded(false);
+            }}
             className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             About Us
           </Link>
-          <Link
-            href="/services"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
-          >
-            Our Services
-          </Link>
+          <div className="w-full">
+            <button
+              type="button"
+              onClick={() => setIsServicesExpanded((prev) => !prev)}
+              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
+            >
+              <span>Our Services</span>
+              <span
+                className={`text-xs transition-transform duration-200 ${
+                  isServicesExpanded ? "rotate-180" : "rotate-0"
+                }`}
+              >
+                ▼
+              </span>
+            </button>
+            {isServicesExpanded && (
+              <div className="mt-3 flex flex-col gap-3 pl-4 text-sm tracking-[0.15em]">
+                <Link
+                  href="/services#corporate-events"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsServicesExpanded(false);
+                  }}
+                  className="text-left text-white/80 transition-colors hover:text-white"
+                >
+                  Corporate Event & Conference Management
+                </Link>
+                <Link
+                  href="/services#conference-registration"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsServicesExpanded(false);
+                  }}
+                  className="text-left text-white/80 transition-colors hover:text-white"
+                >
+                  Conference Registration
+                </Link>
+              </div>
+            )}
+          </div>
           <a
             href="#event-software"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsServicesExpanded(false);
+            }}
             className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Event Software
           </a>
           <a
             href="#event-rentals"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsServicesExpanded(false);
+            }}
             className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Event Rentals
           </a>
           <a
             href="#lanyards-supply"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsServicesExpanded(false);
+            }}
             className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Lanyards Supply
           </a>
           <a
             href="#past-events-clients"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsServicesExpanded(false);
+            }}
             className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Past Events Clients
           </a>
           <a
             href="#gallery"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsServicesExpanded(false);
+            }}
             className="text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville"
           >
             Gallery
           </a>
 
           <button
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setIsServicesExpanded(false);
+            }}
             className="border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6 font-baskervville"
           >
             Contact Us
@@ -208,7 +266,10 @@ export default function Home() {
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-10"
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            setIsServicesExpanded(false);
+          }}
         />
       )}
 

@@ -17,7 +17,9 @@ export default function Services() {
               Services
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive event management solutions tailored to bring your vision to life through excellence, innovation, and strategic execution.
+              Comprehensive event management solutions tailored to bring your
+              vision to life through excellence, innovation, and strategic
+              execution.
             </p>
           </div>
         </div>
@@ -26,56 +28,100 @@ export default function Services() {
       {/* Service Groups Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">Service Groups</h2>
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
+            Service Groups
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             {/* Conference Organisation */}
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">Conference Organisation</h3>
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+                Conference Organisation
+              </h3>
               <p className="text-gray-700 mb-6">
-                As premier event management specialists, we specialize in organizing conferences for corporate clients, associations, and organizations across various industries.
+                As premier event management specialists, we specialize in
+                organizing conferences for corporate clients, associations, and
+                organizations across various industries.
               </p>
               <Link
                 href="/services/conference-organisation"
                 className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
               >
                 Learn More
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </Link>
             </div>
 
             {/* Event Management */}
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-2xl font-semibold text-green-900 mb-4">Event Management</h3>
+              <h3 className="text-2xl font-semibold text-green-900 mb-4">
+                Event Management
+              </h3>
               <p className="text-gray-700 mb-6">
-                Complete event planning and execution services, from concept development to post-event analysis, ensuring memorable and successful events.
+                Complete event planning and execution services, from concept
+                development to post-event analysis, ensuring memorable and
+                successful events.
               </p>
               <Link
                 href="/services/event-management"
                 className="inline-flex items-center text-green-600 hover:text-green-800 font-medium"
               >
                 Learn More
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </Link>
             </div>
 
             {/* Marketing & Communication */}
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-2xl font-semibold text-purple-900 mb-4">Marketing & Communication</h3>
+              <h3 className="text-2xl font-semibold text-purple-900 mb-4">
+                Marketing & Communication
+              </h3>
               <p className="text-gray-700 mb-6">
-                Strategic marketing and communication services to amplify your event's reach and impact through digital and traditional channels.
+                Strategic marketing and communication services to amplify your
+                event's reach and impact through digital and traditional
+                channels.
               </p>
               <Link
                 href="/services/marketing-communication"
                 className="inline-flex items-center text-purple-600 hover:text-purple-800 font-medium"
               >
                 Learn More
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </Link>
             </div>
@@ -86,14 +132,19 @@ export default function Services() {
       {/* Service Overview Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">Service Overview</h2>
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
+            Service Overview
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Project Management Services */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Project Management Services</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Project Management Services
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                End-to-end project management ensuring seamless execution from planning to completion.
+                End-to-end project management ensuring seamless execution from
+                planning to completion.
               </p>
               <Link
                 href="/services/project-management"
@@ -105,9 +156,12 @@ export default function Services() {
 
             {/* Registration Services */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Registration Services</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Registration Services
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Streamlined online and onsite registration processes with real-time tracking and reporting.
+                Streamlined online and onsite registration processes with
+                real-time tracking and reporting.
               </p>
               <Link
                 href="/services/registration"
@@ -119,9 +173,12 @@ export default function Services() {
 
             {/* Hotel Accommodation */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Hotel Accommodation</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Hotel Accommodation
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Comprehensive accommodation services with preferred rates and block management.
+                Comprehensive accommodation services with preferred rates and
+                block management.
               </p>
               <Link
                 href="/services/hotel-accommodation"
@@ -133,9 +190,12 @@ export default function Services() {
 
             {/* Exhibition and Sponsorship Planning */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Exhibition and Sponsorship Planning</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Exhibition and Sponsorship Planning
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Strategic exhibition layout and sponsorship acquisition to maximize revenue and engagement.
+                Strategic exhibition layout and sponsorship acquisition to
+                maximize revenue and engagement.
               </p>
               <Link
                 href="/services/exhibition-sponsorship"
@@ -147,9 +207,12 @@ export default function Services() {
 
             {/* Abstract Management Services */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Abstract Management</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Abstract Management
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Professional abstract submission, review, and management using advanced technology platforms.
+                Professional abstract submission, review, and management using
+                advanced technology platforms.
               </p>
               <Link
                 href="/services/abstract-management"
@@ -161,9 +224,12 @@ export default function Services() {
 
             {/* Networking Events Planning */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Networking Events</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Networking Events
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Creative networking opportunities designed to foster meaningful connections and engagement.
+                Creative networking opportunities designed to foster meaningful
+                connections and engagement.
               </p>
               <Link
                 href="/services/networking-events"
@@ -175,9 +241,12 @@ export default function Services() {
 
             {/* Destination Management */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Destination Management</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Destination Management
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Local expertise for transportation, VIP services, and unique experiences in host destinations.
+                Local expertise for transportation, VIP services, and unique
+                experiences in host destinations.
               </p>
               <Link
                 href="/services/destination-management"
@@ -189,9 +258,12 @@ export default function Services() {
 
             {/* Online Conference & Event Services */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Virtual Events</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Virtual Events
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Professional virtual and hybrid event solutions with secure, engaging platforms.
+                Professional virtual and hybrid event solutions with secure,
+                engaging platforms.
               </p>
               <Link
                 href="/services/virtual-events"
@@ -203,9 +275,12 @@ export default function Services() {
 
             {/* Event Software Solutions */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Event Software</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Event Software
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Custom event management software solutions for registration, engagement, and analytics.
+                Custom event management software solutions for registration,
+                engagement, and analytics.
               </p>
               <Link
                 href="/services/event-software"
@@ -217,9 +292,12 @@ export default function Services() {
 
             {/* Event Rentals */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Event Rentals</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Event Rentals
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Complete equipment rental services including AV, staging, and technical support.
+                Complete equipment rental services including AV, staging, and
+                technical support.
               </p>
               <Link
                 href="/services/event-rentals"
@@ -231,9 +309,12 @@ export default function Services() {
 
             {/* Lanyards Supply */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Branding Materials</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Branding Materials
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Custom badges, lanyards, and promotional materials that reflect your brand identity.
+                Custom badges, lanyards, and promotional materials that reflect
+                your brand identity.
               </p>
               <Link
                 href="/services/branding-materials"
@@ -245,9 +326,12 @@ export default function Services() {
 
             {/* Graphic Design */}
             <div className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Graphic Design</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Graphic Design
+              </h3>
               <p className="text-gray-600 text-sm mb-4">
-                Professional design services for event materials, branding, and marketing collateral.
+                Professional design services for event materials, branding, and
+                marketing collateral.
               </p>
               <Link
                 href="/services/graphic-design"
@@ -263,9 +347,12 @@ export default function Services() {
       {/* Call to Action Section */}
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-8">Ready to Create Something Amazing?</h2>
+          <h2 className="text-3xl font-bold mb-8">
+            Ready to Create Something Amazing?
+          </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let's discuss how we can bring your vision to life with our comprehensive event management solutions.
+            Let's discuss how we can bring your vision to life with our
+            comprehensive event management solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
