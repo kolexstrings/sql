@@ -23,7 +23,7 @@ export default function AboutUs() {
                   alt="SQL Events Team"
                   width={1200}
                   height={800}
-                  className="w-full h-auto rounded-lg shadow-md"
+                  className="w-full h-auto shadow-md"
                 />
               </div>
 
@@ -102,11 +102,11 @@ export default function AboutUs() {
               ].map((org) => (
                 <div
                   key={org.name}
-                  className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 flex items-center justify-center hover:shadow-md transition-shadow"
+                  className="bg-white shadow-sm border border-gray-200 p-6 flex items-center justify-center hover:shadow-md transition-shadow"
                 >
                   <div className="text-center">
                     <div
-                      className={`w-16 h-16 ${org.color} rounded-full flex items-center justify-center mx-auto mb-2`}
+                      className={`w-16 h-16 ${org.color} flex items-center justify-center mx-auto mb-2`}
                     >
                       <span className="font-bold text-sm">{org.name}</span>
                     </div>
@@ -137,25 +137,21 @@ export default function AboutUs() {
               </p>
             </div>
 
-            {/* Values Cards */}
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {/* Mission & Vision Cards */}
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
               {[
                 {
-                  title: "CUSTOMER SERVICE",
-                  body: "We live CUSTOMER SERVICE at its best by being committed to excellence, quality and efficiency.",
+                  title: "OUR VISION",
+                  body: "To be a leading Events & Conference Management company in Africa, marshalling the best in knowledge, human capital and technology to innovatively provide the best possible business solution to our clients, creating value and growth for ourselves and business partners",
                 },
                 {
-                  title: "CARE",
-                  body: "We CARE – our clients, participants, employees and planet deserve our care and attention.",
-                },
-                {
-                  title: "PROGRESS SPIRIT",
-                  body: "PROGRESS SPIRIT – we embrace challenges and create smart solutions out of the box.",
+                  title: "OUR MISSION",
+                  body: "Marshalling the best in knowledge, human capital and technology to help our clients achieve their strategic goals through the provision of excellent, unique value-added services and products specific to their profile",
                 },
               ].map((value) => (
                 <div
                   key={value.title}
-                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8 text-white"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 p-8 text-white"
                 >
                   <h3 className="text-lg font-bold uppercase tracking-wide mb-4">
                     {value.title}
@@ -163,51 +159,6 @@ export default function AboutUs() {
                   <p className="text-sm leading-relaxed">{value.body}</p>
                 </div>
               ))}
-            </div>
-
-            {/* Purpose Section */}
-            <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Our Purpose
-              </h3>
-              <p className="text-base leading-relaxed text-white/90">
-                Advances in business and society happen quicker when communities
-                are able to connect and share so that they can develop ideas
-                together. SQL Events makes it easy by creating powerful
-                connections every day and bringing people together.
-              </p>
-              <p className="text-lg font-semibold text-white mt-4">
-                SQL Events makes it easy.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Vision & Mission Cards */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 rounded-lg p-10 border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                Our Vision:
-              </h3>
-              <p className="text-base leading-relaxed text-gray-700">
-                To be a leading Events & Conference Management company in
-                Africa, marshalling the best in knowledge, human capital and
-                technology to innovatively provide the best possible business
-                solution to our clients, creating value and growth for ourselves
-                and business partners
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-10 border border-gray-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                Our Mission:
-              </h3>
-              <p className="text-base leading-relaxed text-gray-700">
-                Marshalling the best in knowledge, human capital and technology
-                to help our clients achieve their strategic goals through the
-                provision of excellent, unique value-added services and products
-                specific to their profile
-              </p>
             </div>
           </div>
         </section>
