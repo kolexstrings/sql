@@ -24,6 +24,7 @@ export default function Header({
 }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesExpanded, setIsServicesExpanded] = useState(false);
+  const [isEventSoftwareExpanded, setIsEventSoftwareExpanded] = useState(false);
 
   const isDark = variant === "dark";
 
@@ -132,37 +133,78 @@ export default function Header({
               }`}
             >
               <Link
-                href="/services#corporate-events"
+                href="/corporate-event-management"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   setIsServicesExpanded(false);
                 }}
                 className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
               >
-                Corporate Event & Conference Management
-              </Link>
-              <Link
-                href="/services#conference-registration"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsServicesExpanded(false);
-                }}
-                className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
-              >
-                Conference Registration
+                Corporate Events & Conference Management
               </Link>
             </div>
           </div>
-          <a
-            href="#event-software"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
-              isDark ? "hover:text-white/70" : "hover:text-white/70"
-            }`}
-          >
-            <span>Event Software</span>
-            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
-          </a>
+          <div className="w-full">
+            <button
+              type="button"
+              onClick={() => setIsEventSoftwareExpanded((prev) => !prev)}
+              className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
+                isDark ? "hover:text-white/70" : "hover:text-white/70"
+              }`}
+            >
+              <span>Event Software</span>
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  isEventSoftwareExpanded ? "rotate-180" : "rotate-0"
+                } ${isDark ? "text-white" : "text-white"}`}
+              />
+            </button>
+            <div
+              aria-hidden={!isEventSoftwareExpanded}
+              className={`flex flex-col gap-3 pl-4 text-[0.95rem] tracking-[0.15em] overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+                isEventSoftwareExpanded
+                  ? "mt-3 max-h-96 opacity-100 pointer-events-auto"
+                  : "max-h-0 opacity-0 pointer-events-none mt-0"
+              }`}
+            >
+              {[
+                { label: "Online & Onsite", href: "/services#online-onsite" },
+                {
+                  label: "Online Abstract Management",
+                  href: "/services#online-abstract-management",
+                },
+                {
+                  label: "Online Exhibition",
+                  href: "/services#online-exhibition",
+                },
+                {
+                  label: "Delegate Scanning",
+                  href: "/services#delegate-scanning",
+                },
+                {
+                  label: "Virtual Event Platforms",
+                  href: "/services#virtual-event-platforms",
+                },
+                {
+                  label: "Membership Management",
+                  href: "/services#membership-management",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsServicesExpanded(false);
+                    setIsEventSoftwareExpanded(false);
+                  }}
+                  className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
           <a
             href="#event-rentals"
             onClick={() => setIsMobileMenuOpen(false)}

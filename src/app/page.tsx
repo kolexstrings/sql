@@ -2,33 +2,46 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import TaglineTab from "../components/TaglineTab";
 
 const slides = [
   {
-    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
-    alt: "Professional corporate conference with engaged business audience and keynote speaker",
+    src: "/slider/photo1.jpeg",
+    alt: "Executive meeting environment with premium presentation AV",
   },
   {
-    src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=80",
-    alt: "Executive business meeting with professional presentation setup and team collaboration",
+    src: "/slider/photo2.jpg",
+    alt: "Corporate gala dinner venue styled by SQL Events",
   },
   {
-    src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80",
-    alt: "Sophisticated corporate gala dinner with premium table settings and elegant ambiance",
+    src: "/slider/photo3.jpg",
+    alt: "Award ceremony stage with dramatic lighting",
   },
   {
-    src: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=1600&q=80",
-    alt: "Elegant corporate award ceremony with red carpet entrance and professional stage lighting",
+    src: "/slider/photo4.jpg",
+    alt: "Modern training seminar with interactive displays",
   },
   {
-    src: "https://images.unsplash.com/photo-1464047736614-af63643285bf?auto=format&fit=crop&w=1600&q=80",
-    alt: "Modern corporate training seminar with professional AV equipment and interactive displays",
+    src: "/slider/photo5.jpg",
+    alt: "Upscale networking reception produced by SQL Events",
   },
   {
-    src: "https://images.unsplash.com/photo-1553028826-f4804151e04b?auto=format&fit=crop&w=1600&q=80",
-    alt: "Upscale corporate networking event with sophisticated cocktail setup and business professionals",
+    src: "/slider/photo6.jpg",
+    alt: "Immersive conference breakout experience",
+  },
+  {
+    src: "/slider/photo7.jpeg",
+    alt: "High-energy corporate showcase with LED visuals",
+  },
+  {
+    src: "/slider/photo8.jpeg",
+    alt: "Executive roundtable session with custom branding",
+  },
+  {
+    src: "/slider/photo9.jpeg",
+    alt: "Large-scale plenary with dramatic lighting effects",
   },
 ];
 
@@ -54,20 +67,26 @@ export default function Home() {
         {slides.map((slide, index) => (
           <div
             key={slide.src}
-            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out`}
-            style={{
-              opacity: activeIndex === index ? 1 : 0,
-            }}
+            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
+              activeIndex === index ? "opacity-100" : "opacity-0"
+            }`}
           >
-            <div
-              className="h-full w-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.src})` }}
-              role="img"
-              aria-label={slide.alt}
-            />
+            <div className="relative h-full w-full">
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                fill
+                priority={index === 0}
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         ))}
-        <div className="absolute inset-0 bg-black/60" aria-hidden />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/35 to-black/65"
+          aria-hidden
+        />
       </div>
 
       <header className="relative z-10 px-16 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
@@ -164,24 +183,14 @@ export default function Home() {
               }`}
             >
               <Link
-                href="/services#corporate-events"
+                href="/corporate-event-management"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   setIsServicesExpanded(false);
                 }}
                 className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
               >
-                Corporate Event & Conference Management
-              </Link>
-              <Link
-                href="/services#conference-registration"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsServicesExpanded(false);
-                }}
-                className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
-              >
-                Conference Registration
+                Corporate Events & Conference Management
               </Link>
             </div>
           </div>
@@ -292,71 +301,63 @@ export default function Home() {
         />
       )}
 
-      <main className="relative z-10 flex flex-col items-center justify-start px-6 text-center md:items-start md:text-left md:px-20 pt-24 md:pt-32 pb-16 md:pb-20 min-h-[calc(100vh-200px)] font-baskervville">
-        {/* <p
-          className="text-sm uppercase tracking-[0.5em] mb-4 md:mb-6 font-baskervville font-medium"
-          style={{
-            color: "var(--brand-primary)",
-            fontFamily: "var(--font-baskervville)",
-          }}
-        >
-          Premier Event Management
-        </p> */}
-        <h1
-          className="max-w-3xl text-3xl font-semibold uppercase tracking-[0.15em] sm:text-4xl md:text-5xl font-baskervville mb-4 md:mb-6"
-          style={{ fontFamily: "var(--font-baskervville)" }}
-        >
-          Creating Unforgettable Experiences
-        </h1>
-        <p
-          className="max-w-2xl text-base md:text-lg font-medium tracking-wide md:text-left mb-6 md:mb-8 font-baskervville"
-          style={{
-            color: "var(--text-secondary)",
-            fontFamily: "var(--font-baskervville)",
-          }}
-        >
-          Marshalling the best in knowledge, human capital and technology to
-          bring your vision to life.
-        </p>
-        <div className="flex flex-col items-center gap-3 md:flex-row md:gap-4 mb-8 md:mb-12">
-          <button
-            type="button"
-            className="bg-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
+      <main className="relative z-10 flex flex-col items-center justify-center px-6 text-center md:px-20 pt-24 md:pt-32 pb-16 md:pb-20 min-h-[calc(100vh-200px)] font-baskervville">
+        <div className="w-full max-w-4xl bg-white/10 backdrop-blur-xl px-10 py-12 space-y-6 text-white text-center">
+          <h1
+            className="text-3xl font-semibold uppercase tracking-[0.15em] sm:text-4xl md:text-5xl drop-shadow-[0_6px_20px_rgba(0,0,0,0.65)]"
+            style={{ fontFamily: "var(--font-baskervville)" }}
+          >
+            Creating Unforgettable Experiences
+          </h1>
+          <p
+            className="text-base md:text-lg font-medium tracking-wide text-white/90 drop-shadow-[0_4px_12px_rgba(0,0,0,0.55)]"
             style={{
-              borderColor: "var(--brand-primary)",
-              color: "var(--brand-primary)",
               fontFamily: "var(--font-baskervville)",
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--brand-primary)";
-              e.currentTarget.style.color = "var(--text-primary)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--white)";
-              e.currentTarget.style.color = "var(--brand-primary)";
-            }}
           >
-            Our Services
-          </button>
-          <button
-            className="bg-brand-primary text-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
-            style={{
-              borderColor: "var(--brand-primary)",
-              color: "var(--text-primary)",
-              fontFamily: "var(--font-baskervville)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--brand-primary)";
-              e.currentTarget.style.color = "var(--text-primary)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--brand-primary)";
-              e.currentTarget.style.color = "var(--text-primary)";
-            }}
-            type="button"
-          >
-            View Portfolio
-          </button>
+            Marshalling the best in knowledge, human capital and technology to
+            bring your vision to life.
+          </p>
+          <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:gap-4">
+            <button
+              type="button"
+              className="bg-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
+              style={{
+                borderColor: "var(--brand-primary)",
+                color: "var(--brand-primary)",
+                fontFamily: "var(--font-baskervville)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--brand-primary)";
+                e.currentTarget.style.color = "var(--text-primary)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--white)";
+                e.currentTarget.style.color = "var(--brand-primary)";
+              }}
+            >
+              Our Services
+            </button>
+            <button
+              className="bg-brand-primary text-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
+              style={{
+                borderColor: "var(--brand-primary)",
+                color: "var(--text-primary)",
+                fontFamily: "var(--font-baskervville)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--brand-primary)";
+                e.currentTarget.style.color = "var(--text-primary)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--brand-primary)";
+                e.currentTarget.style.color = "var(--text-primary)";
+              }}
+              type="button"
+            >
+              View Portfolio
+            </button>
+          </div>
         </div>
       </main>
 
