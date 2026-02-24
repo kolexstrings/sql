@@ -142,6 +142,16 @@ export default function Header({
               >
                 Corporate Events & Conference Management
               </Link>
+              <Link
+                href="/conference-registration"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsServicesExpanded(false);
+                }}
+                className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
+              >
+                Conference Registration Management
+              </Link>
             </div>
           </div>
           <div className="w-full">

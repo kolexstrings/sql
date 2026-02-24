@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 

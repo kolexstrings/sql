@@ -7,47 +7,53 @@ import Footer from "@/components/Footer";
 
 const testimonials = [
   {
-    quote: "SqlEvents transformed our annual conference into an extraordinary experience. Their attention to detail, innovative approach, and seamless execution exceeded all our expectations. The event was flawless from start to finish.",
+    quote:
+      "SqlEvents transformed our annual conference into an extraordinary experience. Their attention to detail, innovative approach, and seamless execution exceeded all our expectations. The event was flawless from start to finish.",
     name: "Sarah Johnson",
     role: "Event Director",
     company: "TechCorp International",
-    color: "blue"
+    color: "blue",
   },
   {
-    quote: "Working with SqlEvents was a game-changer for our product launch event. They handled everything from venue selection to technical production with professionalism and creativity. Our attendees were blown away by the experience.",
+    quote:
+      "Working with SqlEvents was a game-changer for our product launch event. They handled everything from venue selection to technical production with professionalism and creativity. Our attendees were blown away by the experience.",
     name: "Michael Chen",
     role: "Marketing Manager",
     company: "InnovateLab",
-    color: "green"
+    color: "green",
   },
   {
-    quote: "The team at SqlEvents made our corporate retreat both productive and memorable. Their expertise in team-building activities and event coordination created the perfect balance of work and engagement for our executive team.",
+    quote:
+      "The team at SqlEvents made our corporate retreat both productive and memorable. Their expertise in team-building activities and event coordination created the perfect balance of work and engagement for our executive team.",
     name: "Dr. Amanda Rodriguez",
     role: "HR Director",
     company: "Global Pharma Solutions",
-    color: "purple"
+    color: "purple",
   },
   {
-    quote: "We've partnered with SqlEvents for three consecutive years for our industry summit. Their reliability, innovation, and commitment to excellence make them our go-to event management partner. Highly recommended!",
+    quote:
+      "We've partnered with SqlEvents for three consecutive years for our industry summit. Their reliability, innovation, and commitment to excellence make them our go-to event management partner. Highly recommended!",
     name: "James Thompson",
     role: "Conference Chair",
     company: "National Industry Association",
-    color: "orange"
+    color: "orange",
   },
   {
-    quote: "The virtual event SqlEvents produced for us during the pandemic was outstanding. They seamlessly adapted our in-person conference to a digital format while maintaining the same level of engagement and interaction.",
+    quote:
+      "The virtual event SqlEvents produced for us during the pandemic was outstanding. They seamlessly adapted our in-person conference to a digital format while maintaining the same level of engagement and interaction.",
     name: "Prof. Elena Volkov",
     role: "Academic Conference Organizer",
     company: "International Research Institute",
-    color: "teal"
+    color: "teal",
   },
   {
-    quote: "From concept to execution, SqlEvents delivered perfection. Their understanding of our brand and audience needs resulted in an event that not only met but exceeded our strategic objectives. A true partnership!",
+    quote:
+      "From concept to execution, SqlEvents delivered perfection. Their understanding of our brand and audience needs resulted in an event that not only met but exceeded our strategic objectives. A true partnership!",
     name: "Robert Kim",
     role: "Brand Director",
     company: "Luxury Lifestyle Group",
-    color: "indigo"
-  }
+    color: "indigo",
+  },
 ];
 
 const clientLogos = [
@@ -58,7 +64,7 @@ const clientLogos = [
   { name: "International Research Institute", logo: "IRI" },
   { name: "Luxury Lifestyle Group", logo: "LLG" },
   { name: "Enterprise Solutions Ltd", logo: "ESL" },
-  { name: "Healthcare Innovations", logo: "HI" }
+  { name: "Healthcare Innovations", logo: "HI" },
 ];
 
 export default function Clients() {
@@ -69,7 +75,9 @@ export default function Clients() {
   };
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentTestimonial(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+    );
   };
 
   const goToTestimonial = (index: number) => {
@@ -88,7 +96,9 @@ export default function Clients() {
               Our Clients
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Discover what our clients say about their experience working with SqlEvents. We're proud to have partnered with leading organizations to create unforgettable events.
+              Discover what our clients say about their experience working with
+              SqlEvents. We&apos;re proud to have partnered with leading
+              organizations to create unforgettable events.
             </p>
           </div>
         </div>
@@ -97,7 +107,9 @@ export default function Clients() {
       {/* Client Testimonials Carousel Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">Client Testimonials</h2>
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
+            Client Testimonials
+          </h2>
 
           {/* Testimonials Carousel */}
           <div className="relative max-w-4xl mx-auto">
@@ -105,19 +117,27 @@ export default function Clients() {
             <div className="overflow-hidden">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                style={{
+                  transform: `translateX(-${currentTestimonial * 100}%)`,
+                }}
               >
                 {testimonials.map((testimonial, index) => (
                   <div key={index} className="w-full flex-shrink-0 px-4">
                     <div className="text-center">
                       <blockquote className="text-lg text-gray-700 mb-8 italic leading-relaxed">
-                        "{testimonial.quote}"
+                        &ldquo;{testimonial.quote}&rdquo;
                       </blockquote>
-                      <div className={`text-${testimonial.color}-600 font-semibold text-xl mb-2`}>
+                      <div
+                        className={`text-${testimonial.color}-600 font-semibold text-xl mb-2`}
+                      >
                         {testimonial.name}
                       </div>
-                      <div className="text-gray-600 mb-2">{testimonial.role}</div>
-                      <div className="text-gray-800 font-medium">{testimonial.company}</div>
+                      <div className="text-gray-600 mb-2">
+                        {testimonial.role}
+                      </div>
+                      <div className="text-gray-800 font-medium">
+                        {testimonial.company}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -130,8 +150,18 @@ export default function Clients() {
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 transition-colors"
               aria-label="Previous testimonial"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
 
@@ -140,8 +170,18 @@ export default function Clients() {
               className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 transition-colors"
               aria-label="Next testimonial"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
 
@@ -165,7 +205,9 @@ export default function Clients() {
       {/* Client Logos Grid Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">Trusted By Leading Organizations</h2>
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
+            Trusted By Leading Organizations
+          </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8">
             {clientLogos.map((client, index) => (
@@ -175,9 +217,13 @@ export default function Clients() {
               >
                 <div className="text-center">
                   <div className="w-16 h-16 bg-gray-100 flex items-center justify-center mx-auto mb-3">
-                    <span className="text-gray-600 font-bold text-lg">{client.logo}</span>
+                    <span className="text-gray-600 font-bold text-lg">
+                      {client.logo}
+                    </span>
                   </div>
-                  <span className="text-xs font-medium text-gray-600">{client.name}</span>
+                  <span className="text-xs font-medium text-gray-600">
+                    {client.name}
+                  </span>
                 </div>
               </div>
             ))}
@@ -188,9 +234,12 @@ export default function Clients() {
       {/* Call to Action Section */}
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-8">Ready to Join Our Success Stories?</h2>
+          <h2 className="text-3xl font-bold mb-8">
+            Ready to Join Our Success Stories?
+          </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let's discuss how we can bring your vision to life with our comprehensive event management solutions.
+            Let&apos;s discuss how we can bring your vision to life with our
+            comprehensive event management solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -200,7 +249,7 @@ export default function Clients() {
               Start Your Project
             </Link>
             <Link
-              href="/services"
+              href="/corporate-event-management"
               className="border border-white px-8 py-3 font-semibold hover:bg-white hover:text-gray-900 transition-colors"
             >
               Explore Our Services
