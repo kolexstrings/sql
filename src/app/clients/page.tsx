@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,7 +13,6 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Event Director",
     company: "TechCorp International",
-    color: "blue",
   },
   {
     quote:
@@ -20,7 +20,6 @@ const testimonials = [
     name: "Michael Chen",
     role: "Marketing Manager",
     company: "InnovateLab",
-    color: "green",
   },
   {
     quote:
@@ -28,7 +27,6 @@ const testimonials = [
     name: "Dr. Amanda Rodriguez",
     role: "HR Director",
     company: "Global Pharma Solutions",
-    color: "purple",
   },
   {
     quote:
@@ -36,7 +34,6 @@ const testimonials = [
     name: "James Thompson",
     role: "Conference Chair",
     company: "National Industry Association",
-    color: "orange",
   },
   {
     quote:
@@ -44,7 +41,6 @@ const testimonials = [
     name: "Prof. Elena Volkov",
     role: "Academic Conference Organizer",
     company: "International Research Institute",
-    color: "teal",
   },
   {
     quote:
@@ -52,211 +48,244 @@ const testimonials = [
     name: "Robert Kim",
     role: "Brand Director",
     company: "Luxury Lifestyle Group",
-    color: "indigo",
   },
 ];
 
 const clientLogos = [
-  { name: "TechCorp International", logo: "TCI" },
-  { name: "InnovateLab", logo: "IL" },
-  { name: "Global Pharma Solutions", logo: "GPS" },
-  { name: "National Industry Association", logo: "NIA" },
-  { name: "International Research Institute", logo: "IRI" },
-  { name: "Luxury Lifestyle Group", logo: "LLG" },
-  { name: "Enterprise Solutions Ltd", logo: "ESL" },
-  { name: "Healthcare Innovations", logo: "HI" },
+  "TechCorp International",
+  "InnovateLab",
+  "Global Pharma Solutions",
+  "National Industry Association",
+  "International Research Institute",
+  "Luxury Lifestyle Group",
+  "Enterprise Solutions Ltd",
+  "Healthcare Innovations",
+  "Federal Ministry of Finance",
+  "Nigerian Bar Association",
+  "Lagos State Government",
+  "ECOWAS Secretariat",
 ];
 
-export default function Clients() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+export default function ClientsPage() {
+  const [current, setCurrent] = useState(0);
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
-    );
-  };
-
-  const goToTestimonial = (index: number) => {
-    setCurrentTestimonial(index);
-  };
+  const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
+  const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-['Cormorant_Garamond',Georgia,serif]">
       <Header />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Our Clients
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Discover what our clients say about their experience working with
-              SqlEvents. We&apos;re proud to have partnered with leading
-              organizations to create unforgettable events.
-            </p>
+      <main className="bg-white text-gray-900">
+
+        {/* ── MOSAIC HERO ── */}
+        <section className="relative w-full overflow-hidden" style={{ height: "520px" }}>
+          <div
+            className="absolute inset-0 grid gap-1"
+            style={{
+              gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr",
+              gridTemplateRows: "1fr 1fr 1fr",
+              transform: "skewY(-1deg) scale(1.05)",
+              transformOrigin: "top center",
+            }}
+          >
+            <div className="col-span-2 row-span-3 relative overflow-hidden">
+              <Image src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop" alt="Conference audience" fill className="object-cover" />
+            </div>
+            <div className="col-span-2 row-span-2 relative overflow-hidden">
+              <Image src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop" alt="Event setup" fill className="object-cover" />
+            </div>
+            <div className="col-span-1 row-span-3 relative overflow-hidden">
+              <Image src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400&auto=format&fit=crop" alt="Speaker at podium" fill className="object-cover" />
+            </div>
+            <div className="col-span-1 row-span-1 relative overflow-hidden">
+              <Image src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&auto=format&fit=crop" alt="Business meeting" fill className="object-cover" />
+            </div>
+            <div className="col-span-1 row-span-1 relative overflow-hidden">
+              <Image src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&auto=format&fit=crop" alt="Gala dinner" fill className="object-cover" />
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Client Testimonials Carousel Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
-            Client Testimonials
-          </h2>
-
-          {/* Testimonials Carousel */}
-          <div className="relative max-w-4xl mx-auto">
-            {/* Main carousel container */}
-            <div className="overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{
-                  transform: `translateX(-${currentTestimonial * 100}%)`,
-                }}
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <div className="bg-white/70 backdrop-blur-[2px] px-10 py-6 text-center">
+              <p className="text-xs uppercase tracking-[0.35em] text-gray-500 mb-2 font-sans">
+                SQL Events Nigeria
+              </p>
+              <h1
+                className="text-4xl md:text-5xl font-light tracking-widest text-gray-900 uppercase"
+                style={{ letterSpacing: "0.18em" }}
               >
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-4">
-                    <div className="text-center">
-                      <blockquote className="text-lg text-gray-700 mb-8 italic leading-relaxed">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </blockquote>
-                      <div
-                        className={`text-${testimonial.color}-600 font-semibold text-xl mb-2`}
-                      >
-                        {testimonial.name}
-                      </div>
-                      <div className="text-gray-600 mb-2">
-                        {testimonial.role}
-                      </div>
-                      <div className="text-gray-800 font-medium">
-                        {testimonial.company}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                Our
+                <br />
+                Clients
+              </h1>
+            </div>
+          </div>
+        </section>
+
+        {/* ── INTRO ── */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                Trusted By Leading Organisations
+              </h2>
+              <div className="space-y-5 text-[15px] leading-relaxed text-gray-600 font-sans">
+                <p>
+                  Over the years, SQL Events Nigeria has had the privilege of working with an
+                  exceptional range of clients — from international NGOs and professional
+                  associations to Federal Government Agencies, Ministries, and State Governments.
+                </p>
+                <p>
+                  Our clientele spans the Public Sector, Organised Private Sector, and
+                  International Development Organisations. In every engagement, we bring the same
+                  commitment to excellence, passion for innovation, and mastery of technology.
+                </p>
+                <p className="italic text-gray-800 border-l-2 border-gray-300 pl-4">
+                  "We are proud of every relationship we have built and every event we have delivered."
+                </p>
               </div>
             </div>
 
-            {/* Navigation arrows */}
-            <button
-              onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 transition-colors"
-              aria-label="Previous testimonial"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
+            <div className="relative w-full h-80 lg:h-full min-h-[400px] overflow-hidden rounded-sm">
+              <Image src="/photo1.jpeg" alt="SQL Events clients" fill className="object-cover" />
+            </div>
+          </div>
+        </section>
 
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 transition-colors"
-              aria-label="Next testimonial"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+        {/* ── TESTIMONIALS ── */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <p className="text-xs uppercase tracking-[0.35em] text-gray-400 mb-2 font-sans text-center">What They Say</p>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-12 text-center">
+              Client Testimonials
+            </h2>
 
-            {/* Dot indicators */}
-            <div className="flex justify-center space-x-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToTestimonial(index)}
-                  className={`w-3 h-3 transition-colors ${
-                    index === currentTestimonial ? "bg-blue-600" : "bg-gray-300"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
+            <div className="grid lg:grid-cols-2 gap-0 items-stretch">
+              {/* Left: large quote display */}
+              <div className="bg-gray-900 text-white p-10 lg:p-14 flex flex-col justify-between min-h-[420px]">
+                <div>
+                  <span className="text-6xl font-light text-white/20 leading-none">"</span>
+                  <p className="text-lg lg:text-xl font-light leading-relaxed text-white/90 mt-2">
+                    {testimonials[current].quote}
+                  </p>
+                </div>
+                <div className="mt-8 border-t border-white/10 pt-6">
+                  <p className="font-semibold text-white tracking-wide">{testimonials[current].name}</p>
+                  <p className="text-white/60 text-sm font-sans mt-1">{testimonials[current].role}</p>
+                  <p className="text-white/40 text-sm font-sans">{testimonials[current].company}</p>
+                </div>
+              </div>
+
+              {/* Right: nav + image */}
+              <div className="flex flex-col">
+                <div className="relative flex-1 min-h-[260px]">
+                  <Image src="/photo2.jpg" alt="Client event" fill className="object-cover" />
+                </div>
+                <div className="bg-white border border-gray-200 border-t-0 px-8 py-5 flex items-center justify-between">
+                  {/* Prev / Next */}
+                  <div className="flex gap-3">
+                    <button
+                      onClick={prev}
+                      className="w-10 h-10 border border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 font-sans"
+                      aria-label="Previous"
+                    >
+                      ←
+                    </button>
+                    <button
+                      onClick={next}
+                      className="w-10 h-10 border border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 font-sans"
+                      aria-label="Next"
+                    >
+                      →
+                    </button>
+                  </div>
+                  {/* Dots */}
+                  <div className="flex gap-2">
+                    {testimonials.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrent(i)}
+                        className={`w-2 h-2 transition-all duration-200 ${i === current ? "bg-gray-900 w-6" : "bg-gray-300"}`}
+                        aria-label={`Go to ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+                  <p className="text-xs uppercase tracking-widest text-gray-400 font-sans">
+                    {current + 1} / {testimonials.length}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CLIENT LOGOS ── */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <p className="text-xs uppercase tracking-[0.35em] text-gray-400 mb-2 font-sans text-center">Our Partners</p>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-12 text-center">
+              Organisations We Have Served
+            </h2>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-gray-200">
+              {clientLogos.map((name, i) => (
+                <div
+                  key={i}
+                  className="bg-white px-6 py-8 flex items-center justify-center hover:bg-gray-50 transition-colors duration-200"
+                >
+                  <p className="text-center text-sm font-sans text-gray-600 tracking-wide leading-snug">{name}</p>
+                </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Client Logos Grid Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
-            Trusted By Leading Organizations
-          </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8">
-            {clientLogos.map((client, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 shadow-sm border border-gray-200 flex items-center justify-center hover:shadow-md transition-shadow"
-              >
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gray-100 flex items-center justify-center mx-auto mb-3">
-                    <span className="text-gray-600 font-bold text-lg">
-                      {client.logo}
-                    </span>
-                  </div>
-                  <span className="text-xs font-medium text-gray-600">
-                    {client.name}
-                  </span>
-                </div>
+        {/* ── PHOTO STRIP ── */}
+        <section className="py-0">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            {["/photo3.jpg", "/photo4.jpg", "/photo5.jpg", "/photo6.jpg"].map((src, i) => (
+              <div key={i} className="relative h-56 overflow-hidden group">
+                <Image src={src} alt={`SQL Events client event ${i + 3}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Call to Action Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-8">
-            Ready to Join Our Success Stories?
-          </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let&apos;s discuss how we can bring your vision to life with our
-            comprehensive event management solutions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-gray-900 px-8 py-3 font-semibold hover:bg-gray-100 transition-colors"
-            >
-              Start Your Project
-            </Link>
-            <Link
-              href="/corporate-event-management"
-              className="border border-white px-8 py-3 font-semibold hover:bg-white hover:text-gray-900 transition-colors"
-            >
-              Explore Our Services
-            </Link>
+        {/* ── CTA ── */}
+        <section className="py-20 bg-gray-900 text-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-white/40 mb-4 font-sans">Work With Us</p>
+              <h2 className="text-3xl md:text-4xl font-light leading-tight">
+                Ready to join our<br />
+                <span className="italic">success stories?</span>
+              </h2>
+            </div>
+            <div className="space-y-4 font-sans">
+              <p className="text-white/70 leading-relaxed text-[15px]">
+                Let's discuss how we can bring your vision to life with our comprehensive
+                event management solutions.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Link
+                  href="/contact"
+                  className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200"
+                >
+                  Start Your Project
+                </Link>
+                <Link
+                  href="/corporate-event-management"
+                  className="border border-white/30 text-white px-8 py-3 text-sm uppercase tracking-widest font-medium hover:border-white transition-colors duration-200"
+                >
+                  Our Services
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+      </main>
 
       <Footer />
     </div>

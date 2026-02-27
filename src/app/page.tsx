@@ -53,6 +53,12 @@ export default function Home() {
   const [isServicesExpanded, setIsServicesExpanded] = useState(false);
   const [isEventSoftwareExpanded, setIsEventSoftwareExpanded] = useState(false);
 
+  const closeMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsServicesExpanded(false);
+    setIsEventSoftwareExpanded(false);
+  };
+
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length);
@@ -95,7 +101,6 @@ export default function Home() {
           alt="SqlEvents Logo"
           className="h-24 w-auto ml-8 md:ml-24"
           onError={(e) => {
-            // Fallback to text logo if image fails to load
             const target = e.currentTarget as HTMLElement;
             const nextSibling = target.nextElementSibling as HTMLElement;
             if (nextSibling) {
@@ -111,7 +116,6 @@ export default function Home() {
           SqlEvents
         </div>
 
-        {/* Hamburger Menu Button - Always visible */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="flex items-center justify-center w-8 h-8 z-30 mr-8 md:mr-24 cursor-pointer"
@@ -133,13 +137,9 @@ export default function Home() {
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Close button positioned over the menu */}
         <div className="absolute top-6 right-8">
           <button
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsServicesExpanded(false);
-            }}
+            onClick={closeMenu}
             className="flex items-center justify-center w-8 h-8 cursor-pointer"
             aria-label="Close navigation menu"
           >
@@ -148,19 +148,17 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-start justify-center h-full gap-6 px-8 font-baskervville w-full">
+
+          {/* About Us */}
           <Link
             href="/about-us"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsServicesExpanded(false);
-            }}
+            onClick={closeMenu}
             className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
           >
             <span>About Us</span>
-            <span className="text-xs opacity-0 select-none" aria-hidden>
-              ▼
-            </span>
           </Link>
+
+          {/* Our Services dropdown */}
           <div className="w-full">
             <button
               type="button"
@@ -184,26 +182,22 @@ export default function Home() {
             >
               <Link
                 href="/corporate-event-management"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsServicesExpanded(false);
-                }}
+                onClick={closeMenu}
                 className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
               >
                 Corporate Events & Conference Management
               </Link>
               <Link
                 href="/conference-registration"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsServicesExpanded(false);
-                }}
+                onClick={closeMenu}
                 className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
               >
                 Conference Registration Management
               </Link>
             </div>
           </div>
+
+          {/* Event Software dropdown - FIXED ROUTING */}
           <div className="w-full">
             <button
               type="button"
@@ -226,36 +220,35 @@ export default function Home() {
               }`}
             >
               {[
-                { label: "Online & Onsite", href: "/services#online-onsite" },
+                { 
+                  label: "Online & Onsite Registration", 
+                  href: "/online-onsite-registration" // FIXED: Changed from services#online-onsite to proper path
+                },
                 {
                   label: "Online Abstract Management",
-                  href: "/services#online-abstract-management",
+                  href: "/online-abstract-management", // FIXED: Changed from /services/online-abstract-management
                 },
                 {
                   label: "Online Exhibition",
-                  href: "/services#online-exhibition",
+                  href: "/online-exhibition", // FIXED: Changed from /services/online-exhibition
                 },
-                {
-                  label: "Delegate Scanning",
-                  href: "/services#delegate-scanning",
-                },
+                // {
+                //   label: "Delegate Scanning",
+                //   href: "/delegate-scanning", // FIXED: Changed from /services/delegate-scanning
+                // },
                 {
                   label: "Virtual Event Platforms",
-                  href: "/services#virtual-event-platforms",
+                  href: "/virtual-event-platforms", // FIXED: Changed from /services/virtual-event-platforms
                 },
                 {
                   label: "Membership Management",
-                  href: "/services#membership-management",
+                  href: "/membership-management", // FIXED: Changed from /services/membership-management
                 },
               ].map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsServicesExpanded(false);
-                    setIsEventSoftwareExpanded(false);
-                  }}
+                  onClick={closeMenu}
                   className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
                 >
                   {item.label}
@@ -263,39 +256,34 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          {/* Remaining nav links — now using proper page routes */}
           {[
-            { label: "Event Mobile App", href: "#event-rentals" },
-            { label: "Event Rentals", href: "#event-rentals" },
-            { label: "Lanyards Supply", href: "#lanyards-supply" },
-            { label: "Past Events Clients", href: "#past-events-clients" },
-            { label: "Gallery", href: "#gallery" },
+            { label: "Event Mobile App", href: "/event-mobile-app" },
+            // { label: "Event Rentals", href: "/event-rentals" },
+            { label: "Lanyards Supply", href: "/lanyards-supply" },
+            { label: "Past Events Clients", href: "/past-events-clients" },
+            { label: "Gallery", href: "/gallery" },
           ].map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsServicesExpanded(false);
-                setIsEventSoftwareExpanded(false);
-              }}
+              onClick={closeMenu}
               className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>{item.label}</span>
-              <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
-            </a>
+            </Link>
           ))}
 
-          <button
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsServicesExpanded(false);
-              setIsEventSoftwareExpanded(false);
-            }}
+          {/* Contact Us — now a proper Link */}
+          <Link
+            href="/contact-us"
+            onClick={closeMenu}
             className="flex w-full items-center justify-between border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6 font-baskervville text-left cursor-pointer"
           >
             <span>Contact Us</span>
             <ArrowUpRight className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -303,11 +291,7 @@ export default function Home() {
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-10 cursor-pointer"
-          onClick={() => {
-            setIsMobileMenuOpen(false);
-            setIsServicesExpanded(false);
-            setIsEventSoftwareExpanded(false);
-          }}
+          onClick={closeMenu}
         />
       )}
 
@@ -321,16 +305,14 @@ export default function Home() {
           </h1>
           <p
             className="text-base md:text-lg font-medium tracking-wide text-white/90 drop-shadow-[0_4px_12px_rgba(0,0,0,0.55)]"
-            style={{
-              fontFamily: "var(--font-baskervville)",
-            }}
+            style={{ fontFamily: "var(--font-baskervville)" }}
           >
             Marshalling the best in knowledge, human capital and technology to
             bring your vision to life.
           </p>
           <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:gap-4">
-            <button
-              type="button"
+            <Link
+              href="/services"
               className="bg-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
               style={{
                 borderColor: "var(--brand-primary)",
@@ -342,42 +324,36 @@ export default function Home() {
                 e.currentTarget.style.color = "var(--text-primary)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--white)";
+                e.currentTarget.style.backgroundColor = "white";
                 e.currentTarget.style.color = "var(--brand-primary)";
               }}
             >
               Our Services
-            </button>
-            <button
-              className="bg-brand-primary text-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
+            </Link>
+            <Link
+              href="/gallery"
+              className="border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
               style={{
                 borderColor: "var(--brand-primary)",
+                backgroundColor: "var(--brand-primary)",
                 color: "var(--text-primary)",
                 fontFamily: "var(--font-baskervville)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--brand-primary)";
-                e.currentTarget.style.color = "var(--text-primary)";
+                e.currentTarget.style.opacity = "0.85";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--brand-primary)";
-                e.currentTarget.style.color = "var(--text-primary)";
+                e.currentTarget.style.opacity = "1";
               }}
-              type="button"
             >
               View Portfolio
-            </button>
+            </Link>
           </div>
         </div>
       </main>
 
       <footer className="absolute bottom-6 md:bottom-8 left-0 right-0 z-10 flex flex-col items-center gap-2 text-center text-xs uppercase tracking-[0.4em] text-white/80 md:items-start md:text-left md:px-20">
-        {/* Navigation section positioned towards bottom of hero */}
         <TaglineTab />
-        {/* <div className="flex items-center gap-3">
-          <span className="h-px w-12 bg-white/60" aria-hidden />
-          <span> Passion | Innovation | Technology</span>
-        </div> */}
       </footer>
     </div>
   );

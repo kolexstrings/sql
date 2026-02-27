@@ -54,7 +54,7 @@ export default function Footer() {
               <a href="#past-events-clients" className="text-gray-300 hover:text-white transition-colors text-sm">
                 Past Events & Clients
               </a>
-              <a href="#gallery" className="text-gray-300 hover:text-white transition-colors text-sm">
+              <a href="/gallery" className="text-gray-300 hover:text-white transition-colors text-sm">
                 Gallery
               </a>
             </nav>

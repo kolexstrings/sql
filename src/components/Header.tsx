@@ -178,28 +178,28 @@ export default function Header({
               }`}
             >
               {[
-                { label: "Online & Onsite", href: "/services#online-onsite" },
-                {
-                  label: "Online Abstract Management",
-                  href: "/services#online-abstract-management",
-                },
-                {
-                  label: "Online Exhibition",
-                  href: "/services#online-exhibition",
-                },
-                {
-                  label: "Delegate Scanning",
-                  href: "/services#delegate-scanning",
-                },
-                {
-                  label: "Virtual Event Platforms",
-                  href: "/services#virtual-event-platforms",
-                },
-                {
-                  label: "Membership Management",
-                  href: "/services#membership-management",
-                },
-              ].map((item) => (
+  { label: "Online & Onsite", href: "/online-onsite-registration" },
+  {
+    label: "Online Abstract Management",
+    href: "/online-abstract-management",
+  },
+  {
+    label: "Online Exhibition",
+    href: "/online-exhibition",
+  },
+  {
+    label: "Delegate Scanning",
+    href: "/delegate-scanning",
+  },
+  {
+    label: "Virtual Event Platforms",
+    href: "/virtual-event-platforms",
+  },
+  {
+    label: "Membership Management",
+    href: "/membership-management",
+  },
+].map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -215,8 +215,8 @@ export default function Header({
               ))}
             </div>
           </div>
-          <a
-            href="#event-rentals"
+          {/* <a
+            href="/event-rentals"
             onClick={() => setIsMobileMenuOpen(false)}
             className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
@@ -224,9 +224,9 @@ export default function Header({
           >
             <span>Event Rentals</span>
             <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
-          </a>
+          </a> */}
           <a
-            href="#lanyards-supply"
+            href="/lanyards-supply"
             onClick={() => setIsMobileMenuOpen(false)}
             className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
@@ -246,7 +246,7 @@ export default function Header({
             <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
           </Link>
           <a
-            href="#gallery"
+            href="/gallery"
             onClick={() => setIsMobileMenuOpen(false)}
             className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
               isDark ? "hover:text-white/70" : "hover:text-white/70"
