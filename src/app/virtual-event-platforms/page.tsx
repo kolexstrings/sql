@@ -323,7 +323,7 @@ export default function VirtualEventPlatformsPage() {
           <div className="relative z-10 max-w-2xl mx-auto" style={{ opacity:0, animation: ctaRef.inView?"fadeUp 0.8s 0s ease forwards":"none" }}>
             <p className="font-jost text-xs uppercase tracking-[0.5em] mb-5" style={{ color:"var(--brand-light)" }}>Ready to go virtual?</p>
             <h2 className="font-playfair text-4xl md:text-5xl font-light text-white leading-snug mb-6">
-              Let's build your<br /><em className="italic" style={{ color:"var(--brand-light)" }}>virtual event experience</em>
+              Let&apos;s build your<br /><em className="italic" style={{ color:"var(--brand-light)" }}>virtual event experience</em>
             </h2>
             <p className="font-jost text-white/50 text-sm leading-relaxed mb-10 max-w-md mx-auto">
               From platform selection and eStand design to speaker coaching and live production, our team will deliver a virtual event experience that rivals any in-person conference.

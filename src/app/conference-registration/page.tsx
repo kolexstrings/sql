@@ -81,7 +81,7 @@ export default function ConferenceRegistrationPage() {
                 Conference Registration Management
               </h1>
               <p className="text-base leading-relaxed text-gray-700">
-                Event registration is more than just accreditation — it's a
+                Event registration is more than just accreditation — it&apos;s a
                 vital opportunity to make a lasting impression on your
                 attendees. Done right, it sets a tone of professionalism,
                 organization, and process that enhances the entire conference
@@ -172,7 +172,7 @@ export default function ConferenceRegistrationPage() {
                 Whether you need us to configure the technology stack and train
                 your team, or to manage the entire registration program
                 end-to-end, we are ready and willing. Our registrations have
-                been called "seamless" by ThisDay Newspaper (June 2009), and we
+                been called &quot;seamless&quot; by ThisDay Newspaper (June 2009), and we
                 have delivered projects ranging from 200 to 9,000+ participants.
               </p>
               <p>

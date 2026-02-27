@@ -163,11 +163,11 @@ export default function LanyardsPage() {
               className={`${section1.inView ? "anim-up" : "hidden-anim"}`}
             >
               <p className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-800 leading-relaxed border-l-4 border-gray-900 pl-8">
-                "Lanyards are a fundamental component of event logistics — the critical link between attendee identification and secure, professional presentation."
+                &quot;Lanyards are a fundamental component of event logistics — the critical link between attendee identification and secure, professional presentation.&quot;
               </p>
               <div className="mt-10 grid md:grid-cols-2 gap-8 text-[15px] text-gray-600 leading-relaxed">
                 <p>
-                  Whether you require highly customised, branded lanyards to showcase your brand or sponsors and elevate your corporate identity, or need immediate supply of plain lanyards for general use — we offer a comprehensive range of materials, styles, and accessories to meet your event's exact needs and deadlines.
+                  Whether you require highly customised, branded lanyards to showcase your brand or sponsors and elevate your corporate identity, or need immediate supply of plain lanyards for general use — we offer a comprehensive range of materials, styles, and accessories to meet your event&apos;s exact needs and deadlines.
                 </p>
                 <p>
                   With a 30-day lead time we deliver any quantity of branded lanyards from source to your doorstep. For plain lanyards, we maintain ready stock for immediate dispatch across Nigeria.
@@ -190,7 +190,7 @@ export default function LanyardsPage() {
                 <span className="italic">Lanyards</span>
               </h2>
               <p className="mt-4 text-gray-400 max-w-lg leading-relaxed">
-                Transform your lanyards into powerful, wearable marketing tools and keepsakes. Branded lanyards offer significant sponsorship potential and ensure your organisation's identity is visible throughout the event and beyond.
+                Transform your lanyards into powerful, wearable marketing tools and keepsakes. Branded lanyards offer significant sponsorship potential and ensure your organisation&apos;s identity is visible throughout the event and beyond.
               </p>
             </div>
           </div>

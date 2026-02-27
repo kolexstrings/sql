@@ -441,7 +441,7 @@ export default function EventSoftwarePage() {
               />
               <div className="relative border border-gray-100 p-10 bg-[#fdf8fc]">
                 <p className="font-playfair text-lg italic text-gray-700 leading-relaxed mb-6" style={{ color: "#444" }}>
-                  "Our team comprises dedicated technology specialists, association experts, and seasoned event organisers who understand the industry's unique challenges."
+                  &quot;Our team comprises dedicated technology specialists, association experts, and seasoned event organisers who understand the industry&apos;s unique challenges.&quot;
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-px" style={{ background: "var(--brand)" }} />
@@ -538,11 +538,11 @@ export default function EventSoftwarePage() {
               Ready to get started?
             </p>
             <h2 className="font-playfair text-4xl md:text-5xl font-light text-white leading-snug mb-6">
-              Let's power your<br />
+              Let&apos;s power your<br />
               <em className="italic" style={{ color: "var(--brand-light)" }}>next event</em>
             </h2>
             <p className="font-jost text-white/50 text-sm leading-relaxed mb-10 max-w-lg mx-auto">
-              Talk to our team about which modules fit your event — we'll tailor a solution that works for your scale, budget, and goals.
+              Talk to our team about which modules fit your event — we&apos;ll tailor a solution that works for your scale, budget, and goals.
             </p>
             <a
               href="/contact"

@@ -337,7 +337,7 @@ export default function MembershipManagementPage() {
           <div className="relative z-10 max-w-2xl mx-auto" style={{ opacity:0, animation: ctaRef.inView?"fadeUp 0.8s 0s ease forwards":"none" }}>
             <p className="font-jost text-xs uppercase tracking-[0.5em] mb-5" style={{ color:"var(--brand-light)" }}>Ready to streamline your association?</p>
             <h2 className="font-playfair text-4xl md:text-5xl font-light text-white leading-snug mb-6">
-              Let's manage your<br /><em className="italic" style={{ color:"var(--brand-light)" }}>membership together</em>
+              Let&apos;s manage your<br /><em className="italic" style={{ color:"var(--brand-light)" }}>membership together</em>
             </h2>
             <p className="font-jost text-white/50 text-sm leading-relaxed mb-10 max-w-md mx-auto">
               From member record management and online forms to secure payment collection and bulk communications — Memberlogic gives your association the tools it needs to grow and thrive.

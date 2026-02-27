@@ -142,7 +142,7 @@ export default function ClientsPage() {
                   commitment to excellence, passion for innovation, and mastery of technology.
                 </p>
                 <p className="italic text-gray-800 border-l-2 border-gray-300 pl-4">
-                  "We are proud of every relationship we have built and every event we have delivered."
+                  &quot;We are proud of every relationship we have built and every event we have delivered.&quot;
                 </p>
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function ClientsPage() {
               {/* Left: large quote display */}
               <div className="bg-gray-900 text-white p-10 lg:p-14 flex flex-col justify-between min-h-[420px]">
                 <div>
-                  <span className="text-6xl font-light text-white/20 leading-none">"</span>
+                  <span className="text-6xl font-light text-white/20 leading-none">&quot;</span>
                   <p className="text-lg lg:text-xl font-light leading-relaxed text-white/90 mt-2">
                     {testimonials[current].quote}
                   </p>
@@ -264,7 +264,7 @@ export default function ClientsPage() {
             </div>
             <div className="space-y-4 font-sans">
               <p className="text-white/70 leading-relaxed text-[15px]">
-                Let's discuss how we can bring your vision to life with our comprehensive
+                Let&apos;s discuss how we can bring your vision to life with our comprehensive
                 event management solutions.
               </p>
               <div className="flex flex-wrap gap-4 pt-2">

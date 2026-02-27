@@ -327,7 +327,7 @@ export default function OnlineExhibitionPage() {
           <div className="relative z-10 max-w-2xl mx-auto" style={{ opacity:0, animation: ctaRef.inView?"fadeUp 0.8s 0s ease forwards":"none" }}>
             <p className="font-jost text-xs uppercase tracking-[0.5em] mb-5" style={{ color:"var(--brand-light)" }}>Ready to elevate your exhibition?</p>
             <h2 className="font-playfair text-4xl md:text-5xl font-light text-white leading-snug mb-6">
-              Let's power your<br /><em className="italic" style={{ color:"var(--brand-light)" }}>next exhibition</em>
+              Let&apos;s power your<br /><em className="italic" style={{ color:"var(--brand-light)" }}>next exhibition</em>
             </h2>
             <p className="font-jost text-white/50 text-sm leading-relaxed mb-10 max-w-md mx-auto">
               From booth management and floor planning to lead retrieval and custom booth design, our team will build the right exhibition solution for your event.

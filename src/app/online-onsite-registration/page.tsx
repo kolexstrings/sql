@@ -325,7 +325,7 @@ export default function OnlineOnsiteRegistrationPage() {
           <div className="relative z-10 max-w-2xl mx-auto" style={{ opacity:0, animation: ctaRef.inView?"fadeUp 0.8s 0s ease forwards":"none" }}>
             <p className="font-jost text-xs uppercase tracking-[0.5em] mb-5" style={{ color:"var(--brand-light)" }}>Ready to streamline your registration?</p>
             <h2 className="font-playfair text-4xl md:text-5xl font-light text-white leading-snug mb-6">
-              Let's set up your<br /><em className="italic" style={{ color:"var(--brand-light)" }}>registration system</em>
+              Let&apos;s set up your<br /><em className="italic" style={{ color:"var(--brand-light)" }}>registration system</em>
             </h2>
             <p className="font-jost text-white/50 text-sm leading-relaxed mb-10 max-w-md mx-auto">
               Whether you need a simple online form or a full end-to-end onsite solution with badging and equipment, our team will tailor the right package for your event.
