@@ -51,7 +51,7 @@ export default function Header({
   return (
     <>
       {/* ── Header bar ─────────────────────────────────────────── */}
-      <header className="relative z-10 px-4 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
+      <header className="sticky top-0 z-10 px-4 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
         {/* Logo */}
         <img
           src="/logo.png"
