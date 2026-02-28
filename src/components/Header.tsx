@@ -18,6 +18,16 @@ interface HeaderProps {
   showLogoText?: boolean;
 }
 
+const NAV_ITEMS = {
+  eventSoftware: [
+    { label: "Online & Onsite", href: "/online-onsite-registration" },
+    { label: "Online Abstract Management", href: "/online-abstract-management" },
+    { label: "Online Exhibition", href: "/online-exhibition" },
+    { label: "Virtual Event Platforms", href: "/virtual-event-platforms" },
+    { label: "Membership Management", href: "/membership-management" },
+  ],
+};
+
 export default function Header({
   variant = "light",
   showLogoText = true,
@@ -28,67 +38,70 @@ export default function Header({
 
   const isDark = variant === "dark";
 
+  const closeAll = () => {
+    setIsMobileMenuOpen(false);
+    setIsServicesExpanded(false);
+    setIsEventSoftwareExpanded(false);
+  };
+
+  // Hamburger icon: on dark-variant pages the header sits over a dark bg, so use white.
+  // On light pages the header is over a light bg, so use dark.
+  const hamburgerColor = isDark ? "text-white" : "text-gray-900";
+
   return (
     <>
-      {/* Header Section */}
-      <header
-        className={`relative z-10 px-16 py-2 md:py-2 flex justify-between items-center ${isDark ? "bg-white/40" : "bg-white/40"} backdrop-blur-sm`}
-      >
+      {/* ── Header bar ─────────────────────────────────────────── */}
+      <header className="relative z-10 px-4 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
+        {/* Logo */}
         <img
           src="/logo.png"
           alt="SqlEvents Logo"
-          className="h-24 w-auto ml-8 md:ml-24"
+          className="h-12 w-auto ml-4 md:h-24 md:ml-24"
           onError={(e) => {
-            // Fallback to text logo if image fails to load
             const target = e.currentTarget as HTMLElement;
-            const nextSibling = target.nextElementSibling as HTMLElement;
-            if (nextSibling) {
+            const next = target.nextElementSibling as HTMLElement | null;
+            if (next) {
               target.style.display = "none";
-              nextSibling.style.display = "block";
+              next.style.display = "block";
             }
           }}
         />
+
+        {/* Text fallback logo */}
         {showLogoText && (
           <div
-            className={`hidden text-xl font-semibold tracking-wide uppercase font-baskervville ml-8 md:ml-24`}
-            style={{
-              color: isDark ? "var(--brand-primary)" : "var(--brand-primary)",
-            }}
+            className="hidden text-xl font-semibold tracking-wide uppercase font-baskervville ml-4 md:ml-24"
+            style={{ color: "var(--brand-primary)" }}
           >
             SqlEvents
           </div>
         )}
 
-        {/* Hamburger Menu Button - Always visible */}
+        {/* Hamburger */}
         <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex items-center justify-center w-8 h-8 z-30 mr-8 md:mr-24 cursor-pointer"
-          aria-label={
-            isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
-          }
+          onClick={() => setIsMobileMenuOpen((v) => !v)}
+          className={`flex items-center justify-center w-8 h-8 z-30 mr-4 md:mr-24 cursor-pointer ${hamburgerColor}`}
+          aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
         >
           {isMobileMenuOpen ? (
-            <X
-              className={`h-6 w-6 ${isDark ? "text-white" : "text-gray-900"}`}
-            />
+            <X className="h-6 w-6" />
           ) : (
-            <Menu
-              className={`h-6 w-6 ${isDark ? "text-white" : "text-gray-900"}`}
-            />
+            <Menu className="h-6 w-6" />
           )}
         </button>
       </header>
 
-      {/* Slide-in Navigation Menu */}
+      {/* ── Slide-in nav panel ─────────────────────────────────── */}
       <nav
-        className={`fixed top-0 right-0 h-full w-80 ${isDark ? "bg-black/95" : "bg-black/95"} backdrop-blur-md border-l border-white/20 z-20 transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-80 bg-black/95 backdrop-blur-md border-l border-white/20 z-20 transition-transform duration-300 ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        aria-hidden={!isMobileMenuOpen}
       >
-        {/* Close button positioned over the menu */}
+        {/* Close button inside panel */}
         <div className="absolute top-6 right-8">
           <button
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={closeAll}
             className="flex items-center justify-center w-8 h-8 cursor-pointer"
             aria-label="Close navigation menu"
           >
@@ -97,31 +110,28 @@ export default function Header({
         </div>
 
         <div className="flex flex-col items-start justify-center h-full gap-6 px-8 font-baskervville w-full">
+
+          {/* About Us */}
           <Link
             href="/about-us"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
-              isDark ? "hover:text-white/70" : "hover:text-white/70"
-            }`}
+            onClick={closeAll}
+            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
           >
             <span>About Us</span>
-            <span className="text-xs opacity-0 select-none" aria-hidden>
-              ▼
-            </span>
           </Link>
+
+          {/* Our Services */}
           <div className="w-full">
             <button
               type="button"
-              onClick={() => setIsServicesExpanded((prev) => !prev)}
-              className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
-                isDark ? "hover:text-white/70" : "hover:text-white/70"
-              }`}
+              onClick={() => setIsServicesExpanded((v) => !v)}
+              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
             >
               <span>Our Services</span>
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
+                className={`h-4 w-4 text-white transition-transform duration-200 ${
                   isServicesExpanded ? "rotate-180" : "rotate-0"
-                } ${isDark ? "text-white" : "text-white"}`}
+                }`}
               />
             </button>
             <div
@@ -134,39 +144,33 @@ export default function Header({
             >
               <Link
                 href="/corporate-event-management"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsServicesExpanded(false);
-                }}
+                onClick={closeAll}
                 className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
               >
                 Corporate Events & Conference Management
               </Link>
               <Link
                 href="/conference-registration"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsServicesExpanded(false);
-                }}
+                onClick={closeAll}
                 className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
               >
                 Conference Registration Management
               </Link>
             </div>
           </div>
+
+          {/* Event Software */}
           <div className="w-full">
             <button
               type="button"
-              onClick={() => setIsEventSoftwareExpanded((prev) => !prev)}
-              className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
-                isDark ? "hover:text-white/70" : "hover:text-white/70"
-              }`}
+              onClick={() => setIsEventSoftwareExpanded((v) => !v)}
+              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
             >
               <span>Event Software</span>
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
+                className={`h-4 w-4 text-white transition-transform duration-200 ${
                   isEventSoftwareExpanded ? "rotate-180" : "rotate-0"
-                } ${isDark ? "text-white" : "text-white"}`}
+                }`}
               />
             </button>
             <div
@@ -177,37 +181,11 @@ export default function Header({
                   : "max-h-0 opacity-0 pointer-events-none mt-0"
               }`}
             >
-              {[
-  { label: "Online & Onsite", href: "/online-onsite-registration" },
-  {
-    label: "Online Abstract Management",
-    href: "/online-abstract-management",
-  },
-  {
-    label: "Online Exhibition",
-    href: "/online-exhibition",
-  },
-  {
-    label: "Delegate Scanning",
-    href: "/delegate-scanning",
-  },
-  {
-    label: "Virtual Event Platforms",
-    href: "/virtual-event-platforms",
-  },
-  {
-    label: "Membership Management",
-    href: "/membership-management",
-  },
-].map((item) => (
+              {NAV_ITEMS.eventSoftware.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsServicesExpanded(false);
-                    setIsEventSoftwareExpanded(false);
-                  }}
+                  onClick={closeAll}
                   className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
                 >
                   {item.label}
@@ -215,69 +193,51 @@ export default function Header({
               ))}
             </div>
           </div>
-          {/* <a
-            href="/event-rentals"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
-              isDark ? "hover:text-white/70" : "hover:text-white/70"
-            }`}
-          >
-            <span>Event Rentals</span>
-            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
-          </a> */}
+
+          {/* Lanyards Supply */}
           <a
             href="/lanyards-supply"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
-              isDark ? "hover:text-white/70" : "hover:text-white/70"
-            }`}
+            onClick={closeAll}
+            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
           >
             <span>Lanyards Supply</span>
-            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
-          </a>
-          <Link
-            href="/clients"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
-              isDark ? "hover:text-white/70" : "hover:text-white/70"
-            }`}
-          >
-            <span>Past Events Clients</span>
-            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
-          </Link>
-          <a
-            href="/gallery"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex w-full items-center justify-between text-base uppercase tracking-[0.2em] transition-colors font-baskervville text-left cursor-pointer ${
-              isDark ? "hover:text-white/70" : "hover:text-white/70"
-            }`}
-          >
-            <span>Gallery</span>
-            <ChevronDown className="h-3.5 w-3.5 opacity-0" aria-hidden />
           </a>
 
+          {/* Past Events Clients */}
+          <Link
+            href="/clients"
+            onClick={closeAll}
+            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
+          >
+            <span>Past Events Clients</span>
+          </Link>
+
+          {/* Gallery */}
+          <a
+            href="/gallery"
+            onClick={closeAll}
+            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
+          >
+            <span>Gallery</span>
+          </a>
+
+          {/* Contact Us CTA */}
           <button
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              setIsServicesExpanded(false);
-            }}
-            className={`border px-8 py-4 text-base uppercase tracking-[0.25em] transition-colors mt-6 font-baskervville w-full text-left cursor-pointer ${
-              isDark
-                ? "border-white/40 hover:bg-white hover:text-black"
-                : "border-white/40 hover:bg-white hover:text-black"
-            }`}
+            onClick={closeAll}
+            className="flex items-center gap-2 border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] text-white transition-colors mt-6 font-baskervville w-full hover:bg-white hover:text-black cursor-pointer"
           >
             <span>Contact Us</span>
             <ArrowUpRight className="h-4 w-4" />
           </button>
+
         </div>
       </nav>
 
-      {/* Overlay when menu is open */}
+      {/* ── Overlay ────────────────────────────────────────────── */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-10"
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={closeAll}
         />
       )}
     </>
