@@ -59,7 +59,8 @@ export default function AbstractManagementPage() {
         {/* Intro Section – kept the image */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-start">
-            <div className="relative order-last lg:order-first">
+
+            {/* <div className="relative order-last lg:order-first">
               <Image
                 src="/slider/photo4.jpg"
                 alt="African professionals in meeting"
@@ -67,7 +68,9 @@ export default function AbstractManagementPage() {
                 height={800}
                 className="w-full h-auto shadow-md"
               />
-            </div>
+            </div> */}
+
+
             <div className="space-y-6">
               <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-sans">Our Services</p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-baskervville">

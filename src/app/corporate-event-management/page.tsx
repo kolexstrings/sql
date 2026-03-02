@@ -98,14 +98,14 @@ export default function CorporateEventsPage() {
             </div>
 
             {/* Right: image */}
-            <div className="relative w-full h-80 lg:h-full min-h-[400px] overflow-hidden rounded-sm">
+            {/* <div className="relative w-full h-80 lg:h-full min-h-[400px] overflow-hidden rounded-sm">
               <Image
                 src="/1.jpg"
                 alt="SQL Events corporate event"
                 fill
                 className="object-cover"
               />
-            </div>
+            </div> */}
           </div>
         </section>
       </main>

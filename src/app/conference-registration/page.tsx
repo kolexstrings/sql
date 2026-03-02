@@ -86,7 +86,9 @@ export default function ConferenceRegistrationPage() {
         {/* Hero Section */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-start">
-            <div className="relative order-last lg:order-first">
+           
+           
+            {/* <div className="relative order-last lg:order-first">
               <Image
                 src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80"
                 alt="Conference registration desk"
@@ -94,7 +96,11 @@ export default function ConferenceRegistrationPage() {
                 height={800}
                 className="w-full h-auto shadow-md"
               />
-            </div>
+            </div> */}
+
+
+
+
             <div className="space-y-6">
               <p className="text-sm uppercase tracking-[0.3em] text-gray-500">
                 Our Services

@@ -166,9 +166,9 @@ export default function MembershipManagementPage() {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-start">
             {/* Image left — unique to this page (KEPT) */}
-            <div className="relative w-full h-80 lg:h-full min-h-[420px] overflow-hidden rounded-sm order-last lg:order-first">
+            {/* <div className="relative w-full h-80 lg:h-full min-h-[420px] overflow-hidden rounded-sm order-last lg:order-first">
               <Image src="/slider/photo1.jpeg" alt="Membership management" fill className="object-cover" />
-            </div>
+            </div> */}
 
             <div ref={overviewRef.ref}>
               <h2
