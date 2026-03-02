@@ -36,7 +36,6 @@ const offerings = [
       "Affiliation management for linked associations",
       "Multi-lingual interface for diverse member bases",
     ],
-    image: "/slider/photo6.jpg",
   },
   {
     id: "02",
@@ -51,7 +50,6 @@ const offerings = [
       "Members-only secure area for self-service data updates",
       "Event registration directly from the members portal",
     ],
-    image: "/slider/photo3.jpg",
   },
   {
     id: "03",
@@ -66,7 +64,6 @@ const offerings = [
       "Daily data backup and strict security protocols",
       "No third-party redirection — seamless member experience",
     ],
-    image: "/slider/photo7.jpeg",
   },
   {
     id: "04",
@@ -81,7 +78,6 @@ const offerings = [
       "Full integration with your existing database or CRM",
       "Powerful import and export engine for data synchronisation",
     ],
-    image: "/slider/photo2.jpg",
   },
 ];
 
@@ -123,7 +119,7 @@ export default function MembershipManagementPage() {
 
       <main className="bg-white text-gray-900">
 
-        {/* ── MOSAIC HERO ── */}
+        {/* ── MOSAIC HERO (IMAGES KEPT) ── */}
         <section className="relative w-full overflow-hidden" style={{ height: "520px" }}>
           <div
             className="absolute inset-0 grid gap-1"
@@ -166,10 +162,10 @@ export default function MembershipManagementPage() {
           </div>
         </section>
 
-        {/* ── OVERVIEW — image left, text right ── */}
+        {/* ── OVERVIEW — image left, text right (KEPT) ── */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-start">
-            {/* Image left — unique to this page */}
+            {/* Image left — unique to this page (KEPT) */}
             <div className="relative w-full h-80 lg:h-full min-h-[420px] overflow-hidden rounded-sm order-last lg:order-first">
               <Image src="/slider/photo1.jpeg" alt="Membership management" fill className="object-cover" />
             </div>
@@ -234,19 +230,8 @@ export default function MembershipManagementPage() {
           </div>
         </section>
 
-        {/* ── STATS BANNER ── */}
-        <section className="py-12 bg-gray-900 text-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-700">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-gray-900 px-8 py-10 text-center hover:bg-gray-800 transition-colors duration-200">
-                <p className="text-3xl md:text-4xl font-light text-white mb-2">{s.value}</p>
-                <p className="font-sans text-xs uppercase tracking-[0.35em] text-gray-400">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
 
-        {/* ── OFFERINGS — start image-right for variety ── */}
+        {/* ── OFFERINGS (IMAGES REMOVED, NOW SIDE BY SIDE TEXT BOXES) ── */}
         <section id="offerings" className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
             <div ref={offHeadRef.ref}>
@@ -265,11 +250,11 @@ export default function MembershipManagementPage() {
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-0">
-            {offerings.map((item, idx) => (
-              <div key={item.id} className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-                {/* starts card-left / image-right on even rows */}
-                <div className={`bg-gray-50 border border-gray-200 p-8 lg:p-10 flex flex-col justify-center ${idx % 2 === 1 ? "lg:order-2" : "lg:order-1"}`}>
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-6">
+            {offerings.map((item) => (
+              <div key={item.id} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* First text box - first 3 bullets */}
+                <div className="bg-gray-50 border border-gray-200 p-8 lg:p-10 flex flex-col justify-center h-full">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-xs uppercase tracking-widest text-gray-400 font-sans">{item.id}</span>
                     <div className="flex-1 h-px bg-gray-200" />
@@ -277,7 +262,7 @@ export default function MembershipManagementPage() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
                   <p className="font-sans text-[14px] text-gray-500 leading-relaxed mb-6">{item.description}</p>
                   <ul className="space-y-2.5">
-                    {item.bullets.map((pt) => (
+                    {item.bullets.slice(0, 3).map((pt) => (
                       <li key={pt} className="flex items-start gap-3 font-sans text-[13px] text-gray-500 leading-relaxed">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
                         {pt}
@@ -285,8 +270,25 @@ export default function MembershipManagementPage() {
                     ))}
                   </ul>
                 </div>
-                <div className={`relative h-72 lg:h-auto min-h-[300px] ${idx % 2 === 1 ? "lg:order-1" : "lg:order-2"}`}>
-                  <Image src={item.image} alt={item.title} fill className="object-cover" />
+
+                {/* Second text box - remaining bullets */}
+                <div className="bg-gray-50 border border-gray-200 p-8 lg:p-10 flex flex-col justify-center h-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-sans">Features</span>
+                    <div className="flex-1 h-px bg-gray-200" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Additional Capabilities</h3>
+                  <p className="font-sans text-[14px] text-gray-500 leading-relaxed mb-6">
+                    Enhanced functionality for your membership management
+                  </p>
+                  <ul className="space-y-2.5">
+                    {item.bullets.slice(3).map((pt) => (
+                      <li key={pt} className="flex items-start gap-3 font-sans text-[13px] text-gray-500 leading-relaxed">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
@@ -327,17 +329,10 @@ export default function MembershipManagementPage() {
           </div>
         </section>
 
-        {/* ── PHOTO STRIP ── */}
-        <section className="grid grid-cols-3">
-          {["/slider/photo4.jpg", "/slider/photo5.jpg", "/slider/photo7.jpeg"].map((src, i) => (
-            <div key={i} className="relative h-64 overflow-hidden group">
-              <Image src={src} alt={`SQL Events membership ${i}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-          ))}
-        </section>
+        {/* ── PHOTO STRIP (REMOVED) ── */}
 
         {/* ── CTA ── */}
-        <section ref={ctaRef.ref} className="py-20 bg-gray-900 text-white">
+        {/* <section ref={ctaRef.ref} className="py-20 bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
             <div style={{ opacity: 0, animation: ctaRef.inView ? "fadeUp 0.7s 0s ease forwards" : "none" }}>
               <p className="text-xs uppercase tracking-[0.35em] text-white/40 mb-4 font-sans">Ready to streamline your association?</p>
@@ -356,7 +351,7 @@ export default function MembershipManagementPage() {
                 grow and thrive.
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
-                <Link href="/contact" className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200">
+                <Link href="/contact-us" className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200">
                   Contact Us
                 </Link>
                 <Link href="/services" className="border border-white/30 text-white px-8 py-3 text-sm uppercase tracking-widest font-medium hover:border-white transition-colors duration-200">
@@ -364,6 +359,18 @@ export default function MembershipManagementPage() {
                 </Link>
               </div>
             </div>
+          </div>
+        </section> */}
+        
+        {/* ── STATS BANNER ── */}
+        <section className="py-12 bg-gray-900 text-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-700">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-gray-900 px-8 py-10 text-center hover:bg-gray-800 transition-colors duration-200">
+                <p className="text-3xl md:text-4xl font-light text-white mb-2">{s.value}</p>
+                <p className="font-sans text-xs uppercase tracking-[0.35em] text-gray-400">{s.label}</p>
+              </div>
+            ))}
           </div>
         </section>
 

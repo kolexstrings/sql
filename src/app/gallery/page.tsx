@@ -363,7 +363,7 @@ export default function GalleryPage() {
               technology, and elegance.
             </p>
             <a
-              href="/contact"
+              href="-us"
               className="inline-block font-jost text-xs uppercase tracking-[0.35em] px-10 py-4 text-white transition-colors duration-300"
               style={{ backgroundColor: "var(--brand)" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--brand-light)")}

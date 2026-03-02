@@ -36,7 +36,6 @@ const offerings = [
       "Real-time availability & booking status",
       "Supports physical and virtual exhibition formats",
     ],
-    image: "/slider/photo1.jpeg",
   },
   {
     id: "02",
@@ -51,7 +50,6 @@ const offerings = [
       "Real-time updates and exhibitor notifications",
       "Accessible anytime — desktop and mobile friendly",
     ],
-    image: "/slider/photo2.jpg",
   },
   {
     id: "03",
@@ -66,7 +64,6 @@ const offerings = [
       "Offline scanning capability with automatic sync",
       "Exportable lead reports for exhibitor CRM import",
     ],
-    image: "/slider/photo3.jpg",
   },
   {
     id: "04",
@@ -81,7 +78,6 @@ const offerings = [
       "Full supply, delivery, installation and teardown",
       "Suitable for conferences, trade shows & summits",
     ],
-    image: "/slider/photo4.jpg",
   },
 ];
 
@@ -120,7 +116,7 @@ export default function OnlineExhibitionPage() {
 
       <main className="bg-white text-gray-900">
 
-        {/* ── MOSAIC HERO ── */}
+        {/* ── MOSAIC HERO (IMAGES KEPT) ── */}
         <section className="relative w-full overflow-hidden" style={{ height: "520px" }}>
           <div
             className="absolute inset-0 grid gap-1"
@@ -220,19 +216,8 @@ export default function OnlineExhibitionPage() {
           </div>
         </section>
 
-        {/* ── STATS BANNER ── */}
-        <section className="py-12 bg-gray-900 text-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-700">
-            {stats.map((s) => (
-              <div key={s.label} className="bg-gray-900 px-8 py-10 text-center hover:bg-gray-800 transition-colors duration-200">
-                <p className="text-3xl md:text-4xl font-light text-white mb-2">{s.value}</p>
-                <p className="font-sans text-xs uppercase tracking-[0.35em] text-gray-400">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ── OFFERINGS ── */}
+    
+        {/* ── OFFERINGS (IMAGES REMOVED, NOW SIDE BY SIDE TEXT BOXES) ── */}
         <section id="offerings" className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
             <div ref={offHeadRef.ref}>
@@ -251,22 +236,37 @@ export default function OnlineExhibitionPage() {
             </div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-0">
-            {offerings.map((item, idx) => (
-              <div key={item.id} className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-                {/* Image */}
-                <div className={`relative h-72 lg:h-auto min-h-[300px] ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <Image src={item.image} alt={item.title} fill className="object-cover" />
-                  <div className="absolute top-4 left-4 bg-white/90 px-3 py-1">
-                    <span className="text-xs uppercase tracking-widest text-gray-500 font-sans">{item.id}</span>
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-6">
+            {offerings.map((item) => (
+              <div key={item.id} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* First text box */}
+                <div className="bg-white border border-gray-200 p-8 lg:p-10 flex flex-col justify-center h-full">
+                  <div className="mb-4">
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-sans">{item.id}</span>
                   </div>
-                </div>
-                {/* Content */}
-                <div className={`bg-white border border-gray-200 p-8 lg:p-10 flex flex-col justify-center ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
                   <p className="font-sans text-[14px] text-gray-500 leading-relaxed mb-6">{item.description}</p>
                   <ul className="space-y-2.5">
-                    {item.bullets.map((pt) => (
+                    {item.bullets.slice(0, 3).map((pt) => (
+                      <li key={pt} className="flex items-start gap-3 font-sans text-[13px] text-gray-500 leading-relaxed">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Second text box - remaining bullets */}
+                <div className="bg-white border border-gray-200 p-8 lg:p-10 flex flex-col justify-center h-full">
+                  <div className="mb-4">
+                    <span className="text-xs uppercase tracking-widest text-gray-400 font-sans">Features</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Key Capabilities</h3>
+                  <p className="font-sans text-[14px] text-gray-500 leading-relaxed mb-6">
+                    Additional features to enhance your exhibition experience
+                  </p>
+                  <ul className="space-y-2.5">
+                    {item.bullets.slice(3).map((pt) => (
                       <li key={pt} className="flex items-start gap-3 font-sans text-[13px] text-gray-500 leading-relaxed">
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
                         {pt}
@@ -279,43 +279,25 @@ export default function OnlineExhibitionPage() {
           </div>
         </section>
 
-        {/* ── PHOTO STRIP ── */}
-        <section className="grid grid-cols-3">
-          {["/slider/photo5.jpg", "/slider/photo6.jpg", "/slider/photo7.jpeg"].map((src, i) => (
-            <div key={i} className="relative h-64 overflow-hidden group">
-              <Image src={src} alt={`SQL Events exhibition ${i + 5}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-          ))}
-        </section>
+        {/* ── PHOTO STRIP (REMOVED) ── */}
 
         {/* ── CTA ── */}
         <section ref={ctaRef.ref} className="py-20 bg-gray-900 text-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
-            <div style={{ opacity: 0, animation: ctaRef.inView ? "fadeUp 0.7s 0s ease forwards" : "none" }}>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/40 mb-4 font-sans">Ready to elevate your exhibition?</p>
-              <h2 className="text-3xl md:text-4xl font-light leading-tight">
-                Let&apos;s power your<br />
-                <span className="italic">next exhibition</span>
-              </h2>
-            </div>
-            <div
-              className="space-y-4 font-sans"
-              style={{ opacity: 0, animation: ctaRef.inView ? "fadeUp 0.7s 0.15s ease forwards" : "none" }}
-            >
-              <p className="text-white/70 leading-relaxed text-[15px]">
-                From booth management and floor planning to lead retrieval and custom booth design,
-                our team will build the right exhibition solution for your event.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-2">
-                <Link href="/contact" className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200">
-                  Contact Us
-                </Link>
-                <Link href="/services" className="border border-white/30 text-white px-8 py-3 text-sm uppercase tracking-widest font-medium hover:border-white transition-colors duration-200">
-                  All Services
-                </Link>
+
+
+              {/* ── STATS BANNER ── */}
+        <section className="py-12 bg-gray-900 text-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-700">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-gray-900 px-8 py-10 text-center hover:bg-gray-800 transition-colors duration-200">
+                <p className="text-3xl md:text-4xl font-light text-white mb-2">{s.value}</p>
+                <p className="font-sans text-xs uppercase tracking-[0.35em] text-gray-400">{s.label}</p>
               </div>
-            </div>
+            ))}
           </div>
+          
+        </section>
+
         </section>
 
       </main>

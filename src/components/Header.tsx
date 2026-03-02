@@ -211,7 +211,6 @@ export default function Header({
           >
             <span>Past Events Clients</span>
           </Link>
-
           {/* Gallery */}
           <a
             href="/gallery"
@@ -221,14 +220,15 @@ export default function Header({
             <span>Gallery</span>
           </a>
 
-          {/* Contact Us CTA */}
-          <button
+          {/* Contact Us Nav Link */}
+          <a
+            href="/contact-us"
             onClick={closeAll}
-            className="flex items-center gap-2 border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] text-white transition-colors mt-6 font-baskervville w-full hover:bg-white hover:text-black cursor-pointer"
+            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
           >
             <span>Contact Us</span>
             <ArrowUpRight className="h-4 w-4" />
-          </button>
+          </a>
 
         </div>
       </nav>

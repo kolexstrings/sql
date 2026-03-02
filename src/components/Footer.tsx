@@ -63,7 +63,7 @@ export default function Footer() {
                 { label: "Lanyards Supply",  href: "/lanyards" },
                 { label: "Our Clients",      href: "/clients" },
                 { label: "Gallery",          href: "/gallery" },
-                { label: "Contact Us",       href: "/contact" },
+                { label: "Contact Us",       href: "/contact-us" },
               ].map((l) => (
                 <Link key={l.label} href={l.href} className="font-sans text-sm text-gray-400 hover:text-white transition-colors duration-200">
                   {l.label}

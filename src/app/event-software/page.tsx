@@ -350,7 +350,7 @@ export default function EventSoftwarePage() {
                   Explore Modules
                 </a>
                 <a
-                  href="/contact"
+                  href="/contact-us"
                   className="font-jost text-xs uppercase tracking-[0.35em] px-8 py-3.5 text-white/80 border border-white/20 hover:border-white/50 hover:text-white transition-all duration-300"
                 >
                   Get in Touch
@@ -545,7 +545,7 @@ export default function EventSoftwarePage() {
               Talk to our team about which modules fit your event — we&apos;ll tailor a solution that works for your scale, budget, and goals.
             </p>
             <a
-              href="/contact"
+              href="/contact-us"
               className="inline-block font-jost text-xs uppercase tracking-[0.4em] px-12 py-4 text-white transition-all duration-300"
               style={{ background: "var(--brand)" }}
               onMouseEnter={(e) => (e.currentTarget.style.background = "var(--brand-light)")}

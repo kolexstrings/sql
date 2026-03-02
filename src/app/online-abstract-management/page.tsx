@@ -6,11 +6,12 @@ import Header from "@/components/Header";
 
 export default function AbstractManagementPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-['Cormorant_Garamond',Georgia,serif]">
       <Header />
 
       <main className="bg-white text-gray-900">
-        {/* ── MOSAIC HERO HEADER ── */}
+
+        {/* ── MOSAIC HERO HEADER ── (kept unchanged) */}
         <section className="relative w-full overflow-hidden" style={{ height: "520px" }}>
           <div
             className="absolute inset-0 grid gap-1"
@@ -55,7 +56,7 @@ export default function AbstractManagementPage() {
           </div>
         </section>
 
-        {/* Intro Section */}
+        {/* Intro Section – kept the image */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-start">
             <div className="relative order-last lg:order-first">
@@ -68,7 +69,7 @@ export default function AbstractManagementPage() {
               />
             </div>
             <div className="space-y-6">
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-500">Our Services</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-sans">Our Services</p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-baskervville">
                 Abstracts Management
               </h2>
@@ -88,128 +89,93 @@ export default function AbstractManagementPage() {
           </div>
         </section>
 
-        {/* Body Copy */}
+        {/* Body Copy + Key Offerings – images removed from here downward */}
         <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-6 text-base text-gray-700 leading-relaxed">
-            <p>
-              Your Reviewers get and review abstracts online. They can review anytime and from
-              anywhere they are in the world. It is stress free and easy for both submitters and
-              administrators.
-            </p>
-            <p>
-              We will manage the entire Abstract process for you. The Presentation Schedules for
-              Oral Abstracts designed by our Software can be inserted into the Conference Bags of
-              Participants or shown in the Mobile App and uploaded on the Conference Website.
-            </p>
-            <p>
-              With our system, you can extend the Abstract submission process to any timeframe
-              you want and still meet conference timelines comfortably. We have a unique and
-              exclusive way of presenting Poster Abstracts.
-            </p>
-
-        
-
-            {/* Key Offerings heading */}
-            <h3 className="text-2xl font-bold text-gray-900 font-baskervville pt-4">
-              Key Offerings
-            </h3>
-
-            {/* ── ROW 1: image left, card right ── */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-              <div className="relative h-64 lg:h-auto min-h-[260px]">
-                <Image
-                  src="/slider/photo1.jpeg"
-                  alt="Abstract Software"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="bg-gray-50 border border-gray-200 p-8 flex flex-col justify-center">
-                <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-3">
-                  Abstract Software &amp; Services
-                </p>
-                <p className="text-gray-700 leading-relaxed text-[15px]">
-                  A dedicated online portal designed to fit your brand and website for submitting
-                  and scoring abstracts, ensuring a fair and anonymous peer-review process.
-                  Includes professional Abstract Services support for authors and reviewers.
-                </p>
-              </div>
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-10">
+            <div className="space-y-6 text-base text-gray-700 leading-relaxed">
+              <p>
+                Your Reviewers get and review abstracts online. They can review anytime and from
+                anywhere they are in the world. It is stress free and easy for both submitters and
+                administrators.
+              </p>
+              <p>
+                We will manage the entire Abstract process for you. The Presentation Schedules for
+                Oral Abstracts designed by our Software can be inserted into the Conference Bags of
+                Participants or shown in the Mobile App and uploaded on the Conference Website.
+              </p>
+              <p>
+                With our system, you can extend the Abstract submission process to any timeframe
+                you want and still meet conference timelines comfortably. We have a unique and
+                exclusive way of presenting Poster Abstracts.
+              </p>
             </div>
 
-            {/* ── ROW 2: card left, image right ── */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-              <div className="bg-gray-50 border border-gray-200 p-8 flex flex-col justify-center order-2 lg:order-1">
-                <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-3">
-                  Programme &amp; Agenda Management
-                </p>
-                <p className="text-gray-700 leading-relaxed text-[15px]">
-                  Tools to build, schedule, and organise the entire event programme, handling
-                  track assignments, room logistics, and speaker confirmations.
-                </p>
-              </div>
-              <div className="relative h-64 lg:h-auto min-h-[260px] order-1 lg:order-2">
-                <Image
-                  src="/slider/photo2.jpg"
-                  alt="Programme Management"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
+            {/* Key Offerings – text cards side by side */}
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 font-baskervville mb-10">
+                Key Offerings
+              </h3>
 
-            {/* ── ROW 3: image left, card right ── */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-              <div className="relative h-64 lg:h-auto min-h-[260px]">
-                <Image
-                  src="/slider/photo3.jpg"
-                  alt="Digital Content"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="bg-gray-50 border border-gray-200 p-8 flex flex-col justify-center">
-                <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-3">
-                  Digital Content Publication
-                </p>
-                <p className="text-gray-700 leading-relaxed text-[15px]">
-                  Creation of the official Abstract Book in both print and digital formats.
-                  Development of an Interactive Library for post-event browsing and searching of
-                  accepted content. Advanced digital presentation options via ePosters/iPosters
-                  and Poster Services for high-impact visual delivery. Management of Awards
-                  Software for reviewing and honouring outstanding contributions.
-                </p>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                {/* Card 1 */}
+                <div className="bg-gray-50 border border-gray-200 p-8 lg:p-10">
+                  <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4 font-sans">
+                    Abstract Software &amp; Services
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-[15px]">
+                    A dedicated online portal designed to fit your brand and website for submitting
+                    and scoring abstracts, ensuring a fair and anonymous peer-review process.
+                    Includes professional Abstract Services support for authors and reviewers.
+                  </p>
+                </div>
+
+                {/* Card 2 */}
+                <div className="bg-gray-50 border border-gray-200 p-8 lg:p-10">
+                  <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4 font-sans">
+                    Programme &amp; Agenda Management
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-[15px]">
+                    Tools to build, schedule, and organise the entire event programme, handling
+                    track assignments, room logistics, and speaker confirmations.
+                  </p>
+                </div>
+
+                {/* Card 3 – full width for longer content */}
+                <div className="bg-gray-50 border border-gray-200 p-8 lg:p-10 lg:col-span-2">
+                  <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4 font-sans">
+                    Digital Content Publication
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-[15px]">
+                    Creation of the official Abstract Book in both print and digital formats.
+                    Development of an Interactive Library for post-event browsing and searching of
+                    accepted content. Advanced digital presentation options via ePosters/iPosters
+                    and Poster Services for high-impact visual delivery. Management of Awards
+                    Software for reviewing and honouring outstanding contributions.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Highlight Section */}
-        <section
-          className="relative py-20 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1920&q=80')",
-          }}
-        >
-          <div
-            className="absolute inset-0 opacity-90"
-            style={{ backgroundColor: "var(--brand-primary)" }}
-          />
-          <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-white">
-            <div className="grid md:grid-cols-2 gap-10">
+        {/* Highlight Section – removed background image, kept solid color */}
+        <section className="py-20 bg-gray-900 text-white">
+          <div className="max-w-6xl mx-auto px-6 lg:px-12">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-white/80 mb-4">
+                <p className="text-sm uppercase tracking-[0.3em] text-white/60 mb-4 font-sans">
                   Why it matters
                 </p>
-                <h2 className="text-3xl font-baskervville font-bold mb-4">
+                <h2 className="text-3xl md:text-4xl font-baskervville font-bold mb-6">
                   A smarter, fully digital abstract workflow
                 </h2>
-                <p className="text-white/90 leading-relaxed">
+                <p className="text-white/90 leading-relaxed text-lg">
                   From first submission to final publication, Abstractlogic removes friction at
                   every step — for organisers, reviewers, and authors alike. One platform, every
                   touchpoint, zero paper.
                 </p>
               </div>
+
               <div className="grid sm:grid-cols-2 gap-6">
                 {[
                   "100% Online Submission",
@@ -217,14 +183,18 @@ export default function AbstractManagementPage() {
                   "ePosters & iPosters",
                   "Digital Abstract Book",
                 ].map((stat) => (
-                  <div key={stat} className="bg-white/10 border border-white/20 p-6 text-center">
-                    <p className="text-base font-semibold tracking-wide">{stat}</p>
+                  <div
+                    key={stat}
+                    className="bg-white/10 border border-white/20 p-6 text-center rounded-sm"
+                  >
+                    <p className="text-base font-medium tracking-wide">{stat}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
         </section>
+
       </main>
 
       <Footer />

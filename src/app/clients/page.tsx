@@ -148,7 +148,7 @@ export default function ClientsPage() {
             </div>
 
             <div className="relative w-full h-80 lg:h-full min-h-[400px] overflow-hidden rounded-sm">
-              <Image src="/photo1.jpeg" alt="SQL Events clients" fill className="object-cover" />
+              <Image src="/slider/photo1.jpeg" alt="SQL Events clients" fill className="object-cover" />
             </div>
           </div>
         </section>
@@ -180,7 +180,7 @@ export default function ClientsPage() {
               {/* Right: nav + image */}
               <div className="flex flex-col">
                 <div className="relative flex-1 min-h-[260px]">
-                  <Image src="/photo2.jpg" alt="Client event" fill className="object-cover" />
+                  <Image src="/slider/photo2.jpg" alt="Client event" fill className="object-cover" />
                 </div>
                 <div className="bg-white border border-gray-200 border-t-0 px-8 py-5 flex items-center justify-between">
                   {/* Prev / Next */}
@@ -242,15 +242,15 @@ export default function ClientsPage() {
         </section>
 
         {/* ── PHOTO STRIP ── */}
-        <section className="py-0">
+        {/* <section className="py-0">
           <div className="grid grid-cols-2 md:grid-cols-4">
-            {["/photo3.jpg", "/photo4.jpg", "/photo5.jpg", "/photo6.jpg"].map((src, i) => (
+            {["/photo3.jpg", "/slider/photo4.jpg", "/photo5.jpg", "/photo6.jpg"].map((src, i) => (
               <div key={i} className="relative h-56 overflow-hidden group">
                 <Image src={src} alt={`SQL Events client event ${i + 3}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* ── CTA ── */}
         <section className="py-20 bg-gray-900 text-white">
@@ -269,7 +269,7 @@ export default function ClientsPage() {
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200"
                 >
                   Start Your Project

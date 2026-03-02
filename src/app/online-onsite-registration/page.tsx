@@ -219,83 +219,67 @@ export default function OnlineOnsiteRegistrationPage() {
           </div>
         </section>
 
-        {/* ── LICENCE OPTIONS ── */}
-        <section className="py-12 bg-gray-900 text-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-3 gap-px bg-gray-700">
-            {licenceOptions.map((opt) => (
-              <div key={opt.title} className="bg-gray-900 px-8 py-10 hover:bg-gray-800 transition-colors duration-200">
-                <h3 className="text-lg font-semibold text-white mb-3">{opt.title}</h3>
-                <p className="font-sans text-sm text-gray-400 leading-relaxed">{opt.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+   
 
-        {/* ── OFFERINGS ── */}
-        <section id="offerings" className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div ref={offHeadRef.ref} className="mb-12">
-              <p
-                className="text-xs uppercase tracking-[0.35em] text-gray-400 mb-2 font-sans"
-                style={{ opacity: 0, animation: offHeadRef.inView ? "fadeUp 0.5s 0s ease forwards" : "none" }}
+     {/* ── OFFERINGS ── */}
+<section id="offerings" className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <div ref={offHeadRef.ref} className="mb-12">
+      <p
+        className="text-xs uppercase tracking-[0.35em] text-gray-400 mb-2 font-sans"
+        style={{ opacity: 0, animation: offHeadRef.inView ? "fadeUp 0.5s 0s ease forwards" : "none" }}
+      >
+        Key Offerings
+      </p>
+      <h2
+        className="text-2xl font-semibold text-gray-900"
+        style={{ opacity: 0, animation: offHeadRef.inView ? "fadeUp 0.6s 0.1s ease forwards" : "none" }}
+      >
+        Everything You Need, All in One Place
+      </h2>
+    </div>
+
+    {/* Changed layout: grid of text cards — 1 column mobile, 2 columns desktop */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      {offerings.map((item) => (
+        <div
+          key={item.id}
+          className="bg-white border border-gray-200 p-8 lg:p-10 flex flex-col"
+        >
+          {/* Number badge */}
+          <div className="inline-block bg-gray-100 px-3 py-1 mb-6">
+            <span className="text-xs uppercase tracking-widest text-gray-500 font-sans">
+              {item.id}
+            </span>
+          </div>
+
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
+          
+          <p className="font-sans text-[14px] text-gray-600 leading-relaxed mb-6">
+            {item.description}
+          </p>
+
+          <ul className="space-y-2.5 mt-auto">
+            {item.bullets.map((pt) => (
+              <li
+                key={pt}
+                className="flex items-start gap-3 font-sans text-[13px] text-gray-600 leading-relaxed"
               >
-                Key Offerings
-              </p>
-              <h2
-                className="text-2xl font-semibold text-gray-900"
-                style={{ opacity: 0, animation: offHeadRef.inView ? "fadeUp 0.6s 0.1s ease forwards" : "none" }}
-              >
-                Everything You Need, All in One Place
-              </h2>
-            </div>
-
-            <div className="space-y-0">
-              {offerings.map((item, idx) => (
-                <div
-                  key={item.id}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch"
-                >
-                  {/* Image */}
-                  <div className={`relative h-72 lg:h-auto min-h-[300px] ${idx % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <Image src={item.image} alt={item.title} fill className="object-cover" />
-                    <div className="absolute top-4 left-4 bg-white/90 px-3 py-1">
-                      <span className="text-xs uppercase tracking-widest text-gray-500 font-sans">{item.id}</span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className={`bg-white border border-gray-200 p-8 lg:p-10 flex flex-col justify-center ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
-                    <p className="font-sans text-[14px] text-gray-500 leading-relaxed mb-6">{item.description}</p>
-                    <ul className="space-y-2.5">
-                      {item.bullets.map((pt) => (
-                        <li key={pt} className="flex items-start gap-3 font-sans text-[13px] text-gray-500 leading-relaxed">
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
-                          {pt}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── PHOTO STRIP ── */}
-        <section className="py-0">
-          <div className="grid grid-cols-3">
-            {["/slider/photo5.jpg", "/slider/photo6.jpg", "/slider/photo7.jpeg"].map((src, i) => (
-              <div key={i} className="relative h-56 overflow-hidden group">
-                <Image src={src} alt={`SQL Events registration ${i + 5}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-500 flex-shrink-0" />
+                {pt}
+              </li>
             ))}
-          </div>
-        </section>
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+ 
 
         {/* ── CTA ── */}
         <section ref={ctaRef.ref} className="py-20 bg-gray-900 text-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
+          {/* <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
             <div style={{ opacity: 0, animation: ctaRef.inView ? "fadeUp 0.7s 0s ease forwards" : "none" }}>
               <p className="text-xs uppercase tracking-[0.35em] text-white/40 mb-4 font-sans">Ready to streamline your registration?</p>
               <h2 className="text-3xl md:text-4xl font-light leading-tight">
@@ -326,7 +310,20 @@ export default function OnlineOnsiteRegistrationPage() {
                 </Link>
               </div>
             </div>
+          </div> */}
+
+
+               {/* ── LICENCE OPTIONS ── */}
+        <section className="py-12 bg-gray-900 text-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-3 gap-px bg-gray-700">
+            {licenceOptions.map((opt) => (
+              <div key={opt.title} className="bg-gray-900 px-8 py-10 hover:bg-gray-800 transition-colors duration-200">
+                <h3 className="text-lg font-semibold text-white mb-3">{opt.title}</h3>
+                <p className="font-sans text-sm text-gray-400 leading-relaxed">{opt.desc}</p>
+              </div>
+            ))}
           </div>
+        </section>
         </section>
 
       </main>
