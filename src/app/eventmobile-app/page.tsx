@@ -76,7 +76,7 @@ export default function EventMobileAppPage() {
                 <p>
                   Our Event Mobile App is the ultimate in audience engagement software. We create
                   bespoke Mobile Apps using our multiplatform app builder — tailored to your
-                  event's identity and audience.
+                  event&apos;s identity and audience.
                 </p>
                 <p>
                   Our App keeps your attendees up to date, increases participant interaction, and
