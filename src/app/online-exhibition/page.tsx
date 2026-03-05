@@ -128,7 +128,7 @@ export default function OnlineExhibitionPage() {
             }}
           >
             <div className="col-span-2 row-span-3 relative overflow-hidden">
-              <Image src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop" alt="Conference audience" fill className="object-cover" />
+              <Image src="/1.jpg" alt="Conference audience" fill className="object-cover" />
             </div>
             <div className="col-span-2 row-span-2 relative overflow-hidden">
               <Image src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop" alt="Event setup" fill className="object-cover" />

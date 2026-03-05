@@ -26,11 +26,15 @@ const clients = [
 
 const testimonials = [
   {
-    name: "Dr. Adaeze Oreh",
-    role: "Director General",
-    org: "Nigerian Medical Association",
+    name: "Thisday Newspaper - April 20, 2009",
+    role: "participants",
+    org: "Flawless Registration Heralds NBA Conference",
     quote:
-      "SQL Events delivered an outstanding conference experience for our annual general meeting. Their registration technology handled over 4,000 delegates seamlessly, and the on-site team was professional and attentive throughout.",
+      "One of the notable highlights of this year's 4th Annual conference of the Section on Business Law of Nigerian Bar Association was the flawless registration of the participants who numbered over 800. In spite of the fact that this year's programme was expanded in scope and attracted a greater number of delegates across the globe than previous conferences, there was no hiccup often associated with registration.The 4th Annual Conference of the Nigerian Bar Association's Section on Business Law (SBL) in 2009 featured a technology-driven, 'hitch-free' registration process managed by SQL Events Nigeria.",
+
+
+
+
     initials: "AO",
     color: "#1a5276",
   },

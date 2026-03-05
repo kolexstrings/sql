@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -10,7 +11,7 @@ export default function AboutPage() {
       <Header />
 
       <main className="bg-white text-gray-900">
-        {/* ── MOSAIC HERO ── */}
+        {/* ── MOSAIC HERO (IMAGES KEPT) ── */}
         <section className="relative w-full overflow-hidden" style={{ height: "520px" }}>
           <div
             className="absolute inset-0 grid gap-1"
@@ -61,7 +62,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── WHO WE ARE ── */}
+        {/* ── WHO WE ARE (TEXT SIDE BY SIDE) ── */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -79,6 +80,11 @@ export default function AboutPage() {
                   the eventual delivery of their events and projects. Our goal is to offer our clients
                   a first-rate international event experience, no matter the size.
                 </p>
+              </div>
+            </div>
+
+            <div>
+              <div className="space-y-5 text-[15px] leading-relaxed text-gray-600 font-sans">
                 <p>
                   With our well-trained and experienced staff, we provide expertise in every aspect
                   of the Event Process. We incorporate software and technology in every aspect of our
@@ -91,14 +97,10 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-
-            <div className="relative w-full h-80 lg:h-full min-h-[400px] overflow-hidden rounded-sm">
-              <Image src="/slider/photo1.jpeg" alt="SQL Events team at work" fill className="object-cover" />
-            </div>
           </div>
         </section>
 
-        {/* ── VISION & MISSION ── */}
+        {/* ── VISION & MISSION (SIDE BY SIDE) ── */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12">
             <div className="border border-gray-200 bg-white p-8 rounded-sm">
@@ -127,23 +129,12 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Supporting images below vision/mission cards */}
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-10 grid grid-cols-3 gap-4">
-            {["/slider/photo2.jpg", "/slider/photo3.jpg", "/slider/photo4.jpg"].map((src, i) => (
-              <div key={i} className="relative h-48 overflow-hidden rounded-sm">
-                <Image src={src} alt={`SQL Events highlight ${i + 2}`} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
+          {/* Supporting images (REMOVED) */}
         </section>
 
-        {/* ── WHAT WE DO ── */}
+        {/* ── WHAT WE DO (TEXT SIDE BY SIDE) ── */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-start">
-            <div className="relative w-full h-80 lg:h-full min-h-[400px] overflow-hidden rounded-sm">
-              <Image src="/slider/photo5.jpg" alt="SQL Events conference" fill className="object-cover" />
-            </div>
-
             <div>
               <h2 className="text-2xl font-semibold text-gray-900 mb-6 font-['Cormorant_Garamond',Georgia,serif]">
                 What We Do
@@ -158,6 +149,11 @@ export default function AboutPage() {
                   Exhibitions, Seminars, Workshops, Festivals, Entertainment Shows, Product
                   Launches, Award Nights, and much more.
                 </p>
+              </div>
+            </div>
+
+            <div>
+              <div className="space-y-5 text-[15px] leading-relaxed text-gray-600 font-sans">
                 <p>
                   Whether you are an international organisation, a Federal Government Agency, a
                   State Government, or a private sector company, we bring the same level of
@@ -185,18 +181,46 @@ export default function AboutPage() {
                   </span>
                 ))}
               </div>
-
-              <div className="mt-8 grid grid-cols-2 gap-3">
-                {["/slider/photo6.jpg", "/slider/photo7.jpeg"].map((src, i) => (
-                  <div key={i} className="relative h-36 overflow-hidden rounded-sm">
-                    <Image src={src} alt={`SQL Events ${i + 6}`} fill className="object-cover" />
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
+
+          
         </section>
+        
       </main>
+      
+              {/* ── CTA ── */}
+              <section className="py-20 bg-gray-900 text-white">
+                <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.35em] text-white/40 mb-4 font-sans">Work With Us</p>
+                    <h2 className="text-3xl md:text-4xl font-light leading-tight">
+                      Ready to join our<br />
+                      <span className="italic">success stories?</span>
+                    </h2>
+                  </div>
+                  <div className="space-y-4 font-sans">
+                    <p className="text-white/70 leading-relaxed text-[15px]">
+                      Let&apos;s discuss how we can bring your vision to life with our comprehensive
+                      event management solutions.
+                    </p>
+                    <div className="flex flex-wrap gap-4 pt-2">
+                      <Link
+                        href="/contact-us"
+                        className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200"
+                      >
+                        Start Your Project
+                      </Link>
+                      <Link
+                        href="/corporate-event-management"
+                        className="border border-white/30 text-white px-8 py-3 text-sm uppercase tracking-widest font-medium hover:border-white transition-colors duration-200"
+                      >
+                        Our Services
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </section>
 
       <Footer />
     </div>

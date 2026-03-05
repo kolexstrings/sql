@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Link from "next/link";
 
 export default function CorporateEventsPage() {
 
@@ -108,7 +109,42 @@ export default function CorporateEventsPage() {
             </div> */}
           </div>
         </section>
+
       </main>
+      
+      
+        {/* ── CTA ── */}
+        <section className="py-20 bg-gray-900 text-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-white/40 mb-4 font-sans">Work With Us</p>
+              <h2 className="text-3xl md:text-4xl font-light leading-tight">
+                Ready to join our<br />
+                <span className="italic">success stories?</span>
+              </h2>
+            </div>
+            <div className="space-y-4 font-sans">
+              <p className="text-white/70 leading-relaxed text-[15px]">
+                Let&apos;s discuss how we can bring your vision to life with our comprehensive
+                event management solutions.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Link
+                  href="/contact-us"
+                  className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200"
+                >
+                  Start Your Project
+                </Link>
+                <Link
+                  href="/corporate-event-management"
+                  className="border border-white/30 text-white px-8 py-3 text-sm uppercase tracking-widest font-medium hover:border-white transition-colors duration-200"
+                >
+                  Our Services
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
       <Footer />
     </div>

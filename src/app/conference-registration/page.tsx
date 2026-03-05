@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Link from "next/link";
 
 export default function ConferenceRegistrationPage() {
   return (
@@ -202,49 +203,42 @@ export default function ConferenceRegistrationPage() {
           </div>
         </section>
 
-        {/* Highlight Section */}
-        <section
-          className="relative py-20"
-          style={{ backgroundColor: "var(--brand-primary)" }}
-        >
-          <div className="max-w-6xl mx-auto px-6 lg:px-12 text-white">
-            <div className="grid md:grid-cols-2 gap-10">
-              <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-white/80 mb-4">
-                  Why it matters
-                </p>
-                <h2 className="text-3xl font-baskervville font-bold mb-4">
-                  Registration sets the tone for the entire event
-                </h2>
-                <p className="text-white/90 leading-relaxed">
-                  We create an immediate sense of order and hospitality,
-                  combining technology and human touch to welcome every
-                  participant. From online pre-event journeys to onsite badge
-                  printing, we maintain the same premium standard your attendees
-                  expect throughout the conference.
-                </p>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {[
-                  "9,000+ Participants",
-                  "40% Experience Impact",
-                  "30-day Lanyard Supply",
-                  "Seamless Since 2009",
-                ].map((stat) => (
-                  <div
-                    key={stat}
-                    className="bg-white/10 border border-white/20 p-6 text-center"
-                  >
-                    <p className="text-base font-semibold tracking-wide">
-                      {stat}
-                    </p>
-                  </div>
-                ))}
+      
+      </main>
+
+      
+        {/* ── CTA ── */}
+        <section className="py-20 bg-gray-900 text-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-white/40 mb-4 font-sans">Work With Us</p>
+              <h2 className="text-3xl md:text-4xl font-light leading-tight">
+                Ready to join our<br />
+                <span className="italic">success stories?</span>
+              </h2>
+            </div>
+            <div className="space-y-4 font-sans">
+              <p className="text-white/70 leading-relaxed text-[15px]">
+                Let&apos;s discuss how we can bring your vision to life with our comprehensive
+                event management solutions.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Link
+                  href="/contact-us"
+                  className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200"
+                >
+                  Start Your Project
+                </Link>
+                <Link
+                  href="/corporate-event-management"
+                  className="border border-white/30 text-white px-8 py-3 text-sm uppercase tracking-widest font-medium hover:border-white transition-colors duration-200"
+                >
+                  Our Services
+                </Link>
               </div>
             </div>
           </div>
         </section>
-      </main>
 
       <Footer />
     </div>

@@ -9,45 +9,45 @@ import Footer from "@/components/Footer";
 const testimonials = [
   {
     quote:
-      "SqlEvents transformed our annual conference into an extraordinary experience. Their attention to detail, innovative approach, and seamless execution exceeded all our expectations. The event was flawless from start to finish.",
-    name: "Sarah Johnson",
-    role: "Event Director",
-    company: "TechCorp International",
+      "One of the notable highlights of this year's 4th Annual Conference was the flawless registration of the participants who numbered over 800. In spite of the expanded scope and greater number of delegates from across the globe, there was no hiccup often associated with registration.",
+    name: "Thisday Newspaper",
+    role: "April 20, 2009",
+    company: "NBA Section on Business Law Conference",
   },
   {
     quote:
-      "Working with SqlEvents was a game-changer for our product launch event. They handled everything from venue selection to technical production with professionalism and creativity. Our attendees were blown away by the experience.",
-    name: "Michael Chen",
-    role: "Marketing Manager",
-    company: "InnovateLab",
-  },
-  {
-    quote:
-      "The team at SqlEvents made our corporate retreat both productive and memorable. Their expertise in team-building activities and event coordination created the perfect balance of work and engagement for our executive team.",
-    name: "Dr. Amanda Rodriguez",
-    role: "HR Director",
-    company: "Global Pharma Solutions",
-  },
-  {
-    quote:
-      "We've partnered with SqlEvents for three consecutive years for our industry summit. Their reliability, innovation, and commitment to excellence make them our go-to event management partner. Highly recommended!",
-    name: "James Thompson",
+      "SQL Events Nigeria delivered an exceptionally well-organised conference. From delegate management to onsite coordination, every detail was handled with professionalism. Our members were thoroughly impressed with the seamless experience.",
+    name: "Barrister Chukwuemeka Obi",
     role: "Conference Chair",
-    company: "National Industry Association",
+    company: "Nigerian Bar Association",
   },
   {
     quote:
-      "The virtual event SqlEvents produced for us during the pandemic was outstanding. They seamlessly adapted our in-person conference to a digital format while maintaining the same level of engagement and interaction.",
-    name: "Prof. Elena Volkov",
-    role: "Academic Conference Organizer",
-    company: "International Research Institute",
+      "We have worked with SQL Events Nigeria on multiple occasions and they consistently exceed our expectations. Their technology-driven approach to registration and event management sets them apart from any other provider we have engaged.",
+    name: "Dr. Ngozi Adeyemi",
+    role: "Director of Programmes",
+    company: "Lagos Business Summit",
   },
   {
     quote:
-      "From concept to execution, SqlEvents delivered perfection. Their understanding of our brand and audience needs resulted in an event that not only met but exceeded our strategic objectives. A true partnership!",
-    name: "Robert Kim",
-    role: "Brand Director",
-    company: "Luxury Lifestyle Group",
+      "The level of attention to detail and the professionalism of the SQL Events team made our annual general meeting the most successful we have ever held. We would not hesitate to engage them again for future events.",
+    name: "Alhaji Musa Abdullahi",
+    role: "Secretary General",
+    company: "National Association of Nigerian Manufacturers",
+  },
+  {
+    quote:
+      "Our international conference attracted delegates from over 30 countries and SQL Events Nigeria handled every aspect of the registration and event logistics with remarkable efficiency. A truly world-class operation.",
+    name: "Prof. Adaeze Okonkwo",
+    role: "Academic Conference Organiser",
+    company: "University of Lagos Research Institute",
+  },
+  {
+    quote:
+      "From the first planning meeting to the final session, SQL Events Nigeria demonstrated a thorough understanding of our objectives and delivered an event experience that our delegates are still talking about months later.",
+    name: "Mrs. Funke Adesanya",
+    role: "Head of Corporate Affairs",
+    company: "First Bank of Nigeria",
   },
 ];
 
@@ -141,14 +141,21 @@ export default function ClientsPage() {
                   International Development Organisations. In every engagement, we bring the same
                   commitment to excellence, passion for innovation, and mastery of technology.
                 </p>
-                <p className="italic text-gray-800 border-l-2 border-gray-300 pl-4">
-                  &quot;We are proud of every relationship we have built and every event we have delivered.&quot;
-                </p>
+
               </div>
             </div>
 
-            <div className="relative w-full h-80 lg:h-full min-h-[400px] overflow-hidden rounded-sm">
-              <Image src="/slider/photo1.jpeg" alt="SQL Events clients" fill className="object-cover" />
+            <div>
+              <div className="space-y-5 text-[15px] leading-relaxed text-gray-600 font-sans">
+                <p className="italic text-gray-800 border-l-2 border-gray-300 pl-4">
+                  &quot;We are proud of every relationship we have built and every event we have delivered.&quot;
+                </p>
+                <p>
+                  Every partnership is unique, and we approach each one with fresh perspective
+                  and dedicated attention to ensure your specific needs are met with precision
+                  and creativity.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -177,12 +184,18 @@ export default function ClientsPage() {
                 </div>
               </div>
 
-              {/* Right: nav + image */}
+              {/* Right: nav only */}
               <div className="flex flex-col">
-                <div className="relative flex-1 min-h-[260px]">
-                  <Image src="/slider/photo2.jpg" alt="Client event" fill className="object-cover" />
-                </div>
-                <div className="bg-white border border-gray-200 border-t-0 px-8 py-5 flex items-center justify-between">
+                <div className="bg-gray-50 border border-gray-200 px-10 py-10 flex-1 flex flex-col justify-between">
+                  <div className="space-y-6">
+                    <p className="text-xs uppercase tracking-[0.35em] text-gray-400 font-sans">Testimonial Navigation</p>
+                    <p className="text-gray-600 font-sans text-[15px] leading-relaxed">
+                      Browse through feedback from our valued clients across various industries
+                      and sectors. Each testimonial represents a successful partnership and a
+                      memorable event delivered.
+                    </p>
+                  </div>
+                  <div className="mt-8 flex items-center justify-between">
                   {/* Prev / Next */}
                   <div className="flex gap-3">
                     <button
@@ -214,6 +227,7 @@ export default function ClientsPage() {
                   <p className="text-xs uppercase tracking-widest text-gray-400 font-sans">
                     {current + 1} / {testimonials.length}
                   </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -242,15 +256,15 @@ export default function ClientsPage() {
         </section>
 
         {/* ── PHOTO STRIP ── */}
-        {/* <section className="py-0">
+        <section className="py-0">
           <div className="grid grid-cols-2 md:grid-cols-4">
-            {["/photo3.jpg", "/slider/photo4.jpg", "/photo5.jpg", "/photo6.jpg"].map((src, i) => (
+            {["/photo3.jpg", "/photo4.jpg", "/photo5.jpg", "/photo6.jpg"].map((src, i) => (
               <div key={i} className="relative h-56 overflow-hidden group">
                 <Image src={src} alt={`SQL Events client event ${i + 3}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
             ))}
           </div>
-        </section> */}
+        </section>
 
         {/* ── CTA ── */}
         <section className="py-20 bg-gray-900 text-white">
@@ -269,7 +283,7 @@ export default function ClientsPage() {
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link
-                  href="/contact-us"
+                  href="/contact"
                   className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200"
                 >
                   Start Your Project

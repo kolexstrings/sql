@@ -54,7 +54,7 @@ export default function Header({
       <header className="sticky top-0 z-10 px-4 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
         {/* Logo */}
         <img
-          src="/logo.png"
+          src="/logo2.png"
           alt="SqlEvents Logo"
           className="h-12 w-auto ml-4 md:h-24 md:ml-24"
           onError={(e) => {
@@ -219,6 +219,30 @@ export default function Header({
           >
             <span>Gallery</span>
           </a>
+  {/* Gallery */}
+          <a
+            href="/eventmobile-app"
+            onClick={closeAll}
+            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
+          >
+
+            
+            <span>Event mobileapp </span>
+          </a>
+
+ {/* event-rentals*/}
+          <a
+            href="/event-rentals"
+            onClick={closeAll}
+            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
+          >
+
+            
+            <span>Event rentals </span>
+          </a>
+
+
+
 
           {/* Contact Us Nav Link */}
           <a

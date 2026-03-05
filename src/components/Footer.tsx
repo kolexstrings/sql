@@ -59,8 +59,6 @@ export default function Footer() {
               {[
                 { label: "About Us",         href: "/about-us" },
                 { label: "Our Services",     href: "/services" },
-                { label: "Event Software",   href: "/event-software" },
-                { label: "Lanyards Supply",  href: "/lanyards" },
                 { label: "Our Clients",      href: "/clients" },
                 { label: "Gallery",          href: "/gallery" },
                 { label: "Contact Us",       href: "/contact-us" },
@@ -80,6 +78,8 @@ export default function Footer() {
                 { label: "Corporate Events",          href: "/corporate-events" },
                 { label: "Conference Registration",   href: "/conference-registration" },
                 { label: "Abstract Management",       href: "/abstract-management" },
+                { label: "Event Software",   href: "/event-software" },
+                { label: "Lanyards Supply",  href: "/lanyards" },
                 { label: "Online Exhibition",         href: "/online-exhibition" },
                 { label: "Virtual Event Platforms",   href: "/virtual-events" },
                 { label: "Membership Management",     href: "/membership-management" },
