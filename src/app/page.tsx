@@ -262,7 +262,7 @@ export default function Home() {
             { label: "Event Mobile App", href: "/event-mobile-app" },
             // { label: "Event Rentals", href: "/event-rentals" },
             { label: "Lanyards Supply", href: "/lanyards-supply" },
-            { label: "Past Events Clients", href: "/past-events-clients" },
+            { label: "Past Events Clients", href: "/clients" },
             { label: "Gallery", href: "/gallery" },
           ].map((item) => (
             <Link

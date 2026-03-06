@@ -52,18 +52,29 @@ const testimonials = [
 ];
 
 const clientLogos = [
-  "TechCorp International",
-  "InnovateLab",
-  "Global Pharma Solutions",
-  "National Industry Association",
-  "International Research Institute",
-  "Luxury Lifestyle Group",
-  "Enterprise Solutions Ltd",
-  "Healthcare Innovations",
-  "Federal Ministry of Finance",
-  "Nigerian Bar Association",
-  "Lagos State Government",
-  "ECOWAS Secretariat",
+  { src: "/NSE Logo.jpg", alt: "NSE" },
+  { src: "/Coren Logo.jpg", alt: "Coren" },
+  { src: "/NES Logo.jpg", alt: "NES" },
+  { src: "/Min. of Finance Logo.png", alt: "Min. of Finance" },
+  { src: "/IAWJ Logo.png", alt: "IAWJ" },
+  { src: "/NBA logo.png", alt: "NBA" },
+  { src: "/Rivers State Logo.jpg", alt: "Rivers State" },
+  { src: "/AFDB Logo.png", alt: "AFDB" },
+  { src: "/IsDB Logo.png", alt: "IsDB" },
+  { src: "/DPR logo.jpg", alt: "DPR" },
+  { src: "/ISOFS logo.jpg", alt: "ISOFS" },
+  { src: "/Nipost Logo.jpg", alt: "Nipost" },
+  { src: "/CBN Logo.png", alt: "CBN" },
+  { src: "/Bill & Mellinda Gates Logo.jpg", alt: "Bill & Mellinda Gates" },
+  { src: "/NVMA Logo.png", alt: "NVMA" },
+  { src: "/NBA SBL Logo.png", alt: "NBA SBL" },
+  { src: "/NBA SLP Logo.jpg", alt: "NBA SLP" },
+  { src: "/SAPZ Logo.png", alt: "SAPZ" },
+  { src: "/UNFPA Logo.png", alt: "UNFPA" },
+  { src: "/NUJ Logo.jpg", alt: "NUJ" },
+  { src: "/SPE logo.png", alt: "SPE" },
+  { src: "/UNDP Logo.png", alt: "UNDP" },
+  { src: "/CIBN Logo.jpg", alt: "CIBN" },
 ];
 
 export default function ClientsPage() {
@@ -115,9 +126,9 @@ export default function ClientsPage() {
                 className="text-4xl md:text-5xl font-light tracking-widest text-gray-900 uppercase"
                 style={{ letterSpacing: "0.18em" }}
               >
-                Our
+                Past Events
                 <br />
-                Clients
+                and Clients
               </h1>
             </div>
           </div>
@@ -141,7 +152,6 @@ export default function ClientsPage() {
                   International Development Organisations. In every engagement, we bring the same
                   commitment to excellence, passion for innovation, and mastery of technology.
                 </p>
-
               </div>
             </div>
 
@@ -196,37 +206,37 @@ export default function ClientsPage() {
                     </p>
                   </div>
                   <div className="mt-8 flex items-center justify-between">
-                  {/* Prev / Next */}
-                  <div className="flex gap-3">
-                    <button
-                      onClick={prev}
-                      className="w-10 h-10 border border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 font-sans"
-                      aria-label="Previous"
-                    >
-                      ←
-                    </button>
-                    <button
-                      onClick={next}
-                      className="w-10 h-10 border border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 font-sans"
-                      aria-label="Next"
-                    >
-                      →
-                    </button>
-                  </div>
-                  {/* Dots */}
-                  <div className="flex gap-2">
-                    {testimonials.map((_, i) => (
+                    {/* Prev / Next */}
+                    <div className="flex gap-3">
                       <button
-                        key={i}
-                        onClick={() => setCurrent(i)}
-                        className={`w-2 h-2 transition-all duration-200 ${i === current ? "bg-gray-900 w-6" : "bg-gray-300"}`}
-                        aria-label={`Go to ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 font-sans">
-                    {current + 1} / {testimonials.length}
-                  </p>
+                        onClick={prev}
+                        className="w-10 h-10 border border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 font-sans"
+                        aria-label="Previous"
+                      >
+                        ←
+                      </button>
+                      <button
+                        onClick={next}
+                        className="w-10 h-10 border border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-900 hover:text-white transition-all duration-200 font-sans"
+                        aria-label="Next"
+                      >
+                        →
+                      </button>
+                    </div>
+                    {/* Dots */}
+                    <div className="flex gap-2">
+                      {testimonials.map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setCurrent(i)}
+                          className={`w-2 h-2 transition-all duration-200 ${i === current ? "bg-gray-900 w-6" : "bg-gray-300"}`}
+                          aria-label={`Go to ${i + 1}`}
+                        />
+                      ))}
+                    </div>
+                    <p className="text-xs uppercase tracking-widest text-gray-400 font-sans">
+                      {current + 1} / {testimonials.length}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -242,30 +252,26 @@ export default function ClientsPage() {
               Organisations We Have Served
             </h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-gray-200">
-              {clientLogos.map((name, i) => (
-                <div
-                  key={i}
-                  className="bg-white px-6 py-8 flex items-center justify-center hover:bg-gray-50 transition-colors duration-200"
-                >
-                  <p className="text-center text-sm font-sans text-gray-600 tracking-wide leading-snug">{name}</p>
-                </div>
-              ))}
-            </div>
+         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-gray-200">
+  {clientLogos.map((logo, i) => (
+    <div
+      key={i}
+      className="bg-white px-6 py-10 flex items-center justify-center hover:bg-gray-50 transition-colors duration-200"
+    >
+      <Image
+        src={logo.src}
+        alt={logo.alt}
+        width={180}
+        height={100}
+        className="object-contain max-h-24 w-auto"
+      />
+    </div>
+  ))}
+</div>
           </div>
         </section>
 
-        {/* ── PHOTO STRIP ── */}
-        <section className="py-0">
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            {["/photo3.jpg", "/photo4.jpg", "/photo5.jpg", "/photo6.jpg"].map((src, i) => (
-              <div key={i} className="relative h-56 overflow-hidden group">
-                <Image src={src} alt={`SQL Events client event ${i + 3}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-            ))}
-          </div>
-        </section>
-
+     
         {/* ── CTA ── */}
         <section className="py-20 bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">

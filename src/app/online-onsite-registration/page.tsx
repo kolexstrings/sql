@@ -314,10 +314,10 @@ export default function OnlineOnsiteRegistrationPage() {
 
 
                {/* ── LICENCE OPTIONS ── */}
-        <section className="py-12 bg-gray-900 text-white">
+        <section className="py-2 bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-3 gap-px bg-gray-700">
             {licenceOptions.map((opt) => (
-              <div key={opt.title} className="bg-gray-900 px-8 py-10 hover:bg-gray-800 transition-colors duration-200">
+              <div key={opt.title} className="bg-gray-900 px-8 py-2 hover:bg-gray-800 transition-colors duration-200">
                 <h3 className="text-lg font-semibold text-white mb-3">{opt.title}</h3>
                 <p className="font-sans text-sm text-gray-400 leading-relaxed">{opt.desc}</p>
               </div>
