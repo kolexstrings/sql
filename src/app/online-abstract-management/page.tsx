@@ -72,7 +72,7 @@ export default function AbstractManagementPage() {
 
 
             <div className="space-y-6">
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-sans">Our Services</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-sans">Powered by Abstractlogic</p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-baskervville">
                 Abstracts Management
               </h2>

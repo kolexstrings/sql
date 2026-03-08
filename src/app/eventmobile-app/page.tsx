@@ -65,9 +65,9 @@ export default function EventMobileAppPage() {
           </div>
         </section>
 
-        {/* ── INTRO — text side by side (image removed) ── */}
+        {/* ── INTRO — text + mobile1.jpeg ── */}
         <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-start">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                 The Ultimate in Audience Engagement
@@ -83,11 +83,6 @@ export default function EventMobileAppPage() {
                   extends the event life cycle while tracking engagement and gathering performance
                   insights.
                 </p>
-              </div>
-            </div>
-
-            <div>
-              <div className="space-y-5 text-[15px] leading-relaxed text-gray-600 font-sans">
                 <p className="italic text-gray-800 border-l-2 border-gray-300 pl-4">
                   Our Mobile App is <span className="font-semibold not-italic">Android and iOS compatible</span>.
                 </p>
@@ -97,6 +92,15 @@ export default function EventMobileAppPage() {
                   the full experience.
                 </p>
               </div>
+            </div>
+
+            <div className="relative w-full h-[750px]">
+              <Image
+                src="/mobile1.jpeg"
+                alt="Event Mobile App on device"
+                fill
+                className="object-contain"
+              />
             </div>
           </div>
         </section>
@@ -121,22 +125,28 @@ export default function EventMobileAppPage() {
           </div>
         </section>
 
-        {/* ── SPLIT — text side by side with stats (image removed) ── */}
+        {/* ── SPLIT — mobile2.jpeg + text/stats ── */}
         <section className="bg-white">
           <div className="grid lg:grid-cols-2 items-stretch">
+            <div className="relative min-h-[750px] bg-gray-50">
+              <Image
+                src="/mobile2.jpeg"
+                alt="Mobile app networking features"
+                fill
+                className="object-contain"
+              />
+            </div>
             <div className="flex flex-col justify-center px-10 lg:px-16 py-16 bg-gray-50 border border-gray-200">
               <p className="text-xs uppercase tracking-[0.35em] text-gray-400 mb-4 font-sans">Multiplatform</p>
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
                 Android & iOS Compatible
               </h3>
-              <div className="space-y-5 font-sans text-[15px] text-gray-600 leading-relaxed">
+              <div className="space-y-5 font-sans text-[15px] text-gray-600 leading-relaxed mb-8">
                 <p>
                   Delegates can network, book one-on-one meetings, participate in Q&A sessions,
                   and navigate the event venue — all from the palm of their hand.
                 </p>
               </div>
-            </div>
-            <div className="flex flex-col justify-center px-10 lg:px-16 py-16 bg-white border border-gray-200">
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { label: "Engagement", value: "Real-time" },
@@ -144,7 +154,7 @@ export default function EventMobileAppPage() {
                   { label: "App Type",   value: "Bespoke" },
                   { label: "Networking", value: "In-App" },
                 ].map((s) => (
-                  <div key={s.label} className="border border-gray-200 px-5 py-4 bg-gray-50">
+                  <div key={s.label} className="border border-gray-200 px-5 py-4 bg-white">
                     <p className="text-lg font-semibold text-gray-900">{s.value}</p>
                     <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mt-1">{s.label}</p>
                   </div>
@@ -153,8 +163,6 @@ export default function EventMobileAppPage() {
             </div>
           </div>
         </section>
-
-        {/* ── PHOTO STRIP (REMOVED) ── */}
 
         {/* ── CTA ── */}
         <section className="py-20 bg-gray-900 text-white">

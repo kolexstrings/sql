@@ -44,38 +44,38 @@ export default function Header({
     setIsEventSoftwareExpanded(false);
   };
 
-  // Hamburger icon: on dark-variant pages the header sits over a dark bg, so use white.
-  // On light pages the header is over a light bg, so use dark.
   const hamburgerColor = isDark ? "text-white" : "text-gray-900";
 
   return (
     <>
       {/* ── Header bar ─────────────────────────────────────────── */}
-      <header className="sticky top-0 z-10 px-4 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
-        {/* Logo */}
-        <img
-          src="/logo2.png"
-          alt="SqlEvents Logo"
-          className="h-12 w-auto ml-4 md:h-24 md:ml-24"
-          onError={(e) => {
-            const target = e.currentTarget as HTMLElement;
-            const next = target.nextElementSibling as HTMLElement | null;
-            if (next) {
-              target.style.display = "none";
-              next.style.display = "block";
-            }
-          }}
-        />
+          <header className="sticky top-0 z-10 px-4 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
+        {/* Logo — clicks back to home */}
+        <Link href="/">
+          <img
+            src="/logo2.png"
+            alt="SqlEvents Logo"
+            className="h-12 w-auto ml-4 md:h-24 md:ml-24"
+            onError={(e) => {
+              const target = e.currentTarget as HTMLElement;
+              const next = target.nextElementSibling as HTMLElement | null;
+              if (next) {
+                target.style.display = "none";
+                next.style.display = "block";
+              }
+            }}
+          />
 
-        {/* Text fallback logo */}
-        {showLogoText && (
-          <div
-            className="hidden text-xl font-semibold tracking-wide uppercase font-baskervville ml-4 md:ml-24"
-            style={{ color: "var(--brand-primary)" }}
-          >
-            SqlEvents
-          </div>
-        )}
+          {/* Text fallback logo */}
+          {showLogoText && (
+            <div
+              className="hidden text-xl font-semibold tracking-wide uppercase font-baskervville ml-4 md:ml-24"
+              style={{ color: "var(--brand-primary)" }}
+            >
+              SqlEvents
+            </div>
+          )}
+        </Link>
 
         {/* Hamburger */}
         <button
@@ -156,6 +156,21 @@ export default function Header({
               >
                 Conference Registration Management
               </Link>
+              <Link
+                href="/exhibition-management"
+                onClick={closeAll}
+                className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
+              >
+                Exhibition Management
+              </Link>
+              <Link
+                href="/online-abstract-management"
+                onClick={closeAll}
+                className="text-left text-white/80 transition-colors hover:text-white w-full cursor-pointer"
+              >
+                Online Abstract Submission & Review Management
+              </Link>
+             
             </div>
           </div>
 
@@ -211,6 +226,7 @@ export default function Header({
           >
             <span>Past Events Clients</span>
           </Link>
+
           {/* Gallery */}
           <a
             href="/gallery"
@@ -219,32 +235,26 @@ export default function Header({
           >
             <span>Gallery</span>
           </a>
-  {/* Gallery */}
+
+          {/* Event Mobile App */}
           <a
             href="/eventmobile-app"
             onClick={closeAll}
             className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
           >
-
-            
-            <span>Event mobileapp </span>
+            <span>Event Mobile App</span>
           </a>
 
- {/* event-rentals*/}
+          {/* Event Rentals */}
           <a
             href="/event-rentals"
             onClick={closeAll}
             className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] text-white transition-colors hover:text-white/70 font-baskervville cursor-pointer"
           >
-
-            
-            <span>Event rentals </span>
+            <span>Event Rentals</span>
           </a>
 
-
-
-
-          {/* Contact Us Nav Link */}
+          {/* Contact Us */}
           <a
             href="/contact-us"
             onClick={closeAll}

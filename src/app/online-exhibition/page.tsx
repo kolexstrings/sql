@@ -146,7 +146,7 @@ export default function OnlineExhibitionPage() {
 
           <div className="absolute inset-0 flex items-center justify-center z-10">
             <div className="bg-white/70 backdrop-blur-[2px] px-10 py-6 text-center">
-              <p className="text-xs uppercase tracking-[0.35em] text-gray-500 mb-2 font-sans">Our Services</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-gray-500 mb-2 font-sans">Powered by Exhibitorlogic</p>
               <h1
                 className="text-4xl md:text-5xl font-light tracking-widest text-gray-900 uppercase"
                 style={{ letterSpacing: "0.18em" }}
