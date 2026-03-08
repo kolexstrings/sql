@@ -250,10 +250,7 @@ export default function ContactPage() {
                     Submit Message
                   </button>
 
-                  <p className="font-sans text-xs text-gray-400 text-center">
-                    This will open your mail app addressed to{" "}
-                    <span className="text-gray-600">info@sqlevents.ng</span>
-                  </p>
+                   
                 </form>
               )}
             </div>
