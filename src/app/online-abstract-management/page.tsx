@@ -1,17 +1,41 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
+function useInView(threshold = 0.1) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { threshold }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return { ref, inView };
+}
+
 export default function AbstractManagementPage() {
+  const quoteRef = useInView(0.08);
+
   return (
     <div className="min-h-screen bg-white font-['Cormorant_Garamond',Georgia,serif]">
       <Header />
 
+      <style>{`
+        @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+      `}</style>
+
       <main className="bg-white text-gray-900">
 
-        {/* ── MOSAIC HERO HEADER ── (kept unchanged) */}
+        {/* ── MOSAIC HERO HEADER ── */}
         <section className="relative w-full overflow-hidden" style={{ height: "520px" }}>
           <div
             className="absolute inset-0 grid gap-1"
@@ -42,7 +66,7 @@ export default function AbstractManagementPage() {
           <div className="absolute inset-0 flex items-center justify-center z-10">
             <div className="bg-white/70 backdrop-blur-[2px] px-10 py-6 text-center">
               <p className="text-xs uppercase tracking-[0.35em] text-gray-500 mb-2 font-sans">
-                Our Services
+                Powered by Abstractlogic
               </p>
               <h1
                 className="text-4xl md:text-5xl font-light tracking-widest text-gray-900 uppercase font-baskervville"
@@ -56,21 +80,9 @@ export default function AbstractManagementPage() {
           </div>
         </section>
 
-        {/* Intro Section – kept the image */}
+        {/* ── INTRO ── */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-start">
-
-            {/* <div className="relative order-last lg:order-first">
-              <Image
-                src="/slider/photo4.jpg"
-                alt="African professionals in meeting"
-                width={1200}
-                height={800}
-                className="w-full h-auto shadow-md"
-              />
-            </div> */}
-
-
             <div className="space-y-6">
               <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-sans">Powered by Abstractlogic</p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-baskervville">
@@ -92,7 +104,7 @@ export default function AbstractManagementPage() {
           </div>
         </section>
 
-        {/* Body Copy + Key Offerings – images removed from here downward */}
+        {/* ── BODY COPY + KEY OFFERINGS ── */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-10">
             <div className="space-y-6 text-base text-gray-700 leading-relaxed">
@@ -113,14 +125,13 @@ export default function AbstractManagementPage() {
               </p>
             </div>
 
-            {/* Key Offerings – text cards side by side */}
+            {/* Key Offerings */}
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 font-baskervville mb-10">
                 Key Offerings
               </h3>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                {/* Card 1 */}
                 <div className="bg-gray-50 border border-gray-200 p-8 lg:p-10">
                   <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4 font-sans">
                     Abstract Software &amp; Services
@@ -132,7 +143,6 @@ export default function AbstractManagementPage() {
                   </p>
                 </div>
 
-                {/* Card 2 */}
                 <div className="bg-gray-50 border border-gray-200 p-8 lg:p-10">
                   <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4 font-sans">
                     Programme &amp; Agenda Management
@@ -143,7 +153,6 @@ export default function AbstractManagementPage() {
                   </p>
                 </div>
 
-                {/* Card 3 – full width for longer content */}
                 <div className="bg-gray-50 border border-gray-200 p-8 lg:p-10 lg:col-span-2">
                   <p className="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4 font-sans">
                     Digital Content Publication
@@ -161,7 +170,41 @@ export default function AbstractManagementPage() {
           </div>
         </section>
 
-        {/* Highlight Section – removed background image, kept solid color */}
+        {/* ── ABSTRACTLOGIC CALLOUT — mirrors Memberlogic pattern ── */}
+        <section className="py-16 bg-gray-50">
+          <div ref={quoteRef.ref} className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div
+              className="grid md:grid-cols-3 overflow-hidden border border-gray-200"
+              style={{ opacity: 0, animation: quoteRef.inView ? "fadeIn 0.9s 0s ease forwards" : "none" }}
+            >
+              {/* Dark left panel */}
+              <div className="md:col-span-1 p-10 flex flex-col justify-center bg-gray-900">
+                <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-4 font-sans">Powered by</p>
+                <p className="text-4xl font-light text-white mb-2">Abstract<span className="italic">logic</span></p>
+                <div className="w-8 h-px bg-white/20 my-4" />
+                <p className="font-sans text-sm text-white/50 leading-relaxed">
+                  A fully digital abstract management platform trusted by academic and professional
+                  event organisers — from submission to publication, zero paper.
+                </p>
+              </div>
+              {/* Right — three highlights */}
+              <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 bg-white">
+                {[
+                  { title: "Online Submission", desc: "Authors submit abstracts through a branded portal — no email inboxes, no paper trails." },
+                  { title: "Anonymous Review", desc: "Reviewers score and assess abstracts online from anywhere in the world, anytime." },
+                  { title: "Digital Publication", desc: "Abstract books, ePosters, and interactive libraries published seamlessly at event close." },
+                ].map((item) => (
+                  <div key={item.title} className="p-8 flex flex-col gap-3">
+                    <h4 className="text-lg font-semibold text-gray-900">{item.title}</h4>
+                    <p className="font-sans text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── HIGHLIGHT / WHY IT MATTERS ── */}
         <section className="py-20 bg-gray-900 text-white">
           <div className="max-w-6xl mx-auto px-6 lg:px-12">
             <div className="grid md:grid-cols-2 gap-12 items-center">

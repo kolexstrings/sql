@@ -103,6 +103,7 @@ export default function OnlineExhibitionPage() {
   const overviewRef = useInView(0.08);
   const checkRef    = useInView(0.08);
   const offHeadRef  = useInView(0.08);
+  const quoteRef    = useInView(0.08);
   const ctaRef      = useInView(0.1);
 
   return (
@@ -116,7 +117,7 @@ export default function OnlineExhibitionPage() {
 
       <main className="bg-white text-gray-900">
 
-        {/* ── MOSAIC HERO (IMAGES KEPT) ── */}
+        {/* ── MOSAIC HERO ── */}
         <section className="relative w-full overflow-hidden" style={{ height: "520px" }}>
           <div
             className="absolute inset-0 grid gap-1"
@@ -216,8 +217,7 @@ export default function OnlineExhibitionPage() {
           </div>
         </section>
 
-    
-        {/* ── OFFERINGS (IMAGES REMOVED, NOW SIDE BY SIDE TEXT BOXES) ── */}
+        {/* ── OFFERINGS ── */}
         <section id="offerings" className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
             <div ref={offHeadRef.ref}>
@@ -239,7 +239,6 @@ export default function OnlineExhibitionPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-6">
             {offerings.map((item) => (
               <div key={item.id} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* First text box */}
                 <div className="bg-white border border-gray-200 p-8 lg:p-10 flex flex-col justify-center h-full">
                   <div className="mb-4">
                     <span className="text-xs uppercase tracking-widest text-gray-400 font-sans">{item.id}</span>
@@ -256,7 +255,6 @@ export default function OnlineExhibitionPage() {
                   </ul>
                 </div>
 
-                {/* Second text box - remaining bullets */}
                 <div className="bg-white border border-gray-200 p-8 lg:p-10 flex flex-col justify-center h-full">
                   <div className="mb-4">
                     <span className="text-xs uppercase tracking-widest text-gray-400 font-sans">Features</span>
@@ -279,14 +277,42 @@ export default function OnlineExhibitionPage() {
           </div>
         </section>
 
-        {/* ── PHOTO STRIP (REMOVED) ── */}
+        {/* ── EXHIBITORLOGIC CALLOUT — mirrors Memberlogic pattern ── */}
+        <section className="py-16 bg-white">
+          <div ref={quoteRef.ref} className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div
+              className="grid md:grid-cols-3 overflow-hidden border border-gray-200"
+              style={{ opacity: 0, animation: quoteRef.inView ? "fadeIn 0.9s 0s ease forwards" : "none" }}
+            >
+              {/* Dark left panel */}
+              <div className="md:col-span-1 p-10 flex flex-col justify-center bg-gray-900">
+                <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-4 font-sans">Powered by</p>
+                <p className="text-4xl font-light text-white mb-2">Exhibitor<span className="italic">logic</span></p>
+                <div className="w-8 h-px bg-white/20 my-4" />
+                <p className="font-sans text-sm text-white/50 leading-relaxed">
+                  A comprehensive exhibition management platform trusted by event professionals —
+                  from booth booking to lead retrieval, every exhibitor touchpoint covered.
+                </p>
+              </div>
+              {/* Right — three highlights */}
+              <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 bg-white">
+                {[
+                  { title: "Floor Plan & Booths", desc: "Interactive 3D floor planning with real-time booth availability and exhibitor previews." },
+                  { title: "Exhibitor Portal", desc: "Secure digital manual giving exhibitors 24/7 access to logistics, forms, and deadlines." },
+                  { title: "Lead Retrieval", desc: "Mobile badge and wristband scanning that turns every attendee interaction into a qualified lead." },
+                ].map((item) => (
+                  <div key={item.title} className="p-8 flex flex-col gap-3">
+                    <h4 className="text-lg font-semibold text-gray-900">{item.title}</h4>
+                    <p className="font-sans text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
-        {/* ── CTA ── */}
-        <section ref={ctaRef.ref} className="py-20 bg-gray-900 text-white">
-
-
-              {/* ── STATS BANNER ── */}
-        <section className="py-12 bg-gray-900 text-white">
+        {/* ── STATS BANNER ── */}
+        <section ref={ctaRef.ref} className="py-12 bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-700">
             {stats.map((s) => (
               <div key={s.label} className="bg-gray-900 px-8 py-10 text-center hover:bg-gray-800 transition-colors duration-200">
@@ -295,9 +321,6 @@ export default function OnlineExhibitionPage() {
               </div>
             ))}
           </div>
-          
-        </section>
-
         </section>
 
       </main>

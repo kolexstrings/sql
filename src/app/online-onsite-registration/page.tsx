@@ -106,6 +106,7 @@ export default function OnlineOnsiteRegistrationPage() {
   const overviewRef = useInView(0.08);
   const checkRef    = useInView(0.08);
   const offHeadRef  = useInView(0.08);
+  const quoteRef    = useInView(0.08);
   const ctaRef      = useInView(0.1);
 
   return (
@@ -219,111 +220,108 @@ export default function OnlineOnsiteRegistrationPage() {
           </div>
         </section>
 
-   
-
-     {/* ── OFFERINGS ── */}
-<section id="offerings" className="py-16 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-6 lg:px-12">
-    <div ref={offHeadRef.ref} className="mb-12">
-      <p
-        className="text-xs uppercase tracking-[0.35em] text-gray-400 mb-2 font-sans"
-        style={{ opacity: 0, animation: offHeadRef.inView ? "fadeUp 0.5s 0s ease forwards" : "none" }}
-      >
-        Key Offerings
-      </p>
-      <h2
-        className="text-2xl font-semibold text-gray-900"
-        style={{ opacity: 0, animation: offHeadRef.inView ? "fadeUp 0.6s 0.1s ease forwards" : "none" }}
-      >
-        Everything You Need, All in One Place
-      </h2>
-    </div>
-
-    {/* Changed layout: grid of text cards — 1 column mobile, 2 columns desktop */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-      {offerings.map((item) => (
-        <div
-          key={item.id}
-          className="bg-white border border-gray-200 p-8 lg:p-10 flex flex-col"
-        >
-          {/* Number badge */}
-          <div className="inline-block bg-gray-100 px-3 py-1 mb-6">
-            <span className="text-xs uppercase tracking-widest text-gray-500 font-sans">
-              {item.id}
-            </span>
-          </div>
-
-          <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
-          
-          <p className="font-sans text-[14px] text-gray-600 leading-relaxed mb-6">
-            {item.description}
-          </p>
-
-          <ul className="space-y-2.5 mt-auto">
-            {item.bullets.map((pt) => (
-              <li
-                key={pt}
-                className="flex items-start gap-3 font-sans text-[13px] text-gray-600 leading-relaxed"
+        {/* ── OFFERINGS ── */}
+        <section id="offerings" className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <div ref={offHeadRef.ref} className="mb-12">
+              <p
+                className="text-xs uppercase tracking-[0.35em] text-gray-400 mb-2 font-sans"
+                style={{ opacity: 0, animation: offHeadRef.inView ? "fadeUp 0.5s 0s ease forwards" : "none" }}
               >
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-500 flex-shrink-0" />
-                {pt}
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
- 
-
-        {/* ── CTA ── */}
-        <section ref={ctaRef.ref} className="py-20 bg-gray-900 text-white">
-          {/* <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
-            <div style={{ opacity: 0, animation: ctaRef.inView ? "fadeUp 0.7s 0s ease forwards" : "none" }}>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/40 mb-4 font-sans">Ready to streamline your registration?</p>
-              <h2 className="text-3xl md:text-4xl font-light leading-tight">
-                Let&apos;s set up your<br />
-                <span className="italic">registration system</span>
+                Key Offerings
+              </p>
+              <h2
+                className="text-2xl font-semibold text-gray-900"
+                style={{ opacity: 0, animation: offHeadRef.inView ? "fadeUp 0.6s 0.1s ease forwards" : "none" }}
+              >
+                Everything You Need, All in One Place
               </h2>
             </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              {offerings.map((item) => (
+                <div
+                  key={item.id}
+                  className="bg-white border border-gray-200 p-8 lg:p-10 flex flex-col"
+                >
+                  <div className="inline-block bg-gray-100 px-3 py-1 mb-6">
+                    <span className="text-xs uppercase tracking-widest text-gray-500 font-sans">
+                      {item.id}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
+
+                  <p className="font-sans text-[14px] text-gray-600 leading-relaxed mb-6">
+                    {item.description}
+                  </p>
+
+                  <ul className="space-y-2.5 mt-auto">
+                    {item.bullets.map((pt) => (
+                      <li
+                        key={pt}
+                        className="flex items-start gap-3 font-sans text-[13px] text-gray-600 leading-relaxed"
+                      >
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-500 flex-shrink-0" />
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── PARTICIPANTLOGIC / ONSITELOGIC CALLOUT — mirrors Memberlogic pattern ── */}
+        <section className="py-16 bg-white">
+          <div ref={quoteRef.ref} className="max-w-7xl mx-auto px-6 lg:px-12">
             <div
-              className="space-y-4 font-sans"
-              style={{ opacity: 0, animation: ctaRef.inView ? "fadeUp 0.7s 0.15s ease forwards" : "none" }}
+              className="grid md:grid-cols-3 overflow-hidden border border-gray-200"
+              style={{ opacity: 0, animation: quoteRef.inView ? "fadeIn 0.9s 0s ease forwards" : "none" }}
             >
-              <p className="text-white/70 leading-relaxed text-[15px]">
-                Whether you need a simple online form or a full end-to-end onsite solution with
-                badging and equipment, our team will tailor the right package for your event.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-2">
-                <Link
-                  href="/contact"
-                  className="bg-white text-gray-900 px-8 py-3 text-sm uppercase tracking-widest font-medium hover:bg-gray-100 transition-colors duration-200"
-                >
-                  Contact Us
-                </Link>
-                <Link
-                  href="/services"
-                  className="border border-white/30 text-white px-8 py-3 text-sm uppercase tracking-widest font-medium hover:border-white transition-colors duration-200"
-                >
-                  All Services
-                </Link>
+              {/* Dark left panel */}
+              <div className="md:col-span-1 p-10 flex flex-col justify-center bg-gray-900">
+                <p className="text-xs uppercase tracking-[0.4em] text-white/40 mb-4 font-sans">Powered by</p>
+                <p className="text-3xl font-light text-white mb-1">
+                  Participant<span className="italic">logic</span>
+                </p>
+                <p className="text-3xl font-light text-white mb-2">
+                  &amp; Onsite<span className="italic">logic</span>
+                </p>
+                <div className="w-8 h-px bg-white/20 my-4" />
+                <p className="font-sans text-sm text-white/50 leading-relaxed">
+                  Two purpose-built platforms working in sync — from first registration to
+                  final check-in — trusted by event professionals across Africa and beyond.
+                </p>
+              </div>
+              {/* Right — three highlights */}
+              <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-200 bg-white">
+                {[
+                  { title: "Online Registration", desc: "Custom-branded forms, integrated payments, and automatic confirmations — all in one place." },
+                  { title: "Onsite Management", desc: "Real-time check-in, badge printing, and access control from a fully synchronised onsite system." },
+                  { title: "Dedicated Support", desc: "Expert onsite and remote assistance ensuring a seamless delegate experience from start to finish." },
+                ].map((item) => (
+                  <div key={item.title} className="p-8 flex flex-col gap-3">
+                    <h4 className="text-lg font-semibold text-gray-900">{item.title}</h4>
+                    <p className="font-sans text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
             </div>
-          </div> */}
+          </div>
+        </section>
 
-
-               {/* ── LICENCE OPTIONS ── */}
-        <section className="py-2 bg-gray-900 text-white">
+        {/* ── LICENCE OPTIONS / STATS BANNER ── */}
+        <section ref={ctaRef.ref} className="py-12 bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-3 gap-px bg-gray-700">
             {licenceOptions.map((opt) => (
-              <div key={opt.title} className="bg-gray-900 px-8 py-2 hover:bg-gray-800 transition-colors duration-200">
+              <div key={opt.title} className="bg-gray-900 px-8 py-10 hover:bg-gray-800 transition-colors duration-200">
                 <h3 className="text-lg font-semibold text-white mb-3">{opt.title}</h3>
                 <p className="font-sans text-sm text-gray-400 leading-relaxed">{opt.desc}</p>
               </div>
             ))}
           </div>
-        </section>
         </section>
 
       </main>
