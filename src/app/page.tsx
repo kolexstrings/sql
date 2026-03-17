@@ -59,6 +59,18 @@ export default function Home() {
     setIsEventSoftwareExpanded(false);
   };
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length);
@@ -69,6 +81,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen w-full bg-black/50 text-white">
+      {/* Background slider */}
       <div className="absolute inset-0 overflow-hidden">
         {slides.map((slide, index) => (
           <div
@@ -95,11 +108,13 @@ export default function Home() {
         />
       </div>
 
-      <header className="relative z-10 px-16 py-2 md:py-2 flex justify-between items-center bg-white/40 backdrop-blur-sm">
+      {/* ── HEADER ── */}
+      <header className="relative z-10 flex items-center justify-between bg-white/40 backdrop-blur-sm px-4 sm:px-8 md:px-16 py-2">
+        {/* Logo — constrained height on all breakpoints */}
         <img
           src="/logo.png"
           alt="SqlEvents Logo"
-          className="h-24 w-auto ml-8 md:ml-24"
+          className="h-16 sm:h-20 md:h-24 w-auto"
           onError={(e) => {
             const target = e.currentTarget as HTMLElement;
             const nextSibling = target.nextElementSibling as HTMLElement;
@@ -110,15 +125,16 @@ export default function Home() {
           }}
         />
         <div
-          className="hidden text-xl font-semibold tracking-wide uppercase font-baskervville ml-8 md:ml-24"
+          className="hidden text-base sm:text-xl font-semibold tracking-wide uppercase font-baskervville"
           style={{ color: "var(--brand-primary)" }}
         >
           SqlEvents
         </div>
 
+        {/* Hamburger — comfortable tap target */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex items-center justify-center w-8 h-8 z-30 mr-8 md:mr-24 cursor-pointer"
+          className="flex items-center justify-center w-10 h-10 z-30 cursor-pointer rounded-sm"
           aria-label={
             isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
           }
@@ -131,29 +147,32 @@ export default function Home() {
         </button>
       </header>
 
-      {/* Slide-in Navigation Menu */}
+      {/* ── SLIDE-IN NAV ── */}
       <nav
-        className={`fixed top-0 right-0 h-full w-80 bg-black/95 backdrop-blur-md border-l border-white/20 z-20 transition-transform duration-300 ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full bg-black/95 backdrop-blur-md border-l border-white/20 z-20 transition-transform duration-300
+          w-[85vw] max-w-xs sm:max-w-sm ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
-        <div className="absolute top-6 right-8">
+        {/* Close button inside drawer */}
+        <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
           <button
             onClick={closeMenu}
-            className="flex items-center justify-center w-8 h-8 cursor-pointer"
+            className="flex items-center justify-center w-10 h-10 cursor-pointer"
             aria-label="Close navigation menu"
           >
             <X className="h-6 w-6 text-white" />
           </button>
         </div>
 
-        <div className="flex flex-col items-start justify-center h-full gap-6 px-8 font-baskervville w-full">
+        {/* Nav items — scrollable on short viewports */}
+        <div className="flex flex-col items-start justify-start h-full gap-5 px-6 sm:px-8 pt-20 pb-8 font-baskervville w-full overflow-y-auto">
 
           {/* About Us */}
           <Link
             href="/about-us"
             onClick={closeMenu}
-            className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
+            className="flex w-full items-center justify-between text-sm sm:text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
           >
             <span>About Us</span>
           </Link>
@@ -163,18 +182,18 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setIsServicesExpanded((prev) => !prev)}
-              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
+              className="flex w-full items-center justify-between text-sm sm:text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>Our Services</span>
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
+                className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
                   isServicesExpanded ? "rotate-180" : "rotate-0"
                 }`}
               />
             </button>
             <div
               aria-hidden={!isServicesExpanded}
-              className={`flex flex-col gap-3 pl-4 text-[0.95rem] tracking-[0.15em] overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+              className={`flex flex-col gap-3 pl-4 text-[0.875rem] sm:text-[0.95rem] tracking-[0.12em] sm:tracking-[0.15em] overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
                 isServicesExpanded
                   ? "mt-3 max-h-96 opacity-100 pointer-events-auto"
                   : "max-h-0 opacity-0 pointer-events-none mt-0"
@@ -197,53 +216,34 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Event Software dropdown - FIXED ROUTING */}
+          {/* Event Software dropdown */}
           <div className="w-full">
             <button
               type="button"
               onClick={() => setIsEventSoftwareExpanded((prev) => !prev)}
-              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
+              className="flex w-full items-center justify-between text-sm sm:text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>Event Software</span>
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
+                className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
                   isEventSoftwareExpanded ? "rotate-180" : "rotate-0"
                 }`}
               />
             </button>
             <div
               aria-hidden={!isEventSoftwareExpanded}
-              className={`flex flex-col gap-3 pl-4 text-[0.95rem] tracking-[0.15em] overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+              className={`flex flex-col gap-3 pl-4 text-[0.875rem] sm:text-[0.95rem] tracking-[0.12em] sm:tracking-[0.15em] overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
                 isEventSoftwareExpanded
                   ? "mt-3 max-h-96 opacity-100 pointer-events-auto"
                   : "max-h-0 opacity-0 pointer-events-none mt-0"
               }`}
             >
               {[
-                { 
-                  label: "Online & Onsite Registration", 
-                  href: "/online-onsite-registration" // FIXED: Changed from services#online-onsite to proper path
-                },
-                {
-                  label: "Online Abstract Management",
-                  href: "/online-abstract-management", // FIXED: Changed from /services/online-abstract-management
-                },
-                {
-                  label: "Online Exhibition",
-                  href: "/online-exhibition", // FIXED: Changed from /services/online-exhibition
-                },
-                // {
-                //   label: "Delegate Scanning",
-                //   href: "/delegate-scanning", // FIXED: Changed from /services/delegate-scanning
-                // },
-                {
-                  label: "Virtual Event Platforms",
-                  href: "/virtual-event-platforms", // FIXED: Changed from /services/virtual-event-platforms
-                },
-                {
-                  label: "Membership Management",
-                  href: "/membership-management", // FIXED: Changed from /services/membership-management
-                },
+                { label: "Online & Onsite Registration", href: "/online-onsite-registration" },
+                { label: "Online Abstract Management", href: "/online-abstract-management" },
+                { label: "Online Exhibition", href: "/online-exhibition" },
+                { label: "Virtual Event Platforms", href: "/virtual-event-platforms" },
+                { label: "Membership Management", href: "/membership-management" },
               ].map((item) => (
                 <Link
                   key={item.href}
@@ -257,10 +257,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Remaining nav links — now using proper page routes */}
+          {/* Remaining nav links */}
           {[
             { label: "Event Mobile App", href: "/event-mobile-app" },
-            // { label: "Event Rentals", href: "/event-rentals" },
             { label: "Lanyards Supply", href: "/lanyards-supply" },
             { label: "Past Events Clients", href: "/clients" },
             { label: "Gallery", href: "/gallery" },
@@ -269,25 +268,25 @@ export default function Home() {
               key={item.label}
               href={item.href}
               onClick={closeMenu}
-              className="flex w-full items-center justify-between text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
+              className="flex w-full items-center justify-between text-sm sm:text-base uppercase tracking-[0.2em] hover:text-white/70 transition-colors font-baskervville text-left cursor-pointer"
             >
               <span>{item.label}</span>
             </Link>
           ))}
 
-          {/* Contact Us — now a proper Link */}
+          {/* Contact Us CTA */}
           <Link
             href="/contact-us"
             onClick={closeMenu}
-            className="flex w-full items-center justify-between border border-white/40 px-8 py-4 text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-6 font-baskervville text-left cursor-pointer"
+            className="flex w-full items-center justify-between border border-white/40 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base uppercase tracking-[0.25em] hover:bg-white hover:text-black transition-colors mt-4 font-baskervville text-left cursor-pointer"
           >
             <span>Contact Us</span>
-            <ArrowUpRight className="h-4 w-4" />
+            <ArrowUpRight className="h-4 w-4 shrink-0" />
           </Link>
         </div>
       </nav>
 
-      {/* Overlay when menu is open */}
+      {/* Overlay */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-10 cursor-pointer"
@@ -295,25 +294,29 @@ export default function Home() {
         />
       )}
 
-      <main className="relative z-10 flex flex-col items-center justify-center px-6 text-center md:px-20 pt-24 md:pt-32 pb-16 md:pb-20 min-h-[calc(100vh-200px)] font-baskervville">
-        <div className="w-full max-w-4xl bg-white/10 backdrop-blur-xl px-10 py-12 space-y-6 text-white text-center">
+      {/* ── MAIN HERO ── */}
+      <main className="relative z-10 flex flex-col items-center justify-center px-4 sm:px-8 md:px-20 text-center font-baskervville
+        pt-16 sm:pt-20 md:pt-28
+        pb-24 sm:pb-28 md:pb-20
+        min-h-[calc(100vh-80px)] sm:min-h-[calc(100vh-88px)] md:min-h-[calc(100vh-96px)]">
+        <div className="w-full max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl bg-white/10 backdrop-blur-xl px-6 sm:px-8 md:px-10 py-8 sm:py-10 md:py-12 space-y-5 sm:space-y-6 text-white text-center">
           <h1
-            className="text-3xl font-semibold uppercase tracking-[0.15em] sm:text-4xl md:text-5xl drop-shadow-[0_6px_20px_rgba(0,0,0,0.65)]"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold uppercase tracking-[0.1em] sm:tracking-[0.12em] md:tracking-[0.15em] drop-shadow-[0_6px_20px_rgba(0,0,0,0.65)] leading-tight"
             style={{ fontFamily: "var(--font-baskervville)" }}
           >
             Creating Unforgettable Experiences
           </h1>
           <p
-            className="text-base md:text-lg font-medium tracking-wide text-white/90 drop-shadow-[0_4px_12px_rgba(0,0,0,0.55)]"
+            className="text-sm sm:text-base md:text-lg font-medium tracking-wide text-white/90 drop-shadow-[0_4px_12px_rgba(0,0,0,0.55)] leading-relaxed"
             style={{ fontFamily: "var(--font-baskervville)" }}
           >
             Marshalling the best in knowledge, human capital and technology to
             bring your vision to life.
           </p>
-          <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:gap-4">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <Link
               href="/services"
-              className="bg-white border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
+              className="w-full sm:w-auto bg-white border px-6 py-3 text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] transition-colors font-baskervville cursor-pointer text-center"
               style={{
                 borderColor: "var(--brand-primary)",
                 color: "var(--brand-primary)",
@@ -332,7 +335,7 @@ export default function Home() {
             </Link>
             <Link
               href="/gallery"
-              className="border px-6 py-3 text-xs uppercase tracking-[0.4em] transition-colors font-baskervville cursor-pointer"
+              className="w-full sm:w-auto border px-6 py-3 text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] transition-colors font-baskervville cursor-pointer text-center"
               style={{
                 borderColor: "var(--brand-primary)",
                 backgroundColor: "var(--brand-primary)",
@@ -352,7 +355,13 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="absolute bottom-6 md:bottom-8 left-0 right-0 z-10 flex flex-col items-center gap-2 text-center text-xs uppercase tracking-[0.4em] text-white/80 md:items-start md:text-left md:px-20">
+      {/* ── FOOTER ── */}
+      {/*
+        Changed from `absolute` to `relative` so it always appears below main content
+        and never overlaps on short viewports. Falls out of the stacking context into
+        normal flow at the bottom of the page.
+      */}
+      <footer className="relative z-10 flex justify-center md:justify-start px-4 sm:px-8 md:px-20 pb-6 md:pb-8 text-xs uppercase tracking-[0.4em] text-white/80">
         <TaglineTab />
       </footer>
     </div>
