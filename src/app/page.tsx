@@ -356,7 +356,7 @@ export default function Home() {
       </main>
 
       {/* ── FOOTER ── */}
-      {/*
+      {/*npm 
         Changed from `absolute` to `relative` so it always appears below main content
         and never overlaps on short viewports. Falls out of the stacking context into
         normal flow at the bottom of the page.
